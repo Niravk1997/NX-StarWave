@@ -1,0 +1,175 @@
+﻿<UserControl x:Class="Math_Graph_Control.Math_Graph_Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:local="clr-namespace:Math_Graph_Control"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" 
+             d:DesignWidth="350">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Math Graph Windows" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="16" VerticalAlignment="Center"/>
+        <Rectangle Grid.Column="0" Grid.Row="1" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+        <Grid Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Geometry x:Key="Waveform_Calculator_ICON">M372 48H140c-17.7 0-32 14.3-32 32v352c0 17.7 14.3 32 32 32h232c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32zm-12 272v80c0 13.3-10.7 24-24 24s-24-10.7-24-24v-80c0-13.3 10.7-24 24-24s24 10.7 24 24zm0-80c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zm-80 160c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zm0-80c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zm0-80c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zm-80 160c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zm0-80c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zm0-80c0 13.3-10.7 24-24 24s-24-10.7-24-24 10.7-24 24-24 24 10.7 24 24zm-48-80v-48c0-8.8 7.2-16 16-16h176c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H168c-8.8 0-16-7.2-16-16z</Geometry>
+                <Geometry x:Key="Reference_Calculator_ICON">M761.6 960c-83.2 0-128-25.6-153.6-51.2-25.6 25.6-70.4 51.2-160 51.2-217.6 0-256-128-256-128v0 0-256h-192v-640h448v294.4l96 12.8c0 0 12.8 19.2 19.2-44.8h83.2c6.4 64 25.6 44.8 25.6 44.8l352-44.8v627.2c0 0-38.4 134.4-262.4 134.4zM64 512h320v-128h-320v128zM384 320v-64h-64v64h64zM256 320v-64h-64v64h64zM128 0h-64v64h64v-64zM128 128h-64v64h64v-64zM128 256h-64v64h64v-64zM256 0h-64v64h64v-64zM256 128h-64v64h64v-64zM384 0h-64v64h64v-64zM384 128h-64v64h64v-64zM576 352c-57.6 6.4-83.2 19.2-128 19.2v204.8h-192v249.6c0 25.6 51.2 96 192 96 115.2 0 121.6-51.2 121.6-64 0 0 0 0 0 0v-505.6zM960 326.4c-64 25.6-70.4 44.8-160 44.8-6.4 0-12.8 0-12.8 0-64 0-83.2-12.8-147.2-25.6v486.4c0 0 0 6.4 0 6.4s0 6.4 0 6.4c0 12.8 12.8 70.4 121.6 70.4 147.2 0 198.4-57.6 198.4-89.6v-499.2z</Geometry>
+                <Geometry x:Key="NodeNetwork_Calculator_ICON">M3 0C1.338 0 0 1.338 0 3v6.107h2.858c1.092 0 1.97.868 1.964 1.96v.021c.812-.095 1.312-.352 1.674-.683.416-.382.69-.91 1.016-1.499.325-.59.71-1.244 1.408-1.723.575-.395 1.355-.644 2.384-.686v-.45c0-1.092.88-1.976 1.972-1.976h7.893c1.091 0 1.974.884 1.974 1.976v1.942c0 1.091-.883 2.029-1.974 2.029h-7.893c-1.092 0-1.972-.938-1.972-2.03v-.453c-.853.037-1.408.236-1.798.504-.48.33-.774.802-1.086 1.368-.312.565-.63 1.22-1.222 1.763l-.077.069c3.071.415 4.465 1.555 5.651 2.593 1.39 1.215 2.476 2.275 6.3 2.288v-.46c0-1.092.894-1.946 1.986-1.946H24V3c0-1.662-1.338-3-3-3zm10.276 5.41c-.369 0-.687.268-.687.637v1.942c0 .368.318.636.687.636h7.892a.614.614 0 0 0 .635-.636V6.047a.614.614 0 0 0-.635-.636zM0 10.448v3.267h2.858a.696.696 0 0 0 .678-.69v-1.942c0-.368-.31-.635-.678-.635zm4.821 1.67v.907A1.965 1.965 0 0 1 2.858 15H0v6c0 1.662 1.338 3 3 3h18c1.662 0 3-1.338 3-3v-1.393h-2.942c-1.092 0-1.986-.913-1.986-2.005v-.445c-4.046-.032-5.598-1.333-6.983-2.544-1.437-1.257-2.751-2.431-7.268-2.496zM21.058 15a.644.644 0 0 0-.647.66v1.942c0 .368.278.612.647.612H24V15z</Geometry>
+                <Style x:Key="Graph_Select_Button" TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
+                    <Setter Property="Height" Value="55"/>
+                    <Setter Property="Width" Value="55"/>
+                    <Setter Property="MinWidth" Value="0"/>
+                    <Setter Property="BorderBrush" Value="{x:Null}"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="Margin" Value="5,5,5,5"/>
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="Regular"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="mah:ControlsHelper.CornerRadius" Value="3" />
+                    <Setter Property="mah:ControlsHelper.FocusBorderBrush" Value="{x:Null}" />
+                    <Setter Property="mah:ControlsHelper.FocusBorderThickness" Value="1" />
+                    <Setter Property="mah:ControlsHelper.MouseOverBorderBrush" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Grid>
+                                    <mah:ClipBorder x:Name="Border"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="{TemplateBinding mah:ControlsHelper.CornerRadius}"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    <mah:ClipBorder x:Name="DisabledVisualElement"
+                                        Background="{DynamicResource MahApps.Brushes.Control.Disabled}"
+                                        CornerRadius="{TemplateBinding mah:ControlsHelper.CornerRadius}"
+                                        IsHitTestVisible="False"
+                                        Opacity="0"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    <mah:ContentControlEx x:Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding BorderThickness}"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentCharacterCasing="Normal"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                              RecognizesAccessKey="{TemplateBinding mah:ControlsHelper.RecognizesAccessKey}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Opacity" Value="0.7"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Opacity" Value="1"/>
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocusWithin" Value="True">
+
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter TargetName="DisabledVisualElement" Property="Opacity" Value="0.7" />
+                                        <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value="0.3" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+            <ScrollViewer Grid.Column="0" Grid.Row="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Panel.ZIndex="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.Resources>
+                        <Style x:Key="Advance_Math_Label_Style" TargetType="Label">
+                            <Setter Property="Padding" Value="0,0,0,0"/>
+                            <Setter Property="Margin" Value="0,-8,0,0"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Label Grid.Row="1" Content="Advance Math" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="12" VerticalAlignment="Center"/>
+                    <Rectangle Grid.Row="2" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+                    <WrapPanel Grid.Row="3" Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <Button x:Name="Waveform_Calculator_Open" Style="{StaticResource Graph_Select_Button}" BorderBrush="{Binding Waveform_Calculator_Selected}" Click="Waveform_Calculator_Open_Click">
+                                <Path Data="{StaticResource Waveform_Calculator_ICON}"  Width="25" Height="30" Fill="White" Stretch="Fill"/>
+                            </Button>
+                            <Label Content="Calculator" Style="{StaticResource Advance_Math_Label_Style}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <Button x:Name="Reference_Calculator_Open" Style="{StaticResource Graph_Select_Button}" BorderBrush="{Binding Reference_Calculator_Graph_Selected}" Click="Reference_Calculator_Open_Click">
+                                <Path Data="{StaticResource Reference_Calculator_ICON}" Width="30" Height="30" Margin="3,3,0,0" Fill="White" Stretch="Fill">
+                                    <Path.LayoutTransform>
+                                        <RotateTransform Angle="180"/>
+                                    </Path.LayoutTransform>
+                                </Path>
+                            </Button>
+                            <Label Content="Reference" Style="{StaticResource Advance_Math_Label_Style}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <Button x:Name="NodeNetwork_Calculator_Open" Style="{StaticResource Graph_Select_Button}" BorderBrush="{Binding NodeNetwork_Calculator_Graph_Selected}" Click="NodeNetwork_Calculator_Open_Click">
+                                <Path Data="{StaticResource NodeNetwork_Calculator_ICON}"  Width="30" Height="30" Fill="White" Stretch="Fill"/>
+                            </Button>
+                            <Label Content="NodeMath" Style="{StaticResource Advance_Math_Label_Style}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <Label Grid.Row="5" Content="Math (YT Window)" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="12" VerticalAlignment="Center"/>
+                    <Rectangle Grid.Row="6" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+                    <WrapPanel Grid.Row="7" Orientation="Horizontal">
+                        <Button x:Name="W1_Math_YT_Open" Style="{StaticResource Graph_Select_Button}" Content="W1" BorderBrush="{Binding Math_YT_W1_Graph_Selected}" Background="{Binding Math_YT_Window_1_Color}" Click="W1_Math_YT_Open_Click"/>
+                        <Button x:Name="W2_Math_YT_Open" Style="{StaticResource Graph_Select_Button}" Content="W2" BorderBrush="{Binding Math_YT_W2_Graph_Selected}" Background="{Binding Math_YT_Window_2_Color}" Click="W2_Math_YT_Open_Click"/>
+                        <Button x:Name="W3_Math_YT_Open" Style="{StaticResource Graph_Select_Button}" Content="W3" BorderBrush="{Binding Math_YT_W3_Graph_Selected}" Background="{Binding Math_YT_Window_3_Color}" Click="W3_Math_YT_Open_Click"/>
+                        <Button x:Name="W4_Math_YT_Open" Style="{StaticResource Graph_Select_Button}" Content="W4" BorderBrush="{Binding Math_YT_W4_Graph_Selected}" Background="{Binding Math_YT_Window_4_Color}" Click="W4_Math_YT_Open_Click"/>
+                    </WrapPanel>
+                    <Label Grid.Row="9" Content="Math (FFT Window)" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="12" VerticalAlignment="Center"/>
+                    <Rectangle Grid.Row="10" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+                    <WrapPanel Grid.Row="11" Orientation="Horizontal">
+                        <Button x:Name="W1_Math_FFT_Open" Style="{StaticResource Graph_Select_Button}" Content="W1" BorderBrush="{Binding Math_FFT_W1_Graph_Selected}" Background="{Binding Math_FFT_Window_1_Color}" Click="W1_Math_FFT_Open_Click"/>
+                        <Button x:Name="W2_Math_FFT_Open" Style="{StaticResource Graph_Select_Button}" Content="W2" BorderBrush="{Binding Math_FFT_W2_Graph_Selected}" Background="{Binding Math_FFT_Window_2_Color}" Click="W2_Math_FFT_Open_Click"/>
+                        <Button x:Name="W3_Math_FFT_Open" Style="{StaticResource Graph_Select_Button}" Content="W3" BorderBrush="{Binding Math_FFT_W3_Graph_Selected}" Background="{Binding Math_FFT_Window_3_Color}" Click="W3_Math_FFT_Open_Click"/>
+                        <Button x:Name="W4_Math_FFT_Open" Style="{StaticResource Graph_Select_Button}" Content="W4" BorderBrush="{Binding Math_FFT_W4_Graph_Selected}" Background="{Binding Math_FFT_Window_4_Color}" Click="W4_Math_FFT_Open_Click"/>
+                    </WrapPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

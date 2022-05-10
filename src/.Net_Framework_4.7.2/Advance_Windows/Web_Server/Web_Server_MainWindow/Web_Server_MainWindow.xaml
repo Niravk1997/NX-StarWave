@@ -1,0 +1,121 @@
+﻿<mah:MetroWindow 
+    x:Class="Waveform_Web_Server.Web_Server_MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:local="clr-namespace:Waveform_Web_Server"
+    mc:Ignorable="d"
+    Title="{Binding Window_Title, FallbackValue=Waveform_Web_Server}" 
+    TitleCharacterCasing="Normal"
+    Height="200" 
+    Width="300"
+    Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Geometry x:Key="Web_Server_Power_Switch">M945.223 387.296c0.001-0.418 0.002-0.912 0.002-1.407 0-65.786-13.816-128.344-38.704-184.933l1.156 2.948c-73.464-171.115-240.524-288.782-435.066-288.782s-361.602 117.667-433.892 285.713l-1.174 3.069c-23.732 53.641-37.548 116.199-37.548 181.985 0 0.495 0.001 0.99 0.002 1.484v-0.077c-0.002 0.458-0.003 0.999-0.003 1.54 0 153.368 73.76 289.509 187.741 374.884l1.218 0.873c12.998 10.111 29.552 16.211 47.531 16.211 3.968 0 7.866-0.297 11.673-0.87l-0.429 0.053c21.36-2.534 39.626-13.994 51.214-30.487l0.154-0.232c9.982-12.607 16.013-28.739 16.013-46.281 0-4.146-0.337-8.214-0.985-12.177l0.058 0.433c-2.782-21.407-14.042-39.751-30.244-51.839l-0.202-0.144c-77.254-58.179-126.682-149.728-126.682-252.821 0-174.312 141.308-315.62 315.62-315.62s315.62 141.308 315.62 315.62c0 103.093-49.428 194.642-125.877 252.241l-0.804 0.58c-16.404 12.232-27.664 30.576-30.405 51.597l-0.041 0.386c-0.59 3.53-0.927 7.598-0.927 11.744 0 17.541 6.031 33.674 16.133 46.437l-0.119-0.156c11.825 16.774 30.206 28.247 51.338 30.687l0.338 0.032c3.418 0.542 7.36 0.851 11.373 0.851 17.842 0 34.256-6.117 47.257-16.368l-0.162 0.123c115.278-86.243 189.094-222.43 189.094-375.858 0-0.482-0.001-0.964-0.002-1.445v0.075zM551.406 859.89v-393.817c0.011-0.488 0.017-1.063 0.017-1.64 0-43.507-35.27-78.777-78.777-78.777s-78.777 35.27-78.777 78.777c0 0.577 0.006 1.152 0.019 1.725l-0.001-0.086v393.817c-0.002 0.203-0.003 0.442-0.003 0.682 0 21.501 8.963 40.908 23.356 54.689l0.027 0.026c14.054 14.43 33.671 23.381 55.379 23.381s41.326-8.951 55.363-23.364l0.016-0.017c14.421-13.807 23.384-33.214 23.384-54.715 0-0.24-0.001-0.479-0.003-0.718v0.037z</Geometry>
+                <Style x:Key="Web_Server_Button_Style" TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Circle}">
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="Margin" Value="0,0,0,0"/>
+                    <Setter Property="MinHeight" Value="0"/>
+                    <Setter Property="MinWidth" Value="0"/>
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="Width" Value="50"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="BorderBrush" Value="{x:Null}"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="{Binding Web_Server_Status_Brush, FallbackValue=Red}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Background" Value="#FFCD0000"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+            <Button Style="{StaticResource Web_Server_Button_Style}" BorderBrush="Black" Click="Start_Server_Click">
+                <Path Data="{StaticResource Web_Server_Power_Switch}" Width="30" Height="30" Margin="0,0,0,0" Fill="White" Stretch="Fill">
+                    <Path.LayoutTransform>
+                        <RotateTransform Angle="180"/>
+                    </Path.LayoutTransform>
+                </Path>
+            </Button>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                    </Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="2,0,2,0"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="IsReadOnly" Value="{Binding Read_Only_Input_TextFields, FallbackValue=false}"/>
+                    </Style>
+                </Grid.Resources>
+                <Label Grid.Row="0" Content="IP Address:"/>
+                <Label Grid.Row="1" Content="Port:"/>
+
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding IP_Address}"/>
+                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Port}"/>
+            </Grid>
+        </Grid>
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <ScrollViewer x:Name="Output_Log_Scroll" Grid.Row="2" HorizontalScrollBarVisibility="Auto" Margin="2,0,2,0">
+            <ScrollViewer.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Clear" IsCheckable="False" IsChecked="False" Click="Clear_Log_Click"/>
+                    <MenuItem Header="Save" IsCheckable="False" IsChecked="False" Click="Save_Log_Click"/>
+                </ContextMenu>
+            </ScrollViewer.ContextMenu>
+            <ItemsControl ItemsSource="{Binding Output_Log}">
+                <ItemsControl.Resources>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="2,0,2,0"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="IsReadOnly" Value="True"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                    </Style>
+                </ItemsControl.Resources>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</mah:MetroWindow>

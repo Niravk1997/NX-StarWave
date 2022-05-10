@@ -1,0 +1,173 @@
+﻿<mah:MetroWindow x:Class="NX_StarWave.VISA_GPIB_Communication.VISA_GPIB_Select_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:NX_StarWave.VISA_GPIB_Communication"
+        mc:Ignorable="d"
+        Title="Tektronix VISA GPIB Select Window" TitleCharacterCasing="Normal" Height="530" Width="600" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="225"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="285"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="GroupBox">
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Flat}">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+            <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="MinHeight" Value="0"/>
+            </Style>
+            <Style TargetType="ComboBox" BasedOn="{StaticResource MahApps.Styles.ComboBox}">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="MinHeight" Value="0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Label" BasedOn="{StaticResource MahApps.Styles.Label}">
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <GroupBox Margin="2,2,2,2" Grid.Column="0" Grid.Row="0">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="VISA_GPIB_Refresh" Content="Refresh" Width="50" Height="20" Margin="0,0,0,2" Click="VISA_Refresh_Click"/>
+                    <TextBlock FontWeight="Bold" Margin="5,0,0,0">List of VISA GPIB Devices</TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <ListBox x:Name="VISA_GPIB_List" Margin="0,0,0,0" MouseDoubleClick="VISA_Device_List_MouseDoubleClick"/>
+        </GroupBox>
+        <GroupBox Margin="2,2,2,2" Grid.Column="1" Grid.Row="0">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="VISA_Config_Save" Content="Save" Width="50" Height="20" Margin="0,0,0,0" Click="VISA_Config_Save_Click"/>
+                    <TextBlock FontWeight="Bold" Margin="5,0,0,0">Tektronix TDS VISA Info</TextBlock>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style x:Key="GPIB_Address_ScrollViewer_Style" TargetType="ScrollViewer" BasedOn="{StaticResource MahApps.Styles.ScrollViewer}">
+                        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+                        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+                        <Setter Property="Margin" Value="2,2,2,0"/>
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                    </Style>
+                    <Style x:Key="GPIB_Address_TextBox_Style" TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="mah:TextBoxHelper.AutoWatermark" Value="True"/>
+                        <Setter Property="mah:TextBoxHelper.Watermark" Value="Enter your GPIB Address here or double click on one from the list of VISA GPIB Devices..."/>
+                    </Style>
+                    <Style x:Key="Method_Select_ToggleSwitch_Style" TargetType="mah:ToggleSwitch">
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Margin" Value="0,-4,0,0"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.KnobFillOff" Color="White"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.KnobFillOffPointerOver" Color="White"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.StrokeOff" Color="DodgerBlue"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.StrokeOffPointerOver" Color="DodgerBlue"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOff" Color="DodgerBlue"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOffPointerOver" Color="DodgerBlue"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOn" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOnPointerOver" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.StrokeOn" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.StrokeOnPointerOver" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.KnobFillOn" Color="White"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.KnobFillOnPointerOver" Color="White"/>
+                        </Style.Resources>
+                    </Style>
+                </Grid.Resources>
+                <Label Content="GPIB Port Address:" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Left" FontSize="14"/>
+                <ScrollViewer Grid.Column="0" Grid.Row="2" Style="{StaticResource GPIB_Address_ScrollViewer_Style}">
+                    <TextBox x:Name="VISA_GPIB_Port" Text="" Style="{StaticResource GPIB_Address_TextBox_Style}"/>
+                </ScrollViewer>
+                <StackPanel Orientation="Horizontal" Grid.Row="4">
+                    <Label Content="Access Lock: "/>
+                    <ComboBox x:Name="VISA_Access_Lock" Width="50">
+                        <ComboBoxItem Content="0" IsSelected="True" IsEnabled="True"/>
+                        <ComboBoxItem Content="1" IsSelected="False" IsEnabled="True"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Row="6" Orientation="Horizontal">
+                    <Label Content="Timeout (s):" Margin="7,0,0,0" Padding="0,0,0,0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="VISA_Timeout_Value_TextBox" Text="10" Width="50" Margin="10,0,0,0" Padding="0,0,0,0"/>
+                </StackPanel>
+                <Label Grid.Row="8" Content="Waveform Capture:" FontSize="14" Padding="0" VerticalAlignment="Top"/>
+                <mah:ToggleSwitch x:Name="VISA_GPIB_Waveform_Capture_Method" Grid.Row="9" Style="{StaticResource Method_Select_ToggleSwitch_Style}" ContentDirection="RightToLeft" OnContent="Method 2" OffContent="Method 1" FontSize="14"/>
+                <Label Grid.Row="10" Content="Method 1: 2 Writes 2 Reads (Compatibility)&#x0a;Method 2: 1 Write 1 Read (Faster, 500K max)" FontSize="10" Padding="0"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="0" Margin="2,0,2,2">
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontWeight="Bold" Margin="0,0,0,0">Info Log</TextBlock>
+                    <Button x:Name="Info_Clear" Content="Clear" Margin="4,0,0,0" Width="35" Click="Info_Clear_Click"/>
+                </StackPanel>
+            </GroupBox.Header>
+            <ScrollViewer x:Name="Info_Scroll" Margin="0,0,0,0" HorizontalScrollBarVisibility="Auto">
+                <TextBlock x:Name="Info_Log" FontSize="12"/>
+            </ScrollViewer>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="1" Margin="2,0,2,2">
+            <GroupBox.Header>
+                <TextBlock FontWeight="Bold" Margin="0,0,0,0">VISA GPIB Config</TextBlock>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Label Content="Log Data Directory: "  Margin="0,-2,0,0" Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Right"/>
+                <Button x:Name="Select_Directory" Content="Select" FontSize="12" Grid.Column="1" Grid.Row="0" Margin="0,0,0,0" Click="Select_Directory_Click"/>
+                <Label Content="Verify Tektronix TDS: "  Margin="0,-2,0,0" Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Right"/>
+                <Button x:Name="Verify_Oscilloscope"  Content="*IDN?" FontSize="12" Grid.Column="1" Grid.Row="2" Margin="0,0,0,0" Click="Verify_Oscilloscope_Click"/>
+                <Button x:Name="Connect"  Content="Connect" FontSize="16" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" Margin="0,0,0,0" Click="Connect_Click"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</mah:MetroWindow>

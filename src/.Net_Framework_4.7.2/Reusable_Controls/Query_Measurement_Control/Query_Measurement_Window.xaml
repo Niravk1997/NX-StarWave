@@ -1,0 +1,84 @@
+﻿<mah:MetroWindow x:Class="Query_Measurement_Control.Query_Measurement_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:Query_Measurement_Control"
+        mc:Ignorable="d"
+		WindowStyle="None"
+        UseNoneWindowStyle="True"
+        ResizeMode="CanResizeWithGrip"
+        StateChanged="MetroWindow_StateChanged"
+        Title="{Binding Window_Title, FallbackValue=Query_Measurement_Window}"
+        TitleCharacterCasing="Normal"
+        Height="{Binding Window_Height, FallbackValue=100}" 
+        Width="{Binding Window_Width, FallbackValue=320}" 
+        AllowsTransparency="True"
+        Background="{Binding Background_Color}"
+        BorderBrush="Transparent"
+        NonActiveBorderBrush="Transparent"
+        MouseDown="Window_MouseDown"
+        Closed="Window_Close">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Label" BasedOn="{StaticResource MahApps.Styles.Label}">
+                <Setter Property="Padding" Value="0,0,0,0"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Pause Query" IsCheckable="True" IsChecked="{Binding Query_Measurement_Pause, Mode=TwoWay}"/>
+                <MenuItem x:Name="Window_On_Top_Menu_Option" Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True">
+                    <MenuItem.Icon>
+                        <Label 
+                                Content="📌"
+                                Foreground="Orange"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Exit" Click="MenuItem_ExitApp_Click">
+                    <MenuItem.Icon>
+                        <Label 
+                                Content="❌"
+                                Foreground="Red"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <mah:MetroProgressBar Grid.Row="0" Value="{Binding Delay_Timer_Progress, FallbackValue=50}" Minimum="0" Maximum="{Binding Progress_Complete_Value, FallbackValue=100}" Foreground="#FF00CE30"/>
+        <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+            <Label Content="{Binding Window_Title}" Foreground="{Binding Label_Foreground}"/>
+        </Viewbox>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Viewbox Grid.Row="0" Margin="0,-15,0,10">
+                <Label Content="{Binding Measurement, FallbackValue=Wait}" Foreground="{Binding Label_Foreground}"/>
+            </Viewbox>
+            <Viewbox Grid.Row="1" Margin="0,-15,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="▼ " Foreground="#FF00CE30"/>
+                    <Label Content="{Binding Measurement_Min, FallbackValue=Wait}" Foreground="{Binding Label_Foreground}"/>
+                    <Label Content="  ▲ " Foreground="Red"/>
+                    <Label Content="{Binding Measurement_Max, FallbackValue=Wait}" Foreground="{Binding Label_Foreground}"/>
+                </StackPanel>
+            </Viewbox>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>

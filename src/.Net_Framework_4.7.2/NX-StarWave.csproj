@@ -1,0 +1,1547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D9B9508-98E0-4706-AFDB-3B9FDE86BB30}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NX_StarWave</RootNamespace>
+    <AssemblyName>NX_StarWave</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>NX_StarWave.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ICON.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AvalonDock, Version=4.60.1.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Dirkster.AvalonDock.4.60.1\lib\net40\AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="AvalonDock.Themes.VS2013, Version=4.60.1.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Dirkster.AvalonDock.Themes.VS2013.4.60.1\lib\net40\AvalonDock.Themes.VS2013.dll</HintPath>
+    </Reference>
+    <Reference Include="ColorPicker, Version=3.3.1.0, Culture=neutral, PublicKeyToken=1c61eec504ce2276, processorArchitecture=MSIL">
+      <HintPath>packages\PixiEditor.ColorPicker.3.3.1\lib\net451\ColorPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlzEx, Version=5.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>packages\ControlzEx.5.0.1\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicData, Version=7.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DynamicData.7.7.1\lib\net462\DynamicData.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="IpMatcher, Version=1.0.4.4, Culture=neutral, PublicKeyToken=8637fc2bb9df2c67, processorArchitecture=MSIL">
+      <HintPath>packages\IpMatcher.1.0.4.4\lib\net462\IpMatcher.dll</HintPath>
+    </Reference>
+    <Reference Include="Ivi.Visa, Version=5.11.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>packages\MahApps.Metro.2.4.9\lib\net47\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MathNet.Numerics.5.0.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="MathParser.org-mXparser, Version=5.0.2.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
+      <HintPath>packages\MathParser.org-mXparser.5.0.2\lib\net472\MathParser.org-mXparser.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NodeNetwork, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NodeNetwork.6.0.0\lib\net472\NodeNetwork.dll</HintPath>
+    </Reference>
+    <Reference Include="NodeNetworkToolkit, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NodeNetworkToolkit.6.0.0\lib\net472\NodeNetworkToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Ookii.Dialogs.Wpf, Version=5.0.0.0, Culture=neutral, PublicKeyToken=66aa232afad40158, processorArchitecture=MSIL">
+      <HintPath>packages\Ookii.Dialogs.Wpf.5.0.1\lib\net462\Ookii.Dialogs.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Pharmacist.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Pharmacist.Common.2.0.8\lib\net472\Pharmacist.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="ReactiveUI, Version=18.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReactiveUI.18.0.10\lib\net472\ReactiveUI.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.Events.WPF, Version=15.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReactiveUI.Events.WPF.15.1.1\lib\net472\ReactiveUI.Events.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI.Wpf, Version=18.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReactiveUI.WPF.18.0.10\lib\net472\ReactiveUI.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="RegexMatcher, Version=1.0.7.2, Culture=neutral, PublicKeyToken=68d7f6ae806af85a, processorArchitecture=MSIL">
+      <HintPath>packages\RegexMatcher.1.0.7.2\lib\net462\RegexMatcher.dll</HintPath>
+    </Reference>
+    <Reference Include="ScottPlot, Version=4.1.45.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.4.1.45\lib\net461\ScottPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="ScottPlot.WPF, Version=4.1.45.0, Culture=neutral, PublicKeyToken=e53b06131e34a3aa, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.WPF.4.1.45\lib\net472\ScottPlot.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=14.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Splat.14.2.8\lib\netstandard2.0\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat.Drawing, Version=14.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Splat.Drawing.14.2.8\lib\net472\Splat.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.6.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.EF6.1.0.115.5\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.115.5, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Linq.1.0.115.5\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive, Version=5.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reactive.5.0.0\lib\net472\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UrlMatcher, Version=1.0.0.3, Culture=neutral, PublicKeyToken=c10f96d28031ea47, processorArchitecture=MSIL">
+      <HintPath>packages\UrlMatcher.1.0.0.3\lib\net462\UrlMatcher.dll</HintPath>
+    </Reference>
+    <Reference Include="WatsonWebserver, Version=4.2.2.13, Culture=neutral, PublicKeyToken=5bbf1ea6092fbbce, processorArchitecture=MSIL">
+      <HintPath>packages\Watson.4.2.2.13\lib\net462\WatsonWebserver.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Compare_YT_Plots.xaml.cs">
+      <DependentUpon>Compare_YT_Plots.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Compare_YT_ViewModels\Compare_YT_Plots_StoreModel.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Compare_YT_ViewModels\Compare_YT_Plots_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Save_Load_Waveforms\File_DragDrop.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Graph_Config\Graph_Colors_Menu.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Graph_Config\Graph_Settings_Menu.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Menu\Markers_Menu.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Menu\Right_Click_Menu.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Save_Load_Waveforms\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Save_Load_Waveforms\Load_Reference_Waveforms.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Save_Load_Waveforms\Load_Waveforms.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Menu\Output_Log_Menu.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Save_Load_Waveforms\Save_Waveforms.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Waveform_Config\Waveform_Config.cs" />
+    <Compile Include="Advance_Windows\Compare_YT_Plots\Waveform_Config\Waveform_Update.cs" />
+    <Compile Include="Advance_Windows\HardCopy_Window\Draw_Mode.cs" />
+    <Compile Include="Advance_Windows\HardCopy_Window\HardCopy_Save_Copy_Image.cs" />
+    <Compile Include="Advance_Windows\HardCopy_Window\HardCopy_Window.xaml.cs">
+      <DependentUpon>HardCopy_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\HardCopy_Window\HardCopy_Window_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Remote_Channels_Setup_Window\Output_Log_Menu.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Remote_Channels_Setup_Window\Remote_Channels_Setup_Window.xaml.cs">
+      <DependentUpon>Remote_Channels_Setup_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeEditor_Layout_Save_Load\NodeEditor_Layout_Save.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Config_Menu\Load_Custom_Math_Expressions\Load_Custom_Math_Expression_Text_File.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Add_to_NodeNetwork\Add_Node_to_NodeNetwork.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Inputs_Configuration.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Menu\AutoLoad_File.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Menu\File.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Node_Expression_Verify.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Table\Table_Add_Update_Node_Expressions.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Table\Table_Menu.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\ViewModels\Create_Custom_Math_Expression_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Create_Custom_Math_Expression_Window.xaml.cs">
+      <DependentUpon>Create_Custom_Math_Expression_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Misc\Output_Log.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\ViewModels\Expression_Config_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\ViewModels\Expression_Table_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\ViewModels\Inputs_Config_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_Classes\NodeEditor_Global_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_Classes\NodeEditor_Helper_Classes.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_Classes\Node_Categories.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_Classes\Node_ViewModel_Class.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_Classes\Node_Waveform_Model.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Debug_Menu.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Dispose.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Draw_Mode.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\NodeEditor_Layout_Save_Load_Menu.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\NodeNetwork_Window.xaml.cs">
+      <DependentUpon>NodeNetwork_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\NodeNetwork_Window_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\NodeList_Add_Nodes.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Open_Custom_Math_Expression_Node_Create_Window.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Output_Log_Menu.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Remote_Channel_Connections\Remote_Channels_Get_Data_Process.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Remote_Channel_Connections\Remote_Channels_Initialize.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Remote_Channel_Connections\Remote_Channels_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Right_Click_Menu.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Set_Initial_Theme.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\FFT_Graphs_Node\1_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\FFT_Graphs_Node\1_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\FFT_Graphs_Node\1_Input\ViewModel\FFT_Inputs_1_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\FFT_Graphs_Node\1_Input\View\FFT_Inputs_1_View.xaml.cs">
+      <DependentUpon>FFT_Inputs_1_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\YT_Graphs_Node\1_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\YT_Graphs_Node\1_Input\ViewModel\YT_Inputs_1_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\YT_Graphs_Node\1_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\YT_Graphs_Node\1_Input\View\YT_Inputs_1_View.xaml.cs">
+      <DependentUpon>YT_Inputs_1_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Math_Node\ViewModel\Basic_Math_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Math_Node\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Math_Node\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Math_Node\View\Basic_Node_View.xaml.cs">
+      <DependentUpon>Basic_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Value_Math_Node\ViewModel\Basic_Math_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Value_Math_Node\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Value_Math_Node\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Value_Math_Node\View\Basic_Node_View.xaml.cs">
+      <DependentUpon>Basic_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Waveform_Shift_Node\ViewModel\Basic_Waveform_Shift_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Waveform_Shift_Node\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Waveform_Shift_Node\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Waveform_Shift_Node\View\Basic_Node_View.xaml.cs">
+      <DependentUpon>Basic_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\1_Input\ViewModel\Custom_Math_Expression_ViewModel_1_Input.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\1_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\1_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\1_Input\View\Custom_Math_Expression_View_1_Input.xaml.cs">
+      <DependentUpon>Custom_Math_Expression_View_1_Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\2_Input\ViewModel\Custom_Math_Expression_ViewModel_2_Input.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\2_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\2_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\2_Input\View\Custom_Math_Expression_View_2_Input.xaml.cs">
+      <DependentUpon>Custom_Math_Expression_View_2_Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\3_Input\ViewModel\Custom_Math_Expression_ViewModel_3_Input.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\3_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\3_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\3_Input\View\Custom_Math_Expression_View_3_Input.xaml.cs">
+      <DependentUpon>Custom_Math_Expression_View_3_Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\4_Input\ViewModel\Custom_Math_Expression_ViewModel_4_Input.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\4_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\4_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\4_Input\View\Custom_Math_Expression_View_4_Input.xaml.cs">
+      <DependentUpon>Custom_Math_Expression_View_4_Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\5_Input\ViewModel\Custom_Math_Expression_ViewModel_5_Input.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\5_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\5_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\5_Input\View\Custom_Math_Expression_View_5_Input.xaml.cs">
+      <DependentUpon>Custom_Math_Expression_View_5_Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\6_Input\ViewModel\Custom_Math_Expression_ViewModel_6_Input.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\6_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\6_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\6_Input\View\Custom_Math_Expression_View_6_Input.xaml.cs">
+      <DependentUpon>Custom_Math_Expression_View_6_Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\7_Input\ViewModel\Custom_Math_Expression_ViewModel_7_Input.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\7_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\7_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\7_Input\View\Custom_Math_Expression_View_7_Input.xaml.cs">
+      <DependentUpon>Custom_Math_Expression_View_7_Input.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\1_Input\ViewModel\Histogram_Inputs_1_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\1_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\1_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\1_Input\View\Histogram_Inputs_1_View.xaml.cs">
+      <DependentUpon>Histogram_Inputs_1_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\2_Input\ViewModel\Graph_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\2_Input\ViewModel\Histogram_Inputs_2_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\2_Input\ViewModel\Node_Config.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\2_Input\View\Histogram_Inputs_2_View.xaml.cs">
+      <DependentUpon>Histogram_Inputs_2_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_1\ViewModel\Channel_1_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_1\View\Channel_1_Node_View.xaml.cs">
+      <DependentUpon>Channel_1_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_2\ViewModel\Channel_2_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_2\View\Channel_2_Node_View.xaml.cs">
+      <DependentUpon>Channel_2_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_3\ViewModel\Channel_3_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_3\View\Channel_3_Node_View.xaml.cs">
+      <DependentUpon>Channel_3_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_4\ViewModel\Channel_4_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_4\View\Channel_4_Node_View.xaml.cs">
+      <DependentUpon>Channel_4_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_10\ViewModel\Channel_10_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_10\View\Channel_10_Node_View.xaml.cs">
+      <DependentUpon>Channel_10_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_11\ViewModel\Channel_11_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_11\View\Channel_11_Node_View.xaml.cs">
+      <DependentUpon>Channel_11_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_12\ViewModel\Channel_12_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_12\View\Channel_12_Node_View.xaml.cs">
+      <DependentUpon>Channel_12_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_5\ViewModel\Channel_5_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_5\View\Channel_5_Node_View.xaml.cs">
+      <DependentUpon>Channel_5_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_6\ViewModel\Channel_6_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_6\View\Channel_6_Node_View.xaml.cs">
+      <DependentUpon>Channel_6_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_7\ViewModel\Channel_7_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_7\View\Channel_7_Node_View.xaml.cs">
+      <DependentUpon>Channel_7_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_8\ViewModel\Channel_8_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_8\View\Channel_8_Node_View.xaml.cs">
+      <DependentUpon>Channel_8_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_9\ViewModel\Channel_9_Node_ViewModel.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_9\View\Channel_9_Node_View.xaml.cs">
+      <DependentUpon>Channel_9_Node_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Menu\AutoLoad_File.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Menu\File.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Misc\Dispose.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Misc\Output_Log.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Misc\Theme_Change_Event.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Query_Measurement_Config_ViewModels\Query_Measurement_Config_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Query_Measurement_Config_ViewModels\SCPI_Store_Model.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Query_Measurement_Config_Window.xaml.cs">
+      <DependentUpon>Query_Measurement_Config_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Query_Windows_Manage\Create_Query_Window.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Table\Load_SCPI_Commands.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Table\Load_Selected_SCPI_Commands.cs" />
+    <Compile Include="Advance_Windows\Query_Measurements_Config\Table\Save_SCPI_Commands.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Expression\Data_Process.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Expression\Expression_Calculate.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Expression\Expression_Verify.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Menu\AutoLoad_File.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Menu\File.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Misc\Output_Log.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Misc\Theme_Change_Event.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Open_Graph_Windows\Open_FFT_Window.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Open_Graph_Windows\Open_Histogram_Window.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Open_Graph_Windows\Open_Waveform_Window.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Config_Window.xaml.cs">
+      <DependentUpon>Reference_Config_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Config_Window_ViewModel\Expressions_Table_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Config_Window_ViewModel\Expression_Config_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Config_Window_ViewModel\Expression_FFT_Config.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Config_Window_ViewModel\Expression_Histogram_Config.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Config_Window_ViewModel\Expression_Waveform_Config.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Config_Window_ViewModel\Reference_Config_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Graph\Reference_Waveforms_Graph.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_1_Slot.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_1_Slot_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_2_Slot.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_2_Slot_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_3_Slot.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_3_Slot_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_4_Slot.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_4_Slot_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_5_Slot.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_5_Slot_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_6_Slot.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_6_Slot_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_7_Slot.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_7_Slot_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_8_Slot.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_8_Slot_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Waveforms_Slots\Reference_Slots.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Table\Table_Menu.cs" />
+    <Compile Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Table\Table_Save_Load.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Menu\AutoLoad_File.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Menu\File.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Misc\Dispose.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Misc\Output_Log.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Misc\Theme_Change_Event.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\SCPI_Communication_ViewModel\SCPI_Communication_Window_ViewModel.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\SCPI_Communication_ViewModel\SCPI_Expression_Store_Model.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\SCPI_Communication_Window.xaml.cs">
+      <DependentUpon>SCPI_Communication_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\SCPI_Communication\Send_SCPI_Commands.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Table\Load_SCPI_Commands.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Table\Load_Selected_SCPI_Expressions.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Table\Save_SCPI_Commands.cs" />
+    <Compile Include="Advance_Windows\SCPI_Communication\Table\Verify.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Menu\AutoLoad_File.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Error_Display.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Mouse_Events.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Error_Display.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Mouse_Events.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Error_Display.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Mouse_Events.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Channel_Data\Channel_Copy.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Channel_Data\Channel_Save.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Dispose.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Output_Log_Menu.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Play_Mode.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\SQLite_Save_Load\SQLite_Data_Structure.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\SQLite_Save_Load\SQLite_Load_Waveform_Data.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\SQLite_Save_Load\SQLite_Save_Waveform_Data.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Table.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Waveform_Player_ViewModel\Brush_Colors.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Waveform_Player_ViewModel\Waveform_Player_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Waveform_Player_ViewModel\Waveform_Store_Model_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Waveform_Player\Waveform_Player_Window.xaml.cs">
+      <DependentUpon>Waveform_Player_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Check_IP_Address.cs" />
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Dispose.cs" />
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Misc_GET_Routes.cs" />
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Output_Log.cs" />
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Waveform_GET_Routes.cs" />
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Web_Server_Config_Save.cs" />
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Web_Server_MainWindow.xaml.cs">
+      <DependentUpon>Web_Server_MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Web_Server_MainWindow_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Web_Server_Setup.cs" />
+    <Compile Include="Auto_Measurements\Frequency.cs" />
+    <Compile Include="Auto_Measurements\Maximum.cs" />
+    <Compile Include="Auto_Measurements\Mean.cs" />
+    <Compile Include="Auto_Measurements\Minimum.cs" />
+    <Compile Include="Auto_Measurements\Peak_Peak.cs" />
+    <Compile Include="Auto_Measurements\Period.cs" />
+    <Compile Include="Auto_Measurements\RMS.cs" />
+    <Compile Include="Auto_Measurements\StandardDeviation.cs" />
+    <Compile Include="Axis_Scale_Config\Axis_Config.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\FFT_Averaging.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Gated_Highest_points.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Gated_Peaks.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Axis_Match.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\FFT_Averaging.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Gated_Highest_points.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Gated_Peaks.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\FFT_Averaging.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Gated_Highest_points.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Gated_Peaks.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Histogram_Settings.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Dispose.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Draw_Mode.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\File_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Histogram_2_Inputs.xaml.cs">
+      <DependentUpon>Histogram_2_Inputs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Histogram_2_Inputs_ViewModel.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Histogram_Settings.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Information_Tab.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Dispose.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Draw_Mode.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Markers_Menu.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Measurement_Data_Process.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Measurement_Plot.xaml.cs">
+      <DependentUpon>Measurement_Plot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Measurement_Plot_Config.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Measurement_Plot_ViewModel.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Reference_Waveforms.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Gated_Highest_points.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Gated_Measurements.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Gated_Peaks.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Waveform_Averaging.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\YT_All_Seperate_Axis_Plotter.xaml.cs">
+      <DependentUpon>YT_All_Seperate_Axis_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\YT_All_Seperate_Axis_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Dispose.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Draw_Mode.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\File_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Information_Tab.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Markers_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Reference_Waveforms.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Waveform_Settings.cs" />
+    <Compile Include="Misc\String_Compression.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\Advance_Windows\Web_Server_Open.cs" />
+    <Compile Include="Reusable_Controls\Gated_Peaks_Table_Window\Dispose.cs" />
+    <Compile Include="Reusable_Controls\Gated_Peaks_Table_Window\Gated_Peaks_Table.xaml.cs">
+      <DependentUpon>Gated_Peaks_Table.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reusable_Controls\Gated_Peaks_Table_Window\Gated_Peaks_Table_ViewModels\Gated_Peaks_Table_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Gated_Peaks_Table_Window\Gated_Peaks_Table_ViewModels\Gated_Peaks_X_Values_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Gated_Peaks_Table_Window\Gated_Peaks_Table_ViewModels\Gated_Peaks_Y_Values_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Gated_Peaks_Table_Window\Menu.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Dispose.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Measurements_Process_Store.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Measurement_Plot.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Menu.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Reset_Measurements.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Save_Measurements.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table.xaml.cs">
+      <DependentUpon>Statistics_Table.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\Frequency_Statistics_Table_UserControl_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\Max_Statistics_Table_UserControl_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\Mean_Statistics_Table_UserControl_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\Min_Statistics_Table_UserControl_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\PeakPeak_Statistics_Table_UserControl_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\Period_Statistics_Table_UserControl_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\RMS_Statistics_Table_UserControl_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\Statistics_Table_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table_ViewModels\Stdev_Statistics_Table_UserControl_ViewModel.cs" />
+    <Compile Include="Waveform_Manipulation\Interpolations\Select_Interpolation.cs" />
+    <Compile Include="Waveform_Manipulation\Interpolations\Types\CubicSpline.cs" />
+    <Compile Include="Waveform_Manipulation\Interpolations\Types\LinearSpline.cs" />
+    <Compile Include="Waveform_Manipulation\Interpolations\Types\Sinc.cs" />
+    <Compile Include="Waveform_Model_Classes\All_Channels_Data_Model_Class.cs" />
+    <Compile Include="Waveform_Model_Classes\All_Channels_Waveform_Data_Model_Class.cs" />
+    <Compile Include="Waveform_Model_Classes\Channel_Waveform_Data_Model_Class.cs" />
+    <Compile Include="Waveform_Model_Classes\Processed_Channels_Data_Model_Class.cs" />
+    <Compile Include="Waveform_Model_Classes\Reference_Measurement_Waveform_Model_Class.cs" />
+    <Compile Include="Misc\RelayCommand.cs" />
+    <Compile Include="Waveform_Manipulation\Waveform_Averaging\Waveform_Averaging.cs" />
+    <Compile Include="NX-StarWave\Colors_Menu\Open_Set_Colors_Menu.cs" />
+    <Compile Include="NX-StarWave\Colors_Menu\Save_Load_Custom_Colors.cs" />
+    <Compile Include="NX-StarWave\Colors_Menu\Theme_Change_Event.cs" />
+    <Compile Include="NX-StarWave\HardCopy_Window_Open\HardCopy_Process.cs" />
+    <Compile Include="NX-StarWave\Query_Measurements_Windows_Open\Query_Measurements_Windows_Create.cs" />
+    <Compile Include="NX-StarWave\Query_Measurements_Windows_Open\Query_Measurements_Config_Window_Open.cs" />
+    <Compile Include="NX-StarWave\Query_Measurements_Windows_Open\Query_Measurement_Window_DataPass_Through.cs" />
+    <Compile Include="NX-StarWave\SCPI_Windows_Open\SCPI_Communication_Window_Open.cs" />
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\HardCopy_Window\HardCopy_Control.xaml.cs">
+      <DependentUpon>HardCopy_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Set_Colors_Controls\Set_Colors_UserControl.xaml.cs">
+      <DependentUpon>Set_Colors_UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\ViewModels\Colors_ViewModel\Channels_Colors_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Colors_ViewModel\Colors_Config_Dialog_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Colors_ViewModel\Set_Theme_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Demo_Mode_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Oscilloscope_Controls_ViewModels\Query_Measurement_Window_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Oscilloscope_Controls_ViewModels\SCPI_Communication_Window_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\Waveform_Acquire\Demo_Mode.cs" />
+    <Compile Include="Reusable_Controls\Query_Measurement_Control\Dispose.cs" />
+    <Compile Include="Reusable_Controls\Query_Measurement_Control\Measurement_Timers.cs" />
+    <Compile Include="Reusable_Controls\Query_Measurement_Control\Menu.cs" />
+    <Compile Include="Reusable_Controls\Query_Measurement_Control\Query_Measurement_Process.cs" />
+    <Compile Include="Reusable_Controls\Query_Measurement_Control\Query_Measurement_ViewModel.cs" />
+    <Compile Include="Reusable_Controls\Query_Measurement_Control\Query_Measurement_Window.xaml.cs">
+      <DependentUpon>Query_Measurement_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Communication\Oscilloscope_Communication.cs" />
+    <Compile Include="Communication\VISA_GPIB_Communication\Misc\Get_Software_Directory.cs" />
+    <Compile Include="Communication\VISA_GPIB_Communication\Misc\Output_Log.cs" />
+    <Compile Include="Communication\VISA_GPIB_Communication\Save_Read_Config\Check_VISA_GPIB_Devices.cs" />
+    <Compile Include="Communication\VISA_GPIB_Communication\Save_Read_Config\Read_VISA_Config.cs" />
+    <Compile Include="Communication\VISA_GPIB_Communication\Save_Read_Config\Write_VISA_Config.cs" />
+    <Compile Include="Communication\VISA_GPIB_Communication\VISA_GPIB_Select_Window.xaml.cs">
+      <DependentUpon>VISA_GPIB_Select_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Communication\VISA_GPIB_Communication\VISA_Read_Write\VISA_Communication.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Anytime_FFT.xaml.cs">
+      <DependentUpon>Anytime_FFT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Dispose.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\FFT_Settings.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\File_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Information_Tab.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Markers_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Peaks_Finder.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Phase_Settings.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_FFT\Waveform_Settings.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Anytime_Histogram.xaml.cs">
+      <DependentUpon>Anytime_Histogram.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Anytime_Histogram_ViewModel.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Dispose.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\File_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Information_Tab.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Waveform_Settings.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Anytime_Waveform.xaml.cs">
+      <DependentUpon>Anytime_Waveform.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Anytime_Waveform_ViewModel.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Apply_Interpolation.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Create_Anytime_FFT.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Dispose.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\File_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Information_Tab.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Markers_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Reference_Waveforms.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Waveform_Settings.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Dispose.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Draw_Mode.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\File.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Graphing_Window.xaml.cs">
+      <DependentUpon>Graphing_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Graphing_Window_ViewModel.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Graph_Colors.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Graph_Settings.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Histogram.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Information_Tab.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Markers.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Math_AllSamples.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Math_NSamples.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Mouse_Tracker.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Output_Log.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Statistics_AllSamples.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Statistics_NSamples.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Graphing_Window\Zoom_Window_Control.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Histogram_Window\Dispose.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Histogram_Window\File.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Histogram_Window\Graph_Colors.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\Histogram_Window\Histogram_Waveform.xaml.cs">
+      <DependentUpon>Histogram_Waveform.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Data_Log_Graphs\Histogram_Window\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Dispose.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\File.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Graph_Colors.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Graph_Settings.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Histogram.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Information_Tab.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Markers.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Math_AllSamples.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Math_NSamples.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Math_Waveform.xaml.cs">
+      <DependentUpon>Math_Waveform.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Mouse_Tracker.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Output_Log.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Statistics_AllSamples.cs" />
+    <Compile Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Statistics_NSamples.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Apply_Interpolation.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Dispose.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Draw_Mode.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\FFT_Plotter.xaml.cs">
+      <DependentUpon>FFT_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\FFT_Graphs\FFT\FFT_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\FFT_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\File_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Information_Tab.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Markers_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Peaks_Finder.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Phase_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Waveform_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT\Zoom_Window_Control.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Apply_Interpolation.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Dispose.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\FFT_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\FFT_Waterfall_Plotter.xaml.cs">
+      <DependentUpon>FFT_Waterfall_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\FFT_Waterfall_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\File_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Information_Tab.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Markers_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Peaks_Finder.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Phase_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Waterfall_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waterfall\Waveform_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Apply_Interpolation.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Dispose.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\FFT_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\FFT_Waveform_Plotter.xaml.cs">
+      <DependentUpon>FFT_Waveform_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\FFT_Waveform_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\File_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Information_Tab.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Markers_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Peaks_Finder.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Phase_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\FFT_Waveform\Waveform_Settings.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Dispose.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Draw_Mode.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\File_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Histogram_Plotter.xaml.cs">
+      <DependentUpon>Histogram_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Histogram_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Information_Tab.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Histogram_Graphs\Histogram\Waveform_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Math_FFT\Math_FFT_Plotter.xaml.cs">
+      <DependentUpon>Math_FFT_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\YT_Graphs\Math_YT\Math_YT_Plotter.xaml.cs">
+      <DependentUpon>Math_YT_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\XY_Graphs\XY\Channels_Selector.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Dispose.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Draw_Mode.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\File_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Information_Tab.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Markers_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Set_Labels.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\Waveform_Settings.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY\XY_Plotter.xaml.cs">
+      <DependentUpon>XY_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\XY_Graphs\XY\XY_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Channels_Selector.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Dispose.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\File_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Information_Tab.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\XY_Waveform_Plotter.xaml.cs">
+      <DependentUpon>XY_Waveform_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Markers_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Set_Labels.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\Waveform_Settings.cs" />
+    <Compile Include="Graphs\XY_Graphs\XY_waveform\XY_Waveform_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Apply_Interpolation.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Create_Anytime_FFT.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Dispose.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Draw_Mode.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\File_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Information_Tab.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Persistence_Effect.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Markers_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Reference_Waveforms.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Statistics_Table.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\YT_Plotter.xaml.cs">
+      <DependentUpon>YT_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\YT_Graphs\YT\Waveform_Settings.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\YT_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT\Zoom_Window_Control.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\AllChannels_YT_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Dispose.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Draw_Mode.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\File_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Information_Tab.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Markers_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\AllChannels_YT_Plotter.xaml.cs">
+      <DependentUpon>AllChannels_YT_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\YT_Graphs\YT_All\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Reference_Waveforms.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All\Waveform_Settings.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\AllChannels_YT_Square_Plotter.xaml.cs">
+      <DependentUpon>AllChannels_YT_Square_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\AllChannels_YT_Square_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Axis_Linked_Plots.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Dispose.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\File_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Information_Tab.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Markers_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Reference_Waveforms.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Square_Panels\Waveform_Settings.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\AllChannels_YT_Stack_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\AllChannels_YT_Stack_Plotter.xaml.cs">
+      <DependentUpon>AllChannels_YT_Stack_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Axis_Linked_Plots.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Dispose.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\File_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Information_Tab.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Markers_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Mouse_Tracker_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Reference_Waveforms.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\YT_Graphs\YT_All_Stack_Panels\Waveform_Settings.cs" />
+    <Compile Include="Misc\Helpful_Functions.cs" />
+    <Compile Include="Oscilloscope_Waveform_Data_Process\Tektronix_TDS_Waveform_Data_Process.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\FFT_Windows\FFT_Waterfall_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\Graph_Open_EventHandlers.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\Initialize_Colors.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\Advance_Windows\Analysis_Windows_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\Advance_Windows\Waveform_Calculator_Open.cs" />
+    <Compile Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\Analysis_Graph_Control\Analysis_Graph_Control.xaml.cs">
+      <DependentUpon>Analysis_Graph_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\DataLog_Graph_Control\DataLog_Graph_Control.xaml.cs">
+      <DependentUpon>DataLog_Graph_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\FFT_Graph_Control\FFT_Graph_Control.xaml.cs">
+      <DependentUpon>FFT_Graph_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\Histogram_Graph_Control\Histogram_Graph_Control.xaml.cs">
+      <DependentUpon>Histogram_Graph_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\Math_Graph_Control\Math_Graph_Control.xaml.cs">
+      <DependentUpon>Math_Graph_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\XY_Graph_Control\XY_Graph_Control.xaml.cs">
+      <DependentUpon>XY_Graph_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\YT_Graph_Control\YT_Graph_Control.xaml.cs">
+      <DependentUpon>YT_Graph_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graph_Windows_Control.xaml.cs">
+      <DependentUpon>Graph_Windows_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Acquire_Window\Acquire_Control.xaml.cs">
+      <DependentUpon>Acquire_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Channels_Windows\Channel_1\Channel_1_Control.xaml.cs">
+      <DependentUpon>Channel_1_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Channels_Windows\Channel_2\Channel_2_Control.xaml.cs">
+      <DependentUpon>Channel_2_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Channels_Windows\Channel_3\Channel_3_Control.xaml.cs">
+      <DependentUpon>Channel_3_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Channels_Windows\Channel_4\Channel_4_Control.xaml.cs">
+      <DependentUpon>Channel_4_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Home_Window\Home_Control.xaml.cs">
+      <DependentUpon>Home_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Horizontal_Window\Horizontal_Control.xaml.cs">
+      <DependentUpon>Horizontal_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Trigger_Window\Trigger_Control.xaml.cs">
+      <DependentUpon>Trigger_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Oscilloscope_Control_Windows_Control.xaml.cs">
+      <DependentUpon>Oscilloscope_Control_Windows_Control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NX-StarWave\ViewModels\AcquireWaveform_IValueConverter.cs" />
+    <Compile Include="NX-StarWave\ViewModels\AcquireWaveform_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Graphs_Selected_ViewModels\Analysis_Graphs_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Graphs_Selected_ViewModels\Datalog_Graphs_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Graphs_Selected_ViewModels\FFT_Graphs_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Graphs_Selected_ViewModels\Histogram_Graphs_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Graphs_Selected_ViewModels\Math_Graphs_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Graphs_Selected_ViewModels\WaveformCalculator_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Graphs_Selected_ViewModels\XY_Graphs_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Graphs_Selected_ViewModels\YT_Graphs_Selected_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\Oscilloscope_Controls_ViewModels\Home_UserControl_ViewModel\Home_UserControl_ViewModel.cs" />
+    <Compile Include="NX-StarWave\ViewModels\StatusBar_ViewModel.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\Data_Log_Windows\Data_Log_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\FFT_Windows\Math_FFT_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\FFT_Windows\FFT_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\FFT_Windows\FFT_Waveform_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\Histogram_Windows\Histogram_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\YT_Windows\Math_YT_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\XY_Windows\XY_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\YT_Windows\YT_All_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\YT_Windows\YT_Open.cs" />
+    <Compile Include="NX-StarWave\Misc\InitializeClasses.cs" />
+    <Compile Include="NX-StarWave\Connect_Windows_Open\Interface_Select_Window_Open.cs" />
+    <Compile Include="NX-StarWave\Waveform_Acquire\Acquire_Controls.cs" />
+    <Compile Include="NX-StarWave\Waveform_Acquire\Communication.cs" />
+    <Compile Include="NX-StarWave\Waveform_Acquire\Data_Process.cs" />
+    <Compile Include="NX-StarWave\Waveform_Acquire\Debug.cs" />
+    <Compile Include="NX-StarWave\Waveform_Acquire\Runtime.cs" />
+    <Compile Include="Communication\AR488_GPIB_Communication\AR488_GPIB_Select_Window.xaml.cs">
+      <DependentUpon>AR488_GPIB_Select_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Communication\AR488_GPIB_Communication\Misc\Get_Software_Directory.cs" />
+    <Compile Include="Communication\AR488_GPIB_Communication\Misc\Output_Log.cs" />
+    <Compile Include="Communication\AR488_GPIB_Communication\Save_Read_Serial_Config\Check_COM_Port.cs" />
+    <Compile Include="Communication\AR488_GPIB_Communication\Save_Read_Serial_Config\Read_Serial_Config.cs" />
+    <Compile Include="Communication\AR488_GPIB_Communication\Save_Read_Serial_Config\Save_Serial_Config.cs" />
+    <Compile Include="Communication\AR488_GPIB_Communication\Serial_Read_Write\Serial_Communication.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Calculator_Panel.xaml.cs">
+      <DependentUpon>Calculator_Panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Expression\Data_Process.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Expression\Expression_Calculate.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Expression\Expression_Verify.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Menu\File.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Menu\Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Menu\Table.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Misc\Output_Log.cs" />
+    <Compile Include="Waveform_Model_Classes\Reference_Waveform_Model_Class.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\FFT_Panels\Close_FFT_Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\FFT_Panels\Open_FFT_Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\FFT_Panels\Pass_Data_FFT_Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\Histogram_Panels\Close_Histogram_Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\Histogram_Panels\Open_Histogram_Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\Histogram_Panels\Pass_Data_Histogram_Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\Waveform_Panels\Close_Waveform_Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\Waveform_Panels\Open_Waveform_Panels.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Panels\Waveform_Panels\Pass_Data_Waveform_Panel.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Table\Table_Menu.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Table\Table_Save_Load.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\ViewModels\Expressions_Table_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\ViewModels\Expression_Config_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\ViewModels\Expression_FFT_Config.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\ViewModels\Expression_Histogram_Config.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\ViewModels\Expression_Waveform_Config.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\ViewModels\Waveform_Calculator_ViewModel.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Expression_Process.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\FFT_Panel.xaml.cs">
+      <DependentUpon>FFT_Panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\FFT_Process.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Graph_Process.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Markers_Menu.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Mouse_Tracker.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Peaks_Finder.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\Right_Click_Menu.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Expression_Process.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Graph_Process.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Histogram_Panel.xaml.cs">
+      <DependentUpon>Histogram_Panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Mouse_Tracker.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Right_Click_Menu.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Expression_Process.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Graph_Process.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Markers_Menu.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Mouse_Tracker.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Reference_Waveform.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Right_Click_Menu.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Statistics.cs" />
+    <Compile Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Waveform_Panel.xaml.cs">
+      <DependentUpon>Waveform_Panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SCPI_Commands\Acquire_Commands\Acquire_SCPI_Commands.cs" />
+    <Compile Include="SCPI_Commands\Channel_Commands\Channel_SCPI_Commands.cs" />
+    <Compile Include="SCPI_Commands\General_Commands\General_SCPI_Commands.cs.cs" />
+    <Compile Include="SCPI_Commands\HardCopy_Commands\HardCopy_SCPI_Commands.cs" />
+    <Compile Include="SCPI_Commands\Horizontal_Commands\Horizontal_SCPI_Commands.cs" />
+    <Compile Include="SCPI_Commands\Save_Load_Commands\Save_Load_SCPI_Commands.cs" />
+    <Compile Include="SCPI_Commands\Trigger_Commands\Trigger_SCPI_Commands.cs" />
+    <Compile Include="Waveform_Model_Classes\Remote_Channel_Waveform_Model_Class.cs" />
+    <Compile Include="Waveform_Model_Classes\Waveform_Data_Model_Class.cs" />
+    <Compile Include="Waveform_Model_Classes\Wavefrom_Web_Server_Model_Class.cs" />
+    <Page Include="Advance_Windows\Compare_YT_Plots\Compare_YT_Plots.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\HardCopy_Window\HardCopy_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Create_Custom_Math_Expression_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Remote_Channels_Setup_Window\Remote_Channels_Setup_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\NodeNetwork_Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\FFT_Graphs_Node\1_Input\View\FFT_Inputs_1_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\YT_Graphs_Node\1_Input\View\YT_Inputs_1_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Math_Node\View\Basic_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Value_Math_Node\View\Basic_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Basic_Waveform_Shift_Node\View\Basic_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\1_Input\View\Custom_Math_Expression_View_1_Input.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\2_Input\View\Custom_Math_Expression_View_2_Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\3_Input\View\Custom_Math_Expression_View_3_Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\4_Input\View\Custom_Math_Expression_View_4_Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\5_Input\View\Custom_Math_Expression_View_5_Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\6_Input\View\Custom_Math_Expression_View_6_Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Math_Nodes\Custom_Math_Expressions_Node\7_Input\View\Custom_Math_Expression_View_7_Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\1_Input\View\Histogram_Inputs_1_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\Histogram_Graphs_Node\2_Input\View\Histogram_Inputs_2_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_1\View\Channel_1_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_2\View\Channel_2_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_3\View\Channel_3_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Channel_4\View\Channel_4_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_10\View\Channel_10_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_11\View\Channel_11_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_12\View\Channel_12_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_5\View\Channel_5_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_6\View\Channel_6_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_7\View\Channel_7_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_8\View\Channel_8_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\NodeNetwork_Math\Node_Views\Oscilloscope_Channel_Node\Remote_Channel_9\View\Channel_9_Node_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\Query_Measurements_Config\Query_Measurement_Config_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\Reference_Calculator\Reference_Config_Window\Reference_Config_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\SCPI_Communication\SCPI_Communication_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\Waveform_Player\Waveform_Player_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Web_Server_MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Histogram_2_Inputs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Measurement_Plot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\YT_All_Seperate_Axis_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\HardCopy_Window\HardCopy_Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Set_Colors_Controls\Set_Colors_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reusable_Controls\Gated_Peaks_Table_Window\Gated_Peaks_Table.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reusable_Controls\Query_Measurement_Control\Query_Measurement_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Communication\VISA_GPIB_Communication\VISA_GPIB_Select_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\Anytime_Graphs\Anytime_FFT\Anytime_FFT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\Anytime_Graphs\AnyTime_Histogram\Anytime_Histogram.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\Anytime_Graphs\Anytime_Waveform\Anytime_Waveform.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\Data_Log_Graphs\Graphing_Window\Graphing_Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\Data_Log_Graphs\Histogram_Window\Histogram_Waveform.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\Data_Log_Graphs\MathWaveform_Widow\Math_Waveform.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\FFT_Graphs\FFT\FFT_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\FFT_Graphs\FFT_Waterfall\FFT_Waterfall_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\FFT_Graphs\FFT_Waveform\FFT_Waveform_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\Histogram_Graphs\Histogram\Histogram_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\FFT_Graphs\Math_FFT\Math_FFT_Plotter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\YT_Graphs\Math_YT\Math_YT_Plotter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\XY_Graphs\XY\XY_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\XY_Graphs\XY_waveform\XY_Waveform_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\YT_Graphs\YT\YT_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\YT_Graphs\YT_All\AllChannels_YT_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\YT_Graphs\YT_All_Square_Panels\AllChannels_YT_Square_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\YT_Graphs\YT_All_Stack_Panels\AllChannels_YT_Stack_Plotter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\NX-StarWave.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NX-StarWave\Config_Menu\Config_Options.cs" />
+    <Compile Include="NX-StarWave\NX-StarWave.xaml.cs">
+      <DependentUpon>NX-StarWave.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\Analysis_Graph_Control\Analysis_Graph_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\DataLog_Graph_Control\DataLog_Graph_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\FFT_Graph_Control\FFT_Graph_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\Histogram_Graph_Control\Histogram_Graph_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\Math_Graph_Control\Math_Graph_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\XY_Graph_Control\XY_Graph_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graphs_Select_Controls\YT_Graph_Control\YT_Graph_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Graph_Windows_Controls\Graph_Windows_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Acquire_Window\Acquire_Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Channels_Windows\Channel_1\Channel_1_Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Channels_Windows\Channel_2\Channel_2_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Channels_Windows\Channel_3\Channel_3_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Channels_Windows\Channel_4\Channel_4_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Home_Window\Home_Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Horizontal_Window\Horizontal_Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Control_Windows\Trigger_Window\Trigger_Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NX-StarWave\User_Controls\Oscilloscope_Control_Controls\Oscilloscope_Control_Windows_Control.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Communication\AR488_GPIB_Communication\AR488_GPIB_Select_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Advance_Windows\Waveform_Calculator\Calculator_Panel\Calculator_Panel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\Waveform_Calculator\Graph_Panels\FFT_Panel\FFT_Panel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Histogram_Panel\Histogram_Panel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Advance_Windows\Waveform_Calculator\Graph_Panels\Waveform_Panel\Waveform_Panel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reusable_Controls\Statistics_Table_Window\Statistics_Table.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NX-StarWave\Misc\Output_Log.cs" />
+    <Compile Include="NX-StarWave\Misc\Set_Culture.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="LICENSE.md" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Advance_Windows\NodeNetwork_Math\Node_Views\Graph_Nodes\FFT_Graphs_Node\1_input_Waterfall\" />
+    <Folder Include="Graphs\Measurement_Graphs\Measurement_Histogram_Plot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="NX-StarWave\Assets\Draw_Mode_ICONs\ERASER_ICON.png" />
+    <Resource Include="NX-StarWave\Assets\Draw_Mode_ICONs\MARKER_ICON.png" />
+    <Resource Include="NX-StarWave\Assets\Draw_Mode_ICONs\PEN_ICON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ICON.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>; Move all assemblies and related files to lib folder
+ROBOCOPY "$(TargetDir) " "$(TargetDir)NX_StarWave_Files\ " /XF *.exe *.config *.manifest /XD NX_StarWave_Files logs data /E /IS /MOVE
+if %25errorlevel%25 leq 4 exit 0 else exit %25errorlevel%25</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,258 @@
+﻿<mah:MetroWindow x:Class="SCPI_Communication.SCPI_Communication_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:SCPI_Communication"
+        mc:Ignorable="d"
+        Title="SCPI Communication" 
+        TitleCharacterCasing="Normal"
+        Height="500" 
+        Width="700"
+        Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <Menu.Resources>
+                <Style TargetType="MenuItem" BasedOn="{StaticResource MahApps.Styles.MenuItem}">
+                    <Setter Property="IsCheckable" Value="False"/>
+                    <Setter Property="IsChecked" Value="False"/>
+                    <Setter Property="Margin" Value="0,0,0,0"/>
+                    <Setter Property="Padding" Value="0"/>
+                </Style>
+            </Menu.Resources>
+            <MenuItem Header="File" IsCheckable="False" IsChecked="False">
+                <MenuItem.ToolTip>
+                    <ToolTip>Load/Save Table Expressions and Ref Waveforms</ToolTip>
+                </MenuItem.ToolTip>
+                <MenuItem Header="Table Expressions" IsCheckable="False" IsChecked="False">
+                    <MenuItem Header="Load" IsCheckable="False" IsChecked="False" Click="Load_Expressions_from_File_to_Table_Click"/>
+                    <MenuItem Header="Save" IsCheckable="False" IsChecked="False" Click="Save_Expressions_from_Table_to_Text_File_Click"/>
+                    <MenuItem Header="Save (Append)" IsCheckable="False" IsChecked="False" Click="Save_Expressions_Append_from_Table_to_Text_File_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="Exit" Header="Exit" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Table" IsCheckable="False" IsChecked="False">
+                <MenuItem.ToolTip>
+                    <ToolTip>Load/Save expressions to/from the table.</ToolTip>
+                </MenuItem.ToolTip>
+                <MenuItem Header="Quick Save" IsCheckable="False" IsChecked="False" Click="Quick_Save_AutoLoad_File_Click"/>
+                <MenuItem Header="Quick Load" IsCheckable="False" IsChecked="False" Click="Quick_Load_AutoLoad_File_Click"/>
+                <MenuItem Header="Load Selected" IsCheckable="False" Click="Load_Selected_SCPI_Expressions_Click"/>
+                <MenuItem Header="Clear Table" IsCheckable="False" Click="Clear_Table_Click"/>
+            </MenuItem>
+            <MenuItem Header="Output Log" IsCheckable="False" IsChecked="False">
+                <MenuItem.ToolTip>
+                    <ToolTip>Clear/Save Output Log.</ToolTip>
+                </MenuItem.ToolTip>
+                <MenuItem x:Name="Auto_Scroll" Header="Auto Scroll" IsCheckable="True" IsChecked="True" Click="Auto_Scroll_Click"/>
+                <MenuItem Header="Auto Clear" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Auto_Clear_20" Header="20 Logs" IsCheckable="True" IsChecked="False" Click="Auto_Clear_20_Click"/>
+                    <MenuItem x:Name="Auto_Clear_40" Header="40 Logs" IsCheckable="True" IsChecked="True" Click="Auto_Clear_40_Click"/>
+                    <MenuItem x:Name="Auto_Clear_80" Header="80 Logs" IsCheckable="True" IsChecked="False" Click="Auto_Clear_80_Click"/>
+                    <MenuItem x:Name="Auto_Clear_100" Header="100 Logs" IsCheckable="True" IsChecked="False" Click="Auto_Clear_100_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="Save_Log" Header="Save Output Log" IsCheckable="False" IsChecked="False" Click="Save_Log_Click"/>
+                <MenuItem x:Name="Clear_Log" Header="Clear Output Log" IsCheckable="False" IsChecked="False" Click="Clear_Log_Click"/>
+            </MenuItem>
+        </Menu>
+        <DockingManager x:Name="SCPI_Communication_DockManager" Grid.Row="1">
+            <DockingManager.Theme>
+                <Vs2013LightTheme/>
+            </DockingManager.Theme>
+            <LayoutRoot>
+                <LayoutPanel Orientation="Vertical">
+                    <LayoutAnchorablePaneGroup Orientation="Horizontal" DockHeight="2*">
+                        <LayoutAnchorablePane DockWidth="1.9*">
+                            <LayoutAnchorable Title="SCPI Command" CanClose="False" CanHide="False" CanAutoHide="False" CanDockAsTabbedDocument="False">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="60"/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.Resources>
+                                        <Style TargetType="GroupBox">
+                                            <Setter Property="Margin" Value="2,0,2,0"/>
+                                            <Setter Property="FontSize" Value="12"/>
+                                            <Setter Property="Padding" Value="0"/>
+                                        </Style>
+                                        <Style x:Key="Expression_ScrollViewer_Style" TargetType="ScrollViewer" BasedOn="{StaticResource MahApps.Styles.ScrollViewer}">
+                                            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+                                            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+                                            <Setter Property="Margin" Value="2,2,2,0"/>
+                                            <Setter Property="Padding" Value="0,0,0,0"/>
+                                        </Style>
+                                        <Style x:Key="Expression_Border_Style" TargetType="Border">
+                                            <Setter Property="Margin" Value="2,2,2,2"/>
+                                            <Setter Property="Padding" Value="0,0,0,0"/>
+                                            <Setter Property="BorderThickness" Value="2"/>
+                                            <Setter Property="BorderBrush" Value="#FFE0E0E0"/>
+                                            <Setter Property="CornerRadius" Value="3,3,3,3"/>
+                                        </Style>
+                                        <Style x:Key="Expression_Name_TextBox_Style" TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                            <Setter Property="TextWrapping" Value="NoWrap"/>
+                                            <Setter Property="Padding" Value="0,0,0,0"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Setter Property="BorderBrush" Value="{x:Null}"/>
+                                            <Setter Property="FontSize" Value="12"/>
+                                            <Setter Property="VerticalContentAlignment" Value="Top"/>
+                                            <Setter Property="mah:TextBoxHelper.AutoWatermark" Value="True"/>
+                                            <Setter Property="mah:TextBoxHelper.Watermark" Value="Expression's Description (Optional)..."/>
+                                        </Style>
+                                        <Style x:Key="Expression_TextBox_Style" TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                                            <Setter Property="TextWrapping" Value="Wrap"/>
+                                            <Setter Property="Padding" Value="0,0,0,0"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Setter Property="BorderBrush" Value="{x:Null}"/>
+                                            <Setter Property="FontSize" Value="16"/>
+                                            <Setter Property="mah:TextBoxHelper.AutoWatermark" Value="True"/>
+                                            <Setter Property="mah:TextBoxHelper.Watermark" Value="Enter your SCPI Expression here..."/>
+                                        </Style>
+                                    </Grid.Resources>
+                                    <Border Grid.Row="0" Style="{StaticResource Expression_Border_Style}">
+                                        <ScrollViewer Style="{StaticResource Expression_ScrollViewer_Style}">
+                                            <ScrollViewer Style="{StaticResource Expression_ScrollViewer_Style}">
+                                                <TextBox  Text="{Binding SCPI_Expression}" Style="{StaticResource Expression_TextBox_Style}"/>
+                                            </ScrollViewer>
+                                        </ScrollViewer>
+                                    </Border>
+                                    <Border Grid.Row="1" Style="{StaticResource Expression_Border_Style}">
+                                        <TextBox Text="{Binding SCPI_Expression_Description}" Style="{StaticResource Expression_Name_TextBox_Style}"/>
+                                    </Border>
+                                    <Grid Grid.Row="2">
+                                        <Grid.Resources>
+                                            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Flat}">
+                                                <Setter Property="Padding" Value="0,0,0,0"/>
+                                                <Setter Property="Margin" Value="5,0,5,0"/>
+                                                <Setter Property="FontSize" Value="14"/>
+                                            </Style>
+                                        </Grid.Resources>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Grid.Column="0" Content="Send" Click="Send_SCPI_Commands_Click"/>
+                                        <Button Grid.Column="1" Content="Verify" Click="Expression_Verify_Click"/>
+                                        <Button Grid.Column="2" Content="Clear" Click="Clear_Expression_Click"/>
+                                        <Button Grid.Column="3" Content="Save" Click="Save_Expression_to_Table_Click"/>
+                                        <Button Grid.Column="4" Content="Update" Click="Update_Selected_Expression_from_Table_Click"/>
+                                    </Grid>
+                                    <Grid Grid.Row="3">
+                                        <Grid.Resources>
+                                            <Style TargetType="Label">
+                                                <Setter Property="Margin" Value="3,1,3,0"/>
+                                                <Setter Property="Padding" Value="0,0,0,0"/>
+                                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                                <Setter Property="FontSize" Value="12"/>
+                                            </Style>
+                                            <Style x:Key="ToggleSwitch_Style" TargetType="mah:ToggleSwitch">
+                                                <Setter Property="Padding" Value="0"/>
+                                                <Setter Property="ContentPadding" Value="-8"/>
+                                                <Setter Property="Margin" Value="0,0,0,0"/>
+                                                <Setter Property="FontSize" Value="12"/>
+                                                <Setter Property="MinWidth" Value="70"/>
+                                                <Style.Resources>
+                                                    <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOn" Color="#00CE30"/>
+                                                    <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOnPointerOver" Color="#00CE30"/>
+                                                </Style.Resources>
+                                            </Style>
+                                        </Grid.Resources>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                            <Label Content="Auto Clear"/>
+                                            <mah:ToggleSwitch Style="{StaticResource ToggleSwitch_Style}" OnContent="On" OffContent="Off" IsOn="{Binding Auto_Clear}" ToolTip="Auto clear input fields after calculating."/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                            <Label Content="Auto Save"/>
+                                            <mah:ToggleSwitch Style="{StaticResource ToggleSwitch_Style}" OnContent="On" OffContent="Off" IsOn="{Binding Auto_Save}" ToolTip="Auto save expression to table after calculating."/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Label Content="Auto Load"/>
+                                            <mah:ToggleSwitch Style="{StaticResource ToggleSwitch_Style}" OnContent="On" OffContent="Off" IsOn="{Binding Auto_Load}" ToolTip="Auto Load expression after selecting it from table."/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </LayoutAnchorable>
+                        </LayoutAnchorablePane>
+                        <LayoutAnchorablePane DockWidth="1.3*">
+                            <LayoutAnchorable Title="SCPI Commands Table" CanClose="False" CanHide="False" CanAutoHide="False" CanDockAsTabbedDocument="False">
+                                <DataGrid x:Name="Expression_DataGrid" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,0"
+                                                    VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                                                    AutoGenerateColumns="False" IsReadOnly="False"
+                                                    CanUserAddRows="False" CanUserDeleteRows="True" 
+                                                    CanUserReorderColumns="True" CanUserResizeRows="True" 
+                                                    CanUserSortColumns="True" CanUserResizeColumns="True"
+                                                    EnableColumnVirtualization="True" EnableRowVirtualization="True"
+                                                    ItemsSource="{Binding SCPI_Expression_Table}"
+                                                    SelectedItem="{Binding Selected_SCPI_Expression_Data}"
+                                                    SelectionChanged="SCPI_Expression_DataGrid_SelectionChanged"
+                                                    MouseDoubleClick="SCPI_Expression_Load_Selected_Mouse_Double_Click">
+                                    <DataGrid.Resources>
+                                        <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource MahApps.Styles.DataGridColumnHeader}">
+                                            <Setter Property="mah:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+                                        </Style>
+                                    </DataGrid.Resources>
+                                    <DataGrid.Columns>
+                                        <DataGridCheckBoxColumn Header="Select" Binding="{Binding SCPI_Expression_Selected}" IsReadOnly="False"/>
+                                        <DataGridTextColumn Header="Description" Binding="{Binding SCPI_Expression_Description}" IsReadOnly="True">
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                    <Setter Property="Padding" Value="0,0,0,0"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Header="Expression" Binding="{Binding SCPI_Expression}" IsReadOnly="True">
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style TargetType="TextBlock">
+                                                    <Setter Property="Margin" Value="10,0,0,0"/>
+                                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                                    <Setter Property="Padding" Value="0,0,0,0"/>
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </LayoutAnchorable>
+                        </LayoutAnchorablePane>
+                    </LayoutAnchorablePaneGroup>
+                    <LayoutAnchorablePaneGroup Orientation="Vertical">
+                        <LayoutAnchorablePane DockHeight="*">
+                            <LayoutAnchorable Title="SCPI Output Log" CanClose="False" CanHide="False" CanAutoHide="False" CanDockAsTabbedDocument="False">
+                                <ScrollViewer x:Name="Output_Log_Scroll" HorizontalScrollBarVisibility="Auto">
+                                    <ScrollViewer.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Clear" IsCheckable="False" IsChecked="False" Click="Clear_Log_Click"/>
+                                            <MenuItem Header="Save" IsCheckable="False" IsChecked="False" Click="Save_Log_Click"/>
+                                        </ContextMenu>
+                                    </ScrollViewer.ContextMenu>
+                                    <ItemsControl  ItemsSource="{Binding Output_Log}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <VirtualizingStackPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </LayoutAnchorable>
+                        </LayoutAnchorablePane>
+                    </LayoutAnchorablePaneGroup>
+                </LayoutPanel>
+            </LayoutRoot>
+        </DockingManager>
+    </Grid>
+</mah:MetroWindow>

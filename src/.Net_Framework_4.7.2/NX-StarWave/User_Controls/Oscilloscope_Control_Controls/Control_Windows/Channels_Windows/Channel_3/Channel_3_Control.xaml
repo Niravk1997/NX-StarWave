@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="Channel_3_Control_Window.Channel_3_Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:local="clr-namespace:Channel_3_Control_Window"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" 
+             d:DesignWidth="350">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Channel 3 Commands" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="16" VerticalAlignment="Center"/>
+        <Rectangle Grid.Column="0" Grid.Row="1" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+        <ScrollViewer Grid.Column="0" Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Panel.ZIndex="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="3"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="3"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="3"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="3"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="3"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="5,0,5,0"/>
+                        <Setter Property="FontWeight" Value="Regular"/>
+                    </Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Orientation" Value="Horizontal"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="5,0,5,0"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                        <Setter Property="Width" Value="60"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="Padding" Value="0"/>
+                    </Style>
+                    <Style x:Key="CH3_Button_Style" TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
+                        <Setter Property="Background" Value="DeepPink"/>
+                        <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="Margin" Value="5,0,0,0"/>
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontWeight" Value="Regular"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="mah:ControlsHelper.CornerRadius" Value="3" />
+                        <Setter Property="mah:ControlsHelper.FocusBorderBrush" Value="{x:Null}" />
+                        <Setter Property="mah:ControlsHelper.FocusBorderThickness" Value="1" />
+                        <Setter Property="mah:ControlsHelper.MouseOverBorderBrush" Value="{x:Null}" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Grid>
+                                        <mah:ClipBorder x:Name="Border"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="{TemplateBinding mah:ControlsHelper.CornerRadius}"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        <mah:ClipBorder x:Name="DisabledVisualElement"
+                                        Background="{DynamicResource MahApps.Brushes.Control.Disabled}"
+                                        CornerRadius="{TemplateBinding mah:ControlsHelper.CornerRadius}"
+                                        IsHitTestVisible="False"
+                                        Opacity="0"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                        <mah:ContentControlEx x:Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding BorderThickness}"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentCharacterCasing="Normal"                                              
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                              RecognizesAccessKey="{TemplateBinding mah:ControlsHelper.RecognizesAccessKey}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Foreground" Value="Black"/>
+                                            <Setter Property="Opacity" Value="0.7"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Opacity" Value="1"/>
+                                        </Trigger>
+                                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="DisabledVisualElement" Property="Opacity" Value="0.7" />
+                                            <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value="0.3" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Grid.Resources>
+                <StackPanel Grid.Column="0" Grid.Row="0">
+                    <Button Content="ON" Margin="5,2,5,0" Width="50" Style="{StaticResource CH3_Button_Style}" Background="#FF00B33C" FontWeight="Regular" Click="Channel_3_ON_Click"/>
+                    <Button Content="OFF" Margin="5,2,5,0" Width="50" Style="{StaticResource CH3_Button_Style}" Background="#FFF40D0D" FontWeight="Regular" Click="Channel_3_OFF_Click"/>
+                    <Button Content="?" Margin="5,2,5,0" Width="50" Style="{StaticResource CH3_Button_Style}" Background="DarkOrange" FontWeight="Regular" Click="Channel_3_Status_Query_Click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="2">
+                    <Label Content="Coupling: "/>
+                    <Button Content="DC" Width="40"  Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Coupling_DC_Click"/>
+                    <Button Content="AC" Width="40" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Coupling_AC_Click"/>
+                    <Button Content="GND" Width="40" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Coupling_GND_Click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="4">
+                    <Label Content="Bandwidth: "/>
+                    <Button Content="FULL" Width="40" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Bandwidth_FULL_Click"/>
+                    <Button Content="250 MHz" Width="60" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Bandwidth_250MHz_Click"/>
+                    <Button Content="20 MHz" Width="55" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Bandwidth_20MHz_Click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="6">
+                    <Label Content="Termination: "/>
+                    <Button Content="1M Ω" Width="40" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Termination_1M_Click"/>
+                    <Button Content="50 Ω" Width="40" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Termination_50_Click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="8">
+                    <Label Content="Vertical Position: "/>
+                    <TextBox  x:Name="CH3_Vertical_Postion_TextBox" Text="0"/>
+                    <Button Content="Set" Width="40" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Vertical_Position_SetValue_Click"/>
+                    <Button Content="?" Width="40" Style="{StaticResource CH3_Button_Style}"  Background="{Binding Channel_3_Color}" Click="Channel_3_Vertical_Position_Query_Click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="10">
+                    <Label Content="Vertical Offset: "/>
+                    <TextBox x:Name="CH3_Vertical_Offset_TextBox" Text="0"/>
+                    <Button Content="Set" Width="40" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Vertical_Offset_SetValue_Click"/>
+                    <Button Content="?" Width="40" Style="{StaticResource CH3_Button_Style}" Background="{Binding Channel_3_Color}" Click="Channel_3_Vertical_Offset_Query_Click"/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

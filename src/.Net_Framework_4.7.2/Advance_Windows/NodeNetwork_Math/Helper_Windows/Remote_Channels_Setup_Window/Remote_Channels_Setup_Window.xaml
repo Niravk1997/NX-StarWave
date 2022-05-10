@@ -1,0 +1,385 @@
+﻿<mah:MetroWindow  
+    x:Class="Remote_Channels_Setup_Window_Config.Remote_Channels_Setup_Window"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:colorpicker="clr-namespace:ColorPicker;assembly=ColorPicker"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:local="clr-namespace:Remote_Channels_Setup_Window_Config"  
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    mc:Ignorable="d"
+    Title="Remote Channels Setup" 
+    TitleCharacterCasing="Normal"
+    Height="450" 
+    Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                    </Style>
+                    <Style x:Key="Channel_Label_Style" TargetType="Label">
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource MahApps.Styles.ComboBox}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                    </Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="MinWidth" Value="0"/>
+                    </Style>
+                    <Style x:Key="Channel_Name_Style" TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="mah:TextBoxHelper.AutoWatermark" Value="True"/>
+                        <Setter Property="mah:TextBoxHelper.Watermark" Value="Channel Name Here..."/>
+                    </Style>
+                    <Style x:Key="Waveform_Counter_Style" TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="mah:TextBoxHelper.AutoWatermark" Value="True"/>
+                        <Setter Property="mah:TextBoxHelper.Watermark" Value="http:// Counter Address Here..."/>
+                    </Style>
+                    <Style x:Key="Waveform_URL_Style" TargetType="TextBox" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="mah:TextBoxHelper.AutoWatermark" Value="True"/>
+                        <Setter Property="mah:TextBoxHelper.Watermark" Value="http:// Waveform Address Here..."/>
+                    </Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="5,0,10,0"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="MinWidth" Value="0"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="VerticalAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    </Style>
+                    <Style TargetType="mah:ToggleSwitch">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="ContentPadding" Value="0"/>
+                        <Setter Property="Margin" Value="5,0,0,0"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="MinWidth" Value="80"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="Height" Value="30"/>
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOn" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOnPointerOver" Color="#00CE30"/>
+                        </Style.Resources>
+                    </Style>
+                    <Style TargetType="colorpicker:PortableColorPicker">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="5,5,5,5"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="MinWidth" Value="0"/>
+                    </Style>
+                    <Style TargetType="TabControl" BasedOn="{StaticResource MahApps.Styles.TabControl}">
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                    </Style>
+                    <Style TargetType="TabItem" BasedOn="{StaticResource MahApps.Styles.TabItem}">
+                        <Setter Property="mah:HeaderedControlHelper.HeaderFontSize" Value="14"/>
+                        <Setter Property="Padding" Value="4,0,4,0"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource Channel_Label_Style}" Content="RC 5"/>
+                    <colorpicker:PortableColorPicker Grid.Row="1" SelectedColor="{Binding Remote_CH_5_Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Name: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Counter: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="Waveform: "/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_5_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_5_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_5_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
+                    <Button x:Name="RC5_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test" Click="Remote_Channel_Connection_Test_Button_Click"/>
+                    <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_5_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource Channel_Label_Style}" Content="RC 6"/>
+                    <colorpicker:PortableColorPicker Grid.Row="1" SelectedColor="{Binding Remote_CH_6_Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Name: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Counter: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="Waveform: "/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_6_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_6_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_6_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
+                    <Button x:Name="RC6_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_6_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource Channel_Label_Style}" Content="RC 7"/>
+                    <colorpicker:PortableColorPicker Grid.Row="1" SelectedColor="{Binding Remote_CH_7_Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Name: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Counter: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="Waveform: "/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_7_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_7_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_7_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
+                    <Button x:Name="RC7_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_7_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="7">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource Channel_Label_Style}" Content="RC 8"/>
+                    <colorpicker:PortableColorPicker Grid.Row="1" SelectedColor="{Binding Remote_CH_8_Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Name: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Counter: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="Waveform: "/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_8_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_8_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_8_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
+                    <Button x:Name="RC8_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_8_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="9">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource Channel_Label_Style}" Content="RC 9"/>
+                    <colorpicker:PortableColorPicker Grid.Row="1" SelectedColor="{Binding Remote_CH_9_Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Name: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Counter: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="Waveform: "/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_9_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_9_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_9_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
+                    <Button x:Name="RC9_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_9_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="11">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource Channel_Label_Style}" Content="RC 10"/>
+                    <colorpicker:PortableColorPicker Grid.Row="1" SelectedColor="{Binding Remote_CH_10_Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Name: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Counter: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="Waveform: "/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_10_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_10_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_10_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
+                    <Button x:Name="RC10_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_10_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="13">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource Channel_Label_Style}" Content="RC 11"/>
+                    <colorpicker:PortableColorPicker Grid.Row="1" SelectedColor="{Binding Remote_CH_11_Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Name: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Counter: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="Waveform: "/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_11_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_11_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_11_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
+                    <Button x:Name="RC11_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_11_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+
+                <Grid Grid.Row="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Style="{StaticResource Channel_Label_Style}" Content="RC 12"/>
+                    <colorpicker:PortableColorPicker Grid.Row="1" SelectedColor="{Binding Remote_CH_12_Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Name: "/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="Counter: "/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="Waveform: "/>
+                    <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_12_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
+                    <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_12_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_12_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
+                    <Button x:Name="RC12_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_12_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="90"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Margin" Value="0,0,0,0"/>
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                </Style>
+                <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="Margin" Value="5,5,5,5"/>
+                    <Setter Property="MinHeight" Value="0"/>
+                    <Setter Property="MinWidth" Value="0"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                </Style>
+                <Style TargetType="mah:ToggleSwitch">
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="ContentPadding" Value="0"/>
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="MinWidth" Value="80"/>
+                    <Setter Property="MinHeight" Value="0"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOn" Color="#00CE30"/>
+                        <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOnPointerOver" Color="#00CE30"/>
+                    </Style.Resources>
+                </Style>
+            </Grid.Resources>
+            <Label Grid.Column="1" Content="Remote Channels Acquire Process:"/>
+            <mah:ToggleSwitch Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Get_Remote_Channels_Data, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Column="5" Content="Remote Channels Settings:"/>
+            <Button Grid.Column="7" Content="Save" Click="Remote_Channels_Config_Save_Click"/>
+        </Grid>
+
+        <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+        <ScrollViewer Grid.Row="3" x:Name="Output_Log_Scroll" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Save Output Log" Click="Save_Log_Click"/>
+                    <MenuItem Header="Clear Output Log" Click="Clear_Log_Click"/>
+                </ContextMenu>
+            </ScrollViewer.ContextMenu>
+            <TextBlock x:Name="Output_Log" FontSize="12"/>
+        </ScrollViewer>
+    </Grid>
+</mah:MetroWindow>

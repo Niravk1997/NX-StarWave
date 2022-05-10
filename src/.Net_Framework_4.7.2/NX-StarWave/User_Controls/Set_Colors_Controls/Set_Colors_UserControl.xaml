@@ -1,0 +1,325 @@
+﻿<UserControl x:Class="Set_Colors_Controls.Set_Colors_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             d:DesignHeight="220" 
+             d:DesignWidth="350">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
+                <Setter Property="Margin" Value="10,0,0,0"/>
+                <Setter Property="Padding" Value="0,0,0,0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+            <Style TargetType="Label" BasedOn="{StaticResource MahApps.Styles.Label}">
+                <Setter Property="Padding" Value="0,0,0,0"/>
+                <Setter Property="Margin" Value="10,0,0,0"/>
+                <Setter Property="MinHeight" Value="0"/>
+                <Setter Property="MinWidth" Value="0"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            <Style TargetType="StackPanel">
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0,5,0,5"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+            </Style>
+            <Style TargetType="TabControl" BasedOn="{StaticResource MahApps.Styles.TabControl}">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+            </Style>
+            <Style TargetType="TabItem" BasedOn="{StaticResource MahApps.Styles.TabItem}">
+                <Setter Property="mah:HeaderedControlHelper.HeaderFontSize" Value="16"/>
+                <Setter Property="Padding" Value="4,0,4,0"/>
+            </Style>
+        </Grid.Resources>
+        <TabControl>
+            <TabItem Header="Theme">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
+                            <Setter Property="Margin" Value="0,0,0,0"/>
+                            <Setter Property="Padding" Value="0,0,0,0"/>
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Style>
+                    </Grid.Resources>
+                    <StackPanel Grid.Row="0">
+                        <Label Content="Light Theme: "/>
+                        <Button Content="Set" Command="{Binding Path=Set_Light_Theme}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <Label Content="Dark Theme: " Margin="12,0,0,0"/>
+                        <Button Content="Set" Command="{Binding Path=Set_Dark_Theme}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2">
+                        <StackPanel.Resources>
+                            <Style TargetType="ComboBox" BasedOn="{StaticResource MahApps.Styles.ComboBox}">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Width" Value="120"/>
+                            </Style>
+                            <Style TargetType="ComboBoxItem" BasedOn="{StaticResource MahApps.Styles.ComboBoxItem}">
+                                <Setter Property="Padding" Value="0,0,0,0"/>
+                                <Setter Property="Margin" Value="0,0,0,0"/>
+                                <Setter Property="MinHeight" Value="0"/>
+                            </Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Orientation" Value="Horizontal"/>
+                                <Setter Property="Margin" Value="0,0,0,0"/>
+                            </Style>
+                            <Style TargetType="Rectangle">
+                                <Setter Property="Height" Value="20"/>
+                                <Setter Property="Width" Value="20"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Margin" Value="0,0,0,0"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Label Content="Accent: " Margin="49,0,0,0"/>
+                        <ComboBox Padding="0,0,0,0" Margin="0,0,0,0" SelectedIndex="{Binding Accent_Selected_Index, Mode=TwoWay}">
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF9F9471"/>
+                                    <Label Content="Taupe"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF49B4E8"/>
+                                    <Label Content="Cyan"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF9180A1"/>
+                                    <Label Content="Mauve"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF80BA45"/>
+                                    <Label Content="Green"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFB37557"/>
+                                    <Label Content="Sienna"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF8A9F83"/>
+                                    <Label Content="Olive"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF33A133"/>
+                                    <Label Content="Emerald"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFBB33FF"/>
+                                    <Label Content="Violet"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF83919F"/>
+                                    <Label Content="Steel"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF33BCBA"/>
+                                    <Label Content="Teal"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">
+                                <StackPanel>
+                                    <Rectangle Fill="#FF3393DF"/>
+                                    <Label Content="Blue"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFFEE538"/>
+                                    <Label Content="Yellow"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFEA4333"/>
+                                    <Label Content="Red"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF837AE5"/>
+                                    <Label Content="Purple"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFE0338F"/>
+                                    <Label Content="Magenta"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFFB8633"/>
+                                    <Label Content="Orange"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF8833FF"/>
+                                    <Label Content="Indigo"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFF68ED9"/>
+                                    <Label Content="Pink"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFB6D033"/>
+                                    <Label Content="Lime"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF9B7B56"/>
+                                    <Label Content="Brown"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FF3373F2"/>
+                                    <Label Content="Cobalt"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFB53351"/>
+                                    <Label Content="Crimson"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                <StackPanel>
+                                    <Rectangle Fill="#FFF3B53B"/>
+                                    <Label Content="Amber"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Channels">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <Label Content="Channel 1: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Channel_1_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <Label Content="Channel 2: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Channel_2_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2">
+                        <Label Content="Channel 3: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Channel_3_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3">
+                        <Label Content="Channel 4: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Channel_4_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Math YT">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <Label Content="Window 1: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Math_YT_Window_1_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <Label Content="Window 2: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Math_YT_Window_2_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2">
+                        <Label Content="Window 3: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Math_YT_Window_3_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3">
+                        <Label Content="Window 4: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Math_YT_Window_4_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Math FFT">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <Label Content="Window 1: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Math_FFT_Window_1_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1">
+                        <Label Content="Window 2: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Math_FFT_Window_2_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2">
+                        <Label Content="Window 3: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Math_FFT_Window_3_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3">
+                        <Label Content="Window 4: "/>
+                        <mah:ColorPicker SelectedColor="{Binding Math_FFT_Window_4_Color_String, Mode=TwoWay}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="0,0,0,0">
+            <Button  Content="Default" Background="#FF3393DF" Command="{Binding Path=Colors_Config_Dialog_Default}"/>
+            <Button  Content="Close" Background="Orange" Command="{Binding Path=Colors_Config_Dialog_Close}"/>
+            <Button  Content="Apply" Background="#00CE30" Command="{Binding Path=Colors_Config_Dialog_Apply}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,229 @@
+﻿<mah:MetroWindow 
+    x:Class="Statistics_Table.Statistics_Table_Window"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:local="clr-namespace:Statistics_Table"    
+    mc:Ignorable="d"
+    WindowStyle="None"
+    UseNoneWindowStyle="True"
+    ResizeMode="CanResizeWithGrip"
+    StateChanged="MetroWindow_StateChanged"
+    Height="{Binding Window_Height, FallbackValue=165}"
+    Width="{Binding Window_Width, FallbackValue=705}"
+    MaxHeight="170"
+    MaxWidth="750"
+    Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="Window_On_Top_Menu_Option" Header="Always on top" Click="MenuItem_ToggleAlwaysOnTop_Click" IsCheckable="True">
+                    <MenuItem.Icon>
+                        <Label 
+                                Content="📌"
+                                Foreground="Orange"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Exit" Click="MenuItem_ExitApp_Click">
+                    <MenuItem.Icon>
+                        <Label 
+                                Content="❌"
+                                Foreground="Red"
+                                Margin="0" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Center" 
+                                VerticalContentAlignment="Center"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <Grid Grid.Row="0" MouseDown="Window_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="Margin" Value="0,0,0,0"/>
+                </Style>
+            </Grid.Resources>
+            <Label Grid.Column="0" Content="{Binding Long_Title}"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Visibility="{Binding Measurement_Start_Stop_Text_Visibility, FallbackValue=Collapsed}">
+                <Label Content="("/>
+                <Label Content="{Binding Measurement_Start}"/>
+                <Label Content=", "/>
+                <Label Content="{Binding Measurement_Stop}"/>
+                <Label Content=") "/>
+            </StackPanel>
+            <Rectangle Grid.Column="2" Fill="{Binding Statistics_Table_Owner_Color}"/>
+        </Grid>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid Margin="0,0,0,0" MouseDown="Window_MouseDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="85" MaxWidth="200"/>
+                    <ColumnDefinition Width="85" MaxWidth="200"/>
+                    <ColumnDefinition Width="85" MaxWidth="200"/>
+                    <ColumnDefinition Width="85" MaxWidth="200"/>
+                    <ColumnDefinition Width="85" MaxWidth="200"/>
+                    <ColumnDefinition Width="Auto" MinWidth="50"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style x:Key="Label_Style" TargetType="Label">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="FontSize" Value="12"/>
+                    </Style>
+                    <Style x:Key="Value_Style" TargetType="Label">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="FontSize" Value="12"/>
+                    </Style>
+                    <Style x:Key="Count_Value_Style" TargetType="Label">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="15,0,0,0"/>
+                        <Setter Property="FontSize" Value="12"/>
+                    </Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="MinWidth" Value="0"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Padding" Value="2,0,2,0"/>
+                        <Setter Property="Margin" Value="5,0,0,0"/>
+                        <Setter Property="VerticalAlignment" Value="Bottom"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                        <Setter Property="FontSize" Value="10"/>
+                        <Setter Property="Width" Value="50"/>
+                    </Style>
+                </Grid.Resources>
+                <Label Grid.Column="0" Grid.Row="0" Content="Measure" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="1" Grid.Row="0" Content="Value" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="2" Grid.Row="0" Content="Mean" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="3" Grid.Row="0" Content="Min" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="4" Grid.Row="0" Content="Max" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="5" Grid.Row="0" Content="Stdev" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="6" Grid.Row="0" Content="Count" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+
+                <Label Grid.Column="0" Grid.Row="1" Content="Freq:" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="0" Grid.Row="2" Content="Period:" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="0" Grid.Row="3" Content="Pk-Pk:" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="0" Grid.Row="4" Content="Mean:" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="0" Grid.Row="5" Content="RMS:" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="0" Grid.Row="6" Content="Min:" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="0" Grid.Row="7" Content="Max:" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+                <Label Grid.Column="0" Grid.Row="8" Content="Stdev:" HorizontalContentAlignment="Right" Style="{StaticResource Label_Style}"/>
+
+                <Label Grid.Column="1" Grid.Row="1" Content="{Binding Frequency_Value}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="2" Grid.Row="1" Content="{Binding Frequency_Mean}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="3" Grid.Row="1" Content="{Binding Frequency_Min}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="4" Grid.Row="1" Content="{Binding Frequency_Max}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="5" Grid.Row="1" Content="{Binding Frequency_Stdev}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="6" Grid.Row="1" Content="{Binding Frequency_Count}" HorizontalContentAlignment="Right" Style="{StaticResource Count_Value_Style}"/>
+
+                <Label Grid.Column="1" Grid.Row="2" Content="{Binding Period_Value}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="2" Grid.Row="2" Content="{Binding Period_Mean}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="3" Grid.Row="2" Content="{Binding Period_Min}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="4" Grid.Row="2" Content="{Binding Period_Max}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="5" Grid.Row="2" Content="{Binding Period_Stdev}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="6" Grid.Row="2" Content="{Binding Period_Count}" HorizontalContentAlignment="Right" Style="{StaticResource Count_Value_Style}"/>
+
+                <Label Grid.Column="1" Grid.Row="3" Content="{Binding PeakPeak_Value}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="2" Grid.Row="3" Content="{Binding PeakPeak_Mean}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="3" Grid.Row="3" Content="{Binding PeakPeak_Min}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="4" Grid.Row="3" Content="{Binding PeakPeak_Max}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="5" Grid.Row="3" Content="{Binding PeakPeak_Stdev}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="6" Grid.Row="3" Content="{Binding PeakPeak_Count}" HorizontalContentAlignment="Right" Style="{StaticResource Count_Value_Style}"/>
+
+                <Label Grid.Column="1" Grid.Row="4" Content="{Binding Mean_Value}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="2" Grid.Row="4" Content="{Binding Mean_Mean}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="3" Grid.Row="4" Content="{Binding Mean_Min}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="4" Grid.Row="4" Content="{Binding Mean_Max}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="5" Grid.Row="4" Content="{Binding Mean_Stdev}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="6" Grid.Row="4" Content="{Binding Mean_Count}" HorizontalContentAlignment="Right" Style="{StaticResource Count_Value_Style}"/>
+
+                <Label Grid.Column="1" Grid.Row="5" Content="{Binding RMS_Value}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="2" Grid.Row="5" Content="{Binding RMS_Mean}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="3" Grid.Row="5" Content="{Binding RMS_Min}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="4" Grid.Row="5" Content="{Binding RMS_Max}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="5" Grid.Row="5" Content="{Binding RMS_Stdev}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="6" Grid.Row="5" Content="{Binding RMS_Count}" HorizontalContentAlignment="Right" Style="{StaticResource Count_Value_Style}"/>
+
+                <Label Grid.Column="1" Grid.Row="6" Content="{Binding Min_Value}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="2" Grid.Row="6" Content="{Binding Min_Mean}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="3" Grid.Row="6" Content="{Binding Min_Min}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="4" Grid.Row="6" Content="{Binding Min_Max}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="5" Grid.Row="6" Content="{Binding Min_Stdev}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="6" Grid.Row="6" Content="{Binding Min_Count}" HorizontalContentAlignment="Right" Style="{StaticResource Count_Value_Style}"/>
+
+                <Label Grid.Column="1" Grid.Row="7" Content="{Binding Max_Value}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="2" Grid.Row="7" Content="{Binding Max_Mean}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="3" Grid.Row="7" Content="{Binding Max_Min}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="4" Grid.Row="7" Content="{Binding Max_Max}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="5" Grid.Row="7" Content="{Binding Max_Stdev}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="6" Grid.Row="7" Content="{Binding Max_Count}" HorizontalContentAlignment="Right" Style="{StaticResource Count_Value_Style}"/>
+
+                <Label Grid.Column="1" Grid.Row="8" Content="{Binding Stdev_Value}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="2" Grid.Row="8" Content="{Binding Stdev_Mean}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="3" Grid.Row="8" Content="{Binding Stdev_Min}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="4" Grid.Row="8" Content="{Binding Stdev_Max}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="5" Grid.Row="8" Content="{Binding Stdev_Stdev}" HorizontalContentAlignment="Right" Style="{StaticResource Value_Style}"/>
+                <Label Grid.Column="6" Grid.Row="8" Content="{Binding Stdev_Count}" HorizontalContentAlignment="Right" Style="{StaticResource Count_Value_Style}"/>
+
+                <Button Grid.Column="7" Grid.Row="0" Content="Reset All" Click="All_Measurement_Reset_Click"/>
+                <Button Grid.Column="7" Grid.Row="1" Content="Reset" Click="Frequency_Measurement_Reset_Click"/>
+                <Button Grid.Column="7" Grid.Row="2" Content="Reset" Click="Period_Measurement_Reset_Click"/>
+                <Button Grid.Column="7" Grid.Row="3" Content="Reset" Click="PeakPeak_Measurement_Reset_Click"/>
+                <Button Grid.Column="7" Grid.Row="4" Content="Reset" Click="Mean_Measurement_Reset_Click"/>
+                <Button Grid.Column="7" Grid.Row="5" Content="Reset" Click="RMS_Measurement_Reset_Click"/>
+                <Button Grid.Column="7" Grid.Row="6" Content="Reset" Click="Min_Measurement_Reset_Click"/>
+                <Button Grid.Column="7" Grid.Row="7" Content="Reset" Click="Max_Measurement_Reset_Click"/>
+                <Button Grid.Column="7" Grid.Row="8" Content="Reset" Click="Stdev_Measurement_Reset_Click"/>
+
+                <Button Grid.Column="8" Grid.Row="1" Content="Save" Click="Frequency_Measurement_Save_Click"/>
+                <Button Grid.Column="8" Grid.Row="2" Content="Save" Click="Period_Measurement_Save_Click"/>
+                <Button Grid.Column="8" Grid.Row="3" Content="Save" Click="PeakPeak_Measurement_Save_Click"/>
+                <Button Grid.Column="8" Grid.Row="4" Content="Save" Click="Mean_Measurement_Save_Click"/>
+                <Button Grid.Column="8" Grid.Row="5" Content="Save" Click="RMS_Measurement_Save_Click"/>
+                <Button Grid.Column="8" Grid.Row="6" Content="Save" Click="Min_Measurement_Save_Click"/>
+                <Button Grid.Column="8" Grid.Row="7" Content="Save" Click="Max_Measurement_Save_Click"/>
+                <Button Grid.Column="8" Grid.Row="8" Content="Save" Click="Stdev_Measurement_Save_Click"/>
+
+                <Button Grid.Column="9" Grid.Row="1" Content="Plot" Click="Frequency_Measurement_Plot_Click"/>
+                <Button Grid.Column="9" Grid.Row="2" Content="Plot" Click="Period_Measurement_Plot_Click"/>
+                <Button Grid.Column="9" Grid.Row="3" Content="Plot" Click="PeakPeak_Measurement_Plot_Click"/>
+                <Button Grid.Column="9" Grid.Row="4" Content="Plot" Click="Mean_Measurement_Plot_Click"/>
+                <Button Grid.Column="9" Grid.Row="5" Content="Plot" Click="RMS_Measurement_Plot_Click"/>
+                <Button Grid.Column="9" Grid.Row="6" Content="Plot" Click="Min_Measurement_Plot_Click"/>
+                <Button Grid.Column="9" Grid.Row="7" Content="Plot" Click="Max_Measurement_Plot_Click"/>
+                <Button Grid.Column="9" Grid.Row="8" Content="Plot" Click="Stdev_Measurement_Plot_Click"/>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</mah:MetroWindow>

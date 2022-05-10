@@ -1,0 +1,148 @@
+﻿<UserControl x:Class="YT_Graph_Control.YT_Graph_Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:local="clr-namespace:YT_Graph_Control"
+             xmlns:cc="clr-namespace:NX_StarWave"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" 
+             d:DesignWidth="350">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="YT Graph Windows" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="16" VerticalAlignment="Center"/>
+        <Rectangle Grid.Column="0" Grid.Row="1" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+        <Grid Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style x:Key="Graph_Select_Button" TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
+                    <Setter Property="Height" Value="55"/>
+                    <Setter Property="Width" Value="55"/>
+                    <Setter Property="BorderBrush" Value="{x:Null}"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="Margin" Value="5,5,5,5"/>
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="Regular"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="mah:ControlsHelper.CornerRadius" Value="3" />
+                    <Setter Property="mah:ControlsHelper.FocusBorderBrush" Value="{x:Null}" />
+                    <Setter Property="mah:ControlsHelper.FocusBorderThickness" Value="1" />
+                    <Setter Property="mah:ControlsHelper.MouseOverBorderBrush" Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Grid>
+                                    <mah:ClipBorder x:Name="Border"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="{TemplateBinding mah:ControlsHelper.CornerRadius}"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    <mah:ClipBorder x:Name="DisabledVisualElement"
+                                        Background="{DynamicResource MahApps.Brushes.Control.Disabled}"
+                                        CornerRadius="{TemplateBinding mah:ControlsHelper.CornerRadius}"
+                                        IsHitTestVisible="False"
+                                        Opacity="0"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    <mah:ContentControlEx x:Name="PART_ContentPresenter"
+                                              Margin="{TemplateBinding BorderThickness}"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentCharacterCasing="Normal"                                              
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                              RecognizesAccessKey="{TemplateBinding mah:ControlsHelper.RecognizesAccessKey}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Opacity" Value="0.7"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Opacity" Value="1"/>
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocusWithin" Value="True">
+
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter TargetName="DisabledVisualElement" Property="Opacity" Value="0.7" />
+                                        <Setter TargetName="PART_ContentPresenter" Property="Opacity" Value="0.3" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+            <ScrollViewer Grid.Column="0" Grid.Row="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Panel.ZIndex="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.Resources>
+                        <Geometry x:Key="AllCH_YT_Open_ICON">M4,6V19H20V6H4M18,17H6V8H18V17Z</Geometry>
+                        <Geometry x:Key="AllCH_Squares_YT_Open_ICON">M0 512h448v448h-448v-448zM64 896h320v-320h-320v320zM576 960v-448h448v448h-448zM960 576h-320v320h320v-320zM0-64h448v448h-448v-448zM64 320h320v-320h-320v320zM576-64h448v448h-448v-448zM640 320h320v-320h-320v320z</Geometry>
+                        <Geometry x:Key="AllCH_Stack_YT_Open_ICON">M0 960h1024v-192h-1024v192zM0 704h1024v-192h-1024v192zM0 192h1024v-192h-1024v192zM0 448h1024v-192h-1024v192z</Geometry>
+                        <Geometry x:Key="AllCH_Seperate_YT_Open_ICON">M81.9996 50C81.9996 45.582 85.5812 42 89.9996 42C94.4178 42 97.9996 45.582 97.9996 50L97.9996 249.9996C97.9996 254.4178 94.4178 257.9994 89.9996 257.9994C85.5812 257.9994 81.9996 254.4178 81.9996 249.9996L81.9996 50zM121.9996 50C121.9996 45.582 125.5812 42 129.9996 42C134.4178 42 137.9996 45.582 137.9996 50L137.9996 249.9996C137.9996 254.4178 134.4178 257.9994 129.9996 257.9994C125.5812 257.9994 121.9996 254.4178 121.9996 249.9996L121.9996 50zM169.9996 42C165.5812 42 161.9996 45.582 161.9996 50L161.9996 249.9996C161.9996 254.4178 165.5812 257.9996 169.9996 257.9996C174.4178 257.9996 177.9996 254.4178 177.9996 249.9996L177.9996 50C177.9996 45.582 174.4178 42 169.9996 42zM202 50C202 45.582 205.582 42 210 42C214.418 42 218 45.582 218 50L218 249.9996C218 254.4178 214.418 257.9996 210 257.9996C205.582 257.9996 202 254.4178 202 249.9996L202 50z</Geometry>
+                    </Grid.Resources>
+                    <Label Grid.Row="1" Content="Single Channel" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="12" VerticalAlignment="Center"/>
+                    <Rectangle Grid.Row="2" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+                    <WrapPanel Grid.Row="3" Orientation="Horizontal">
+                        <Button x:Name="CH1_YT_Open" Style="{StaticResource Graph_Select_Button}" Content="CH1" Background="{Binding Channel_1_Color}" BorderBrush="{Binding YT_CH1_Graph_Selected}" Click="CH1_YT_Open_Click"/>
+                        <Button x:Name="CH2_YT_Open" Style="{StaticResource Graph_Select_Button}" Content="CH2" Background="{Binding Channel_2_Color}" BorderBrush="{Binding YT_CH2_Graph_Selected}" Click="CH2_YT_Open_Click"/>
+                        <Button x:Name="CH3_YT_Open" Style="{StaticResource Graph_Select_Button}" Content="CH3" Background="{Binding Channel_3_Color}" BorderBrush="{Binding YT_CH3_Graph_Selected}" Click="CH3_YT_Open_Click"/>
+                        <Button x:Name="CH4_YT_Open" Style="{StaticResource Graph_Select_Button}" Content="CH4" Background="{Binding Channel_4_Color}" BorderBrush="{Binding YT_CH4_Graph_Selected}" Click="CH4_YT_Open_Click"/>
+                    </WrapPanel>
+                    <Label Grid.Row="5" Content="All Channels" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="12" VerticalAlignment="Center"/>
+                    <Rectangle Grid.Row="6" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+                    <WrapPanel Grid.Row="7" Orientation="Horizontal">
+                        <Button x:Name="AllCH_YT_Open" Style="{StaticResource Graph_Select_Button}" Background="DarkViolet" BorderBrush="{Binding YT_ALL_CH_Graph_Selected}" Click="AllCH_YT_Open_Click">
+                            <Path Data="{StaticResource AllCH_YT_Open_ICON}" Width="30" Height="30" Fill="White" Stretch="Fill"/>
+                        </Button>
+                        <Button Style="{StaticResource Graph_Select_Button}" Background="DarkViolet" BorderBrush="{Binding YT_ALL_CH_Seperate_Graph_Selected}" Click="AllCH_YT_Seperate_Open_Click">
+                            <Path Data="{StaticResource AllCH_Seperate_YT_Open_ICON}" Width="30" Height="30" Fill="White" Stretch="Fill"/>
+                        </Button>
+                        <Button Style="{StaticResource Graph_Select_Button}" Background="DarkViolet" BorderBrush="{Binding YT_ALL_CH_Square_Graph_Selected}" Click="AllCH_YT_Square_Open_Click">
+                            <Path Data="{StaticResource AllCH_Squares_YT_Open_ICON}" Width="30" Height="30" Fill="White" Stretch="Fill"/>
+                        </Button>
+                        <Button Style="{StaticResource Graph_Select_Button}" Background="DarkViolet" BorderBrush="{Binding YT_ALL_CH_Stack_Graph_Selected}" Click="AllCH_YT_Stack_Open_Click">
+                            <Path Data="{StaticResource AllCH_Stack_YT_Open_ICON}" Width="30" Height="30" Fill="White" Stretch="Fill"/>
+                        </Button>
+                    </WrapPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>
