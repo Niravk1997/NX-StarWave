@@ -9,7 +9,7 @@
                  xmlns:local="clr-namespace:NX_StarWave"
                  xmlns:Oscilloscope_Windows_Control="clr-namespace:Oscilloscope_Control_Controls"
                  mc:Ignorable="d"
-                 Title="NX-Wavestar" 
+                 Title="NX-StarWave" 
                  TitleCharacterCasing="Normal" 
                  Height="600" 
                  Width="650"

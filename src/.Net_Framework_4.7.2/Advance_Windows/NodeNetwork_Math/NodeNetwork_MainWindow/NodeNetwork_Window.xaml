@@ -235,17 +235,17 @@
                             </Grid.Resources>
                             <Button Grid.Column="0" Style="{StaticResource ICON_Button_Style}" ToolTip="Write" Click="Draw_Mode_Select_Pen_Click">
                                 <StackPanel>
-                                    <Image Source="/NX-Wavestar/Assets/Draw_Mode_ICONs/PEN_ICON.png"/>
+                                    <Image Source="/NX-StarWave/Assets/Draw_Mode_ICONs/PEN_ICON.png"/>
                                 </StackPanel>
                             </Button>
                             <Button Grid.Column="1" Style="{StaticResource ICON_Button_Style}" ToolTip="Highlight" Click="Draw_Mode_Select_Highlighter_Click">
                                 <StackPanel>
-                                    <Image Source="/NX-Wavestar/Assets/Draw_Mode_ICONs/MARKER_ICON.png"/>
+                                    <Image Source="/NX-StarWave/Assets/Draw_Mode_ICONs/MARKER_ICON.png"/>
                                 </StackPanel>
                             </Button>
                             <Button Grid.Column="2" Style="{StaticResource ICON_Button_Style}" ToolTip="Erase" Click="Draw_Mode_Select_Eraser_Click">
                                 <StackPanel>
-                                    <Image Source="/NX-Wavestar/Assets/Draw_Mode_ICONs/ERASER_ICON.png"/>
+                                    <Image Source="/NX-StarWave/Assets/Draw_Mode_ICONs/ERASER_ICON.png"/>
                                 </StackPanel>
                             </Button>
                             <TextBox x:Name="Draw_Mode_InkStroke_Size_Value" Grid.Row="0" Grid.Column="3" Text="2" TextAlignment="Left" VerticalContentAlignment="Center" FontSize="22" Margin="2,2,0,2" Padding="0" MouseWheel="Draw_Mode_InkCanvas_Size_TextBox_MouseWheel"/>
