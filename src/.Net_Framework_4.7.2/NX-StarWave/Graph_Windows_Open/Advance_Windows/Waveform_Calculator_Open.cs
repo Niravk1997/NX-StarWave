@@ -42,7 +42,7 @@ namespace NX_StarWave
                     {
                         Dispatcher.Run();
                     }
-                    catch (Exception Ex) 
+                    catch (Exception Ex)
                     {
                         Waveform_Calculator_Window_isOpen = false;
                         Waveform_Calculator_Window.Closed -= Waveform_Calculator_Close;

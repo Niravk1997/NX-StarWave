@@ -25,7 +25,7 @@ namespace Statistics_Table
             this.YAxis_Units = YAxis_Units;
             this.Window_Height = Window_Height;
             this.Window_Width = Window_Width;
-            if (isWindow_On_Top) 
+            if (isWindow_On_Top)
             {
                 Window_On_Top_Menu_Option.IsChecked = true;
                 Topmost = true;

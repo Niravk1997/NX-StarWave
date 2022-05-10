@@ -4,7 +4,6 @@ using NX_StarWave.Misc;
 using NX_StarWave.Waveform_Model_Classes;
 using System;
 using System.Collections.Concurrent;
-using System.Threading;
 using System.Windows.Threading;
 
 namespace Histogram_2_Input

@@ -1,10 +1,7 @@
 ﻿using Oscilloscope_Channel_Node;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace NodeNetwork_Math
@@ -30,9 +27,9 @@ namespace NodeNetwork_Math
             set
             {
                 Remote_CH_5_Enable_ = value;
-                if (value) 
+                if (value)
                 {
-                    if (Remote_CH_5_Node_Inserted_into_NodeList == false) 
+                    if (Remote_CH_5_Node_Inserted_into_NodeList == false)
                     {
                         Remote_CH_5_Node_Inserted_into_NodeList = true;
                         Insert_Remote_Channel_Node_into_NodeList(5);
@@ -42,6 +39,7 @@ namespace NodeNetwork_Math
             }
         }
 
+        private string Remote_CH_5_Counter_String = "";
         private int Remote_CH_5_Counter_ = 0;
         public int Remote_CH_5_Counter
         {
@@ -148,6 +146,7 @@ namespace NodeNetwork_Math
             }
         }
 
+        private string Remote_CH_6_Counter_String = "";
         private int Remote_CH_6_Counter_ = 0;
         public int Remote_CH_6_Counter
         {
@@ -254,6 +253,7 @@ namespace NodeNetwork_Math
             }
         }
 
+        private string Remote_CH_7_Counter_String = "";
         private int Remote_CH_7_Counter_ = 0;
         public int Remote_CH_7_Counter
         {
@@ -360,6 +360,7 @@ namespace NodeNetwork_Math
             }
         }
 
+        private string Remote_CH_8_Counter_String = "";
         private int Remote_CH_8_Counter_ = 0;
         public int Remote_CH_8_Counter
         {
@@ -477,6 +478,7 @@ namespace NodeNetwork_Math
             }
         }
 
+        private string Remote_CH_9_Counter_String = "";
         private int Remote_CH_9_Counter_ = 0;
         public int Remote_CH_9_Counter
         {
@@ -572,6 +574,7 @@ namespace NodeNetwork_Math
             }
         }
 
+        private string Remote_CH_10_Counter_String = "";
         private int Remote_CH_10_Counter_ = 0;
         public int Remote_CH_10_Counter
         {
@@ -678,6 +681,7 @@ namespace NodeNetwork_Math
             }
         }
 
+        private string Remote_CH_11_Counter_String = "";
         private int Remote_CH_11_Counter_ = 0;
         public int Remote_CH_11_Counter
         {
@@ -784,6 +788,7 @@ namespace NodeNetwork_Math
             }
         }
 
+        private string Remote_CH_12_Counter_String = "";
         private int Remote_CH_12_Counter_ = 0;
         public int Remote_CH_12_Counter
         {

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
 using Oscilloscope_Channel_Node;
 using Remote_Channels_Setup_Window_Config;
+using System;
+using System.IO;
+using System.Linq;
+using System.Windows;
 
 namespace NodeNetwork_Math
 {
@@ -189,6 +186,18 @@ namespace NodeNetwork_Math
                             Remote_CH_12_Enable = true;
                         }
 
+                        string[] Remote_Channel_Config = Lines[0].Split(Remote_Channels_File_Split);
+                        if (Remote_Channel_Config[1].Equals("True"))
+                        {
+                            Get_Remote_Channels_Data = true;
+                        }
+                        else
+                        {
+                            Insert_Log("Get Remote Channel Data is not enabled. Enabled it from the Config Remote Channels Window.", 2);
+
+                        }
+
+                        Insert_Log("Auto Loaded Remote Channels Config file.", 0);
                     }
                 }
                 catch (Exception Ex)

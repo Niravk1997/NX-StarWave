@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NX_StarWave.Waveform_Model_Classes
+﻿namespace NX_StarWave.Waveform_Model_Classes
 {
     public class Remote_Channel_Waveform_Model_Class
     {

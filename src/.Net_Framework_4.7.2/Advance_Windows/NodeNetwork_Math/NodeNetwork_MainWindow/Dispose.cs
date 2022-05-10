@@ -30,6 +30,16 @@ namespace NodeNetwork_Math
                     Create_Custom_Math_Expression_Node_Window.Close();
                 }
 
+                Remote_Channels_Data_Process.Stop();
+                Remote_Channels_Data_Process.Dispose();
+
+                Remote_Channels_Client.Dispose();
+
+                Remote_Channels_GetStringAsync_Task_List.Clear();
+                Remote_Channels_GetStringAsync_Task_List = null;
+
+                Remote_Channels_Data_Queue.Dispose();
+
                 this.Close();
             }
             catch (Exception)

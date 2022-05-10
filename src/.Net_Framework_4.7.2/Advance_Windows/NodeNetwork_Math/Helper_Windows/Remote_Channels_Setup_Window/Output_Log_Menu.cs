@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using MahApps.Metro.Controls;
+using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Linq;
@@ -7,7 +8,6 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Threading;
-using MahApps.Metro.Controls;
 
 namespace Remote_Channels_Setup_Window_Config
 {

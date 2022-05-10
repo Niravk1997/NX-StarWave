@@ -1,5 +1,4 @@
 ﻿using FFT;
-using Histogram;
 using Node_Model_Classes;
 using NodeNetwork_Math;
 using NX_StarWave;
@@ -12,7 +11,6 @@ using System.Threading;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
-using YT;
 
 namespace FFT_Node
 {

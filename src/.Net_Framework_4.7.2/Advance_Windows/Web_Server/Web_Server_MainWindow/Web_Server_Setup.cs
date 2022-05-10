@@ -88,7 +88,7 @@ namespace Waveform_Web_Server
 
         private void Web_Server_Connect_Messages()
         {
-            for (int i = 1; i <= 4; i++) 
+            for (int i = 1; i <= 4; i++)
             {
                 insert_Log("http://" + IP_Address + ":" + Port + "/" + $"CH{i}_Counter", 5);
                 insert_Log("http://" + IP_Address + ":" + Port + "/" + $"CH{i}", 5);

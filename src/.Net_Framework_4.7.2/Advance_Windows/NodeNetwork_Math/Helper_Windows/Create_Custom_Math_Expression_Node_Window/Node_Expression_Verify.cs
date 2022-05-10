@@ -135,9 +135,9 @@ namespace Create_Custom_Math_Expression_Node
                     }
                     Results[i] = expression.calculate();
                 }
-                for (int i = 0; i < 3; i++) 
+                for (int i = 0; i < 3; i++)
                 {
-                    if (double.IsNaN(Results[i]) || double.IsInfinity(Results[i])) 
+                    if (double.IsNaN(Results[i]) || double.IsInfinity(Results[i]))
                     {
                         insert_Log("Output Values were not valid real numbers.", 1);
                         return false;

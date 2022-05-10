@@ -1,10 +1,10 @@
 ﻿using MahApps.Metro.Controls;
+using Newtonsoft.Json;
 using NX_StarWave.Waveform_Model_Classes;
 using System;
 using System.Collections.Concurrent;
-using Newtonsoft.Json;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Waveform_Web_Server
 {
@@ -50,7 +50,9 @@ namespace Waveform_Web_Server
                     {
                         Task CH1_Waveform_Task = Task.Run(() =>
                         {
-                            CH1_Waveform = JsonConvert.SerializeObject(new Wavefrom_Web_Server_Model_Class(true, ++CH1_Counter, Channels_Data.CH1.Data_Points, Channels_Data.CH1.Total_Time, Channels_Data.CH1.Start_Time, Channels_Data.CH1.Stop_Time, Channels_Data.CH1.Channel_Info, Channels_Data.CH1.Y_Data));
+                            int Local_CH1_Counter = CH1_Counter + 1;
+                            CH1_Waveform = JsonConvert.SerializeObject(new Wavefrom_Web_Server_Model_Class(true, Local_CH1_Counter, Channels_Data.CH1.Data_Points, Channels_Data.CH1.Total_Time, Channels_Data.CH1.Start_Time, Channels_Data.CH1.Stop_Time, Channels_Data.CH1.Channel_Info, Channels_Data.CH1.Y_Data));
+                            CH1_Counter = Local_CH1_Counter;
                         }); Channels_Data_Process_Task_List.Add(CH1_Waveform_Task);
                     }
 
@@ -58,7 +60,9 @@ namespace Waveform_Web_Server
                     {
                         Task CH2_Waveform_Task = Task.Run(() =>
                         {
-                            CH2_Waveform = JsonConvert.SerializeObject(new Wavefrom_Web_Server_Model_Class(true, ++CH2_Counter, Channels_Data.CH2.Data_Points, Channels_Data.CH2.Total_Time, Channels_Data.CH2.Start_Time, Channels_Data.CH2.Stop_Time, Channels_Data.CH2.Channel_Info, Channels_Data.CH2.Y_Data));
+                            int Local_CH2_Counter = CH2_Counter + 1;
+                            CH2_Waveform = JsonConvert.SerializeObject(new Wavefrom_Web_Server_Model_Class(true, Local_CH2_Counter, Channels_Data.CH2.Data_Points, Channels_Data.CH2.Total_Time, Channels_Data.CH2.Start_Time, Channels_Data.CH2.Stop_Time, Channels_Data.CH2.Channel_Info, Channels_Data.CH2.Y_Data));
+                            CH2_Counter = Local_CH2_Counter;
                         }); Channels_Data_Process_Task_List.Add(CH2_Waveform_Task);
                     }
 
@@ -66,7 +70,9 @@ namespace Waveform_Web_Server
                     {
                         Task CH3_Waveform_Task = Task.Run(() =>
                         {
-                            CH3_Waveform = JsonConvert.SerializeObject(new Wavefrom_Web_Server_Model_Class(true, ++CH3_Counter, Channels_Data.CH3.Data_Points, Channels_Data.CH3.Total_Time, Channels_Data.CH3.Start_Time, Channels_Data.CH3.Stop_Time, Channels_Data.CH3.Channel_Info, Channels_Data.CH3.Y_Data));
+                            int Local_CH3_Counter = CH3_Counter + 1;
+                            CH3_Waveform = JsonConvert.SerializeObject(new Wavefrom_Web_Server_Model_Class(true, Local_CH3_Counter, Channels_Data.CH3.Data_Points, Channels_Data.CH3.Total_Time, Channels_Data.CH3.Start_Time, Channels_Data.CH3.Stop_Time, Channels_Data.CH3.Channel_Info, Channels_Data.CH3.Y_Data));
+                            CH3_Counter = Local_CH3_Counter;
                         }); Channels_Data_Process_Task_List.Add(CH3_Waveform_Task);
                     }
 
@@ -74,7 +80,9 @@ namespace Waveform_Web_Server
                     {
                         Task CH4_Waveform_Task = Task.Run(() =>
                         {
-                            CH4_Waveform = JsonConvert.SerializeObject(new Wavefrom_Web_Server_Model_Class(true, ++CH4_Counter, Channels_Data.CH4.Data_Points, Channels_Data.CH4.Total_Time, Channels_Data.CH4.Start_Time, Channels_Data.CH4.Stop_Time, Channels_Data.CH4.Channel_Info, Channels_Data.CH4.Y_Data));
+                            int Local_CH4_Counter = CH4_Counter + 1;
+                            CH4_Waveform = JsonConvert.SerializeObject(new Wavefrom_Web_Server_Model_Class(true, Local_CH4_Counter, Channels_Data.CH4.Data_Points, Channels_Data.CH4.Total_Time, Channels_Data.CH4.Start_Time, Channels_Data.CH4.Stop_Time, Channels_Data.CH4.Channel_Info, Channels_Data.CH4.Y_Data));
+                            CH4_Counter = Local_CH4_Counter;
                         }); Channels_Data_Process_Task_List.Add(CH4_Waveform_Task);
                     }
 

@@ -16,7 +16,7 @@ namespace NodeNetwork_Math
 
         private bool is_NodeEditor_Save_Load_in_Progress = false;
 
-        private void Initialize_NodeEditor_Layout_Helper() 
+        private void Initialize_NodeEditor_Layout_Helper()
         {
             NodeEditor_Layout_Helper = new NodeEditor_Layout_Save(this);
         }

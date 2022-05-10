@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
 using Newtonsoft.Json;
 using NX_StarWave.Waveform_Model_Classes;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace NodeNetwork_Math
 {
@@ -21,7 +19,7 @@ namespace NodeNetwork_Math
 
         private void Initialize_Remote_Channels_Timers()
         {
-            Remote_Channels_Data_Process = new System.Timers.Timer(20);
+            Remote_Channels_Data_Process = new System.Timers.Timer(10);
             Remote_Channels_Data_Process.Elapsed += Remote_Channels_Waveform_Data_Process_NodeNetwork;
             Remote_Channels_Data_Process.AutoReset = false;
             Remote_Channels_Data_Process.Enabled = true;
@@ -40,10 +38,9 @@ namespace NodeNetwork_Math
                         try
                         {
                             string Counter = await Remote_Channels_Client.GetStringAsync(Remote_CH_5_GetCounter_URL);
-                            int Counter_Value = int.Parse(Counter);
-                            if (Counter_Value != Remote_CH_5_Counter)
+                            if (Remote_CH_5_Counter_String.Equals(Counter) == false)
                             {
-                                Remote_CH_5_Counter = Counter_Value;
+                                Remote_CH_5_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_5_GetWaveform_URL);
                                 Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
                                 Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(5, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
@@ -62,10 +59,9 @@ namespace NodeNetwork_Math
                         try
                         {
                             string Counter = await Remote_Channels_Client.GetStringAsync(Remote_CH_6_GetCounter_URL);
-                            int Counter_Value = int.Parse(Counter);
-                            if (Counter_Value != Remote_CH_6_Counter)
+                            if (Remote_CH_6_Counter_String.Equals(Counter) == false)
                             {
-                                Remote_CH_6_Counter = Counter_Value;
+                                Remote_CH_6_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_6_GetWaveform_URL);
                                 Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
                                 Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(6, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
@@ -84,10 +80,9 @@ namespace NodeNetwork_Math
                         try
                         {
                             string Counter = await Remote_Channels_Client.GetStringAsync(Remote_CH_7_GetCounter_URL);
-                            int Counter_Value = int.Parse(Counter);
-                            if (Counter_Value != Remote_CH_7_Counter)
+                            if (Remote_CH_7_Counter_String.Equals(Counter) == false)
                             {
-                                Remote_CH_7_Counter = Counter_Value;
+                                Remote_CH_7_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_7_GetWaveform_URL);
                                 Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
                                 Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(7, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
@@ -106,10 +101,9 @@ namespace NodeNetwork_Math
                         try
                         {
                             string Counter = await Remote_Channels_Client.GetStringAsync(Remote_CH_8_GetCounter_URL);
-                            int Counter_Value = int.Parse(Counter);
-                            if (Counter_Value != Remote_CH_8_Counter)
+                            if (Remote_CH_8_Counter_String.Equals(Counter) == false)
                             {
-                                Remote_CH_8_Counter = Counter_Value;
+                                Remote_CH_8_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_8_GetWaveform_URL);
                                 Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
                                 Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(8, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
@@ -128,10 +122,9 @@ namespace NodeNetwork_Math
                         try
                         {
                             string Counter = await Remote_Channels_Client.GetStringAsync(Remote_CH_9_GetCounter_URL);
-                            int Counter_Value = int.Parse(Counter);
-                            if (Counter_Value != Remote_CH_9_Counter)
+                            if (Remote_CH_9_Counter_String.Equals(Counter) == false)
                             {
-                                Remote_CH_9_Counter = Counter_Value;
+                                Remote_CH_9_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_9_GetWaveform_URL);
                                 Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
                                 Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(9, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
@@ -150,10 +143,9 @@ namespace NodeNetwork_Math
                         try
                         {
                             string Counter = await Remote_Channels_Client.GetStringAsync(Remote_CH_10_GetCounter_URL);
-                            int Counter_Value = int.Parse(Counter);
-                            if (Counter_Value != Remote_CH_10_Counter)
+                            if (Remote_CH_10_Counter_String.Equals(Counter) == false)
                             {
-                                Remote_CH_10_Counter = Counter_Value;
+                                Remote_CH_10_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_10_GetWaveform_URL);
                                 Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
                                 Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(10, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
@@ -172,10 +164,9 @@ namespace NodeNetwork_Math
                         try
                         {
                             string Counter = await Remote_Channels_Client.GetStringAsync(Remote_CH_11_GetCounter_URL);
-                            int Counter_Value = int.Parse(Counter);
-                            if (Counter_Value != Remote_CH_11_Counter)
+                            if (Remote_CH_11_Counter_String.Equals(Counter) == false)
                             {
-                                Remote_CH_11_Counter = Counter_Value;
+                                Remote_CH_11_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_11_GetWaveform_URL);
                                 Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
                                 Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(11, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
@@ -194,10 +185,9 @@ namespace NodeNetwork_Math
                         try
                         {
                             string Counter = await Remote_Channels_Client.GetStringAsync(Remote_CH_12_GetCounter_URL);
-                            int Counter_Value = int.Parse(Counter);
-                            if (Counter_Value != Remote_CH_12_Counter)
+                            if (Remote_CH_12_Counter_String.Equals(Counter) == false)
                             {
-                                Remote_CH_12_Counter = Counter_Value;
+                                Remote_CH_12_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_12_GetWaveform_URL);
                                 Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
                                 Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(12, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
