@@ -348,44 +348,9 @@ namespace Custom_Math_Expressions_Node
 
         private bool Check_Data_Points_Match(Node_Waveform_Model Input_1, Node_Waveform_Model Input_2, Node_Waveform_Model Input_3, Node_Waveform_Model Input_4, Node_Waveform_Model Input_5, Node_Waveform_Model Input_6, Node_Waveform_Model Input_7)
         {
-            if (Input_1.Data_points == Input_2.Data_points)
+            if (Input_1.Data_points == Input_2.Data_points && Input_2.Data_points == Input_3.Data_points && Input_3.Data_points == Input_4.Data_points && Input_4.Data_points == Input_5.Data_points && Input_5.Data_points == Input_6.Data_points && Input_6.Data_points == Input_7.Data_points)
             {
-                if (Input_2.Data_points == Input_3.Data_points)
-                {
-                    if (Input_3.Data_points == Input_4.Data_points)
-                    {
-                        if (Input_4.Data_points == Input_5.Data_points)
-                        {
-                            if (Input_5.Data_points == Input_6.Data_points)
-                            {
-                                if (Input_6.Data_points == Input_7.Data_points)
-                                {
-                                    return true;
-                                }
-                                else
-                                {
-                                    return false;
-                                }
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             else
             {
@@ -395,44 +360,9 @@ namespace Custom_Math_Expressions_Node
 
         private bool Check_Total_Time_Match(Node_Waveform_Model Input_1, Node_Waveform_Model Input_2, Node_Waveform_Model Input_3, Node_Waveform_Model Input_4, Node_Waveform_Model Input_5, Node_Waveform_Model Input_6, Node_Waveform_Model Input_7)
         {
-            if (Input_1.Total_Time == Input_2.Total_Time)
+            if (Input_1.Total_Time == Input_2.Total_Time && Input_2.Total_Time == Input_3.Total_Time && Input_3.Total_Time == Input_4.Total_Time && Input_4.Total_Time == Input_5.Total_Time && Input_5.Total_Time == Input_6.Total_Time && Input_6.Total_Time == Input_7.Total_Time)
             {
-                if (Input_2.Total_Time == Input_3.Total_Time)
-                {
-                    if (Input_3.Total_Time == Input_4.Total_Time)
-                    {
-                        if (Input_4.Total_Time == Input_5.Total_Time)
-                        {
-                            if (Input_5.Total_Time == Input_6.Total_Time)
-                            {
-                                if (Input_6.Total_Time == Input_7.Total_Time)
-                                {
-                                    return true;
-                                }
-                                else
-                                {
-                                    return false;
-                                }
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             else
             {

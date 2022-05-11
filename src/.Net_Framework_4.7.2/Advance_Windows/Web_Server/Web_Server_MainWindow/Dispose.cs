@@ -15,6 +15,12 @@ namespace Waveform_Web_Server
                     Waveform_Web_Server.Dispose();
                     Waveform_Web_Server = null;
                 }
+
+                Waveform_Data_Process.Dispose();
+                All_Channels_Data_Queue.Dispose();
+
+                Channels_Data_Process_Task_List.Clear();
+
                 this.Close();
             }
             catch (Exception)
