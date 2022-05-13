@@ -20,7 +20,7 @@ namespace Create_Custom_Math_Expression_Node
             {
                 try
                 {
-                    Expression_Data.Add(new Custom_Math_Expression_Node_Data(Expression_Name, Expression, Category_Select_Index, Units_Text, Node_Background_Color, Node_Foreground_Color, Total_Input_Select_Index, Output_Text, Input_Text_1, Input_Text_2, Input_Text_3, Input_Text_4, Input_Text_5, Input_Text_6, Input_Text_7));
+                    Expression_Data.Add(new Custom_Math_Expression_Node_Data(Expression_Name, Expression, Fast_Expression_Parsing_Library, Category_Select_Index, Units_Text, Node_Background_Color, Node_Foreground_Color, Total_Input_Select_Index, Output_Text, Input_Text_1, Input_Text_2, Input_Text_3, Input_Text_4, Input_Text_5, Input_Text_6, Input_Text_7));
                 }
                 catch (Exception Ex)
                 {
@@ -39,6 +39,7 @@ namespace Create_Custom_Math_Expression_Node
                     {
                         Expression = Selected_Expression_Data.Expression;
                         Expression_Name = Selected_Expression_Data.Expression_Name;
+                        Fast_Expression_Parsing_Library = Selected_Expression_Data.Using_Fast_Expression_Parsing_Library;
                         Category_Select_Index = Selected_Expression_Data.Category;
                         Units_Text = Selected_Expression_Data.Units;
                         Total_Input_Select_Index = Selected_Expression_Data.Total_Inputs;
@@ -69,6 +70,7 @@ namespace Create_Custom_Math_Expression_Node
                 {
                     Expression = Selected_Expression_Data.Expression;
                     Expression_Name = Selected_Expression_Data.Expression_Name;
+                    Fast_Expression_Parsing_Library = Selected_Expression_Data.Using_Fast_Expression_Parsing_Library;
                     Category_Select_Index = Selected_Expression_Data.Category;
                     Units_Text = Selected_Expression_Data.Units;
                     Total_Input_Select_Index = Selected_Expression_Data.Total_Inputs;
@@ -98,6 +100,7 @@ namespace Create_Custom_Math_Expression_Node
                 {
                     Selected_Expression_Data.Expression_Name = Expression_Name;
                     Selected_Expression_Data.Expression = Expression;
+                    Selected_Expression_Data.Using_Fast_Expression_Parsing_Library = Fast_Expression_Parsing_Library;
                     Selected_Expression_Data.Category = Category_Select_Index;
                     Selected_Expression_Data.Units = Units_Text;
                     Selected_Expression_Data.Background = Node_Background_Color;

@@ -42,6 +42,19 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style x:Key="Label_Style" TargetType="Label" BasedOn="{StaticResource MahApps.Styles.Label}">
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="Background" Value="{x:Null}"/>
+                    <Setter Property="Padding" Value="0,0,0,0"/>
+                    <Setter Property="Margin" Value="0,0,0,0"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="MinHeight" Value="0"/>
+                    <Setter Property="MinWidth" Value="0"/>
+                    <Setter Property="Foreground" Value="{Binding Foreground_Color, FallbackValue=White}"/>
+                    <Setter Property="IsHitTestVisible" Value="False"/>
+                </Style>
+            </Grid.Resources>
             <Grid Grid.Row="0" Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -61,17 +74,6 @@
                         <Setter Property="Width" Value="15"/>
                         <Setter Property="VerticalAlignment" Value="Center"/>
                     </Style>
-                    <Style x:Key="Label_Style" TargetType="Label" BasedOn="{StaticResource MahApps.Styles.Label}">
-                        <Setter Property="FontSize" Value="12"/>
-                        <Setter Property="Background" Value="{x:Null}"/>
-                        <Setter Property="Padding" Value="0,0,0,0"/>
-                        <Setter Property="Margin" Value="0,0,0,0"/>
-                        <Setter Property="VerticalAlignment" Value="Center"/>
-                        <Setter Property="MinHeight" Value="0"/>
-                        <Setter Property="MinWidth" Value="0"/>
-                        <Setter Property="Foreground" Value="{Binding Foreground_Color, FallbackValue=White}"/>
-                        <Setter Property="IsHitTestVisible" Value="False"/>
-                    </Style>
                 </Grid.Resources>
                 <Rectangle Grid.Column="0"/>
                 <Label Grid.Column="1" Content="∞"  Style="{StaticResource Label_Style}" FontSize="18" Margin="2,-3,0,0"/>
@@ -85,6 +87,7 @@
             </Grid>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -125,6 +128,7 @@
                 <Button Grid.Column="3" Margin="5,0,0,0"  Width="20" ToolTip="Open FFT Graph Window" Background="{Binding FFT_Graph_ICON_Background_Color, FallbackValue=Transparent}" Command="{Binding Open_FFT_Graph_Window_Command}">
                     <Path Data="{StaticResource FFT_Graph_ICON}" Fill="{Binding Foreground_Color, FallbackValue=White}" Stretch="Fill"/>
                 </Button>
+                <Label Grid.Column="4" Content="{Binding Library_Speed, FallbackValue=Slow}" Margin="5,0,0,0" Style="{StaticResource Label_Style}" />
             </Grid>
             <Grid Grid.Row="3" Margin="0,-105,0,0" Visibility="{Binding Node_Config_Options_Visibility, FallbackValue=Collapsed}">
                 <Grid.RowDefinitions>

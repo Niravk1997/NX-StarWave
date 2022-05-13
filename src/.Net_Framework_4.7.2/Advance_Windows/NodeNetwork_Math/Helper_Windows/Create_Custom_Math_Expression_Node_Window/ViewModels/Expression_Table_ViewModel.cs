@@ -5,10 +5,11 @@ namespace Create_Custom_Math_Expression_Node
 {
     public class Custom_Math_Expression_Node_Data
     {
-        public Custom_Math_Expression_Node_Data(string Expression_Name, string Expression, int Category, string Units, string Background, string Foreground, int Total_Inputs, string Output, string X1, string X2, string X3, string X4, string X5, string X6, string X7)
+        public Custom_Math_Expression_Node_Data(string Expression_Name, string Expression, bool Using_Fast_Expression_Parsing_Library, int Category, string Units, string Background, string Foreground, int Total_Inputs, string Output, string X1, string X2, string X3, string X4, string X5, string X6, string X7)
         {
             this.Expression_Name = Expression_Name;
             this.Expression = Expression;
+            this.Using_Fast_Expression_Parsing_Library = Using_Fast_Expression_Parsing_Library;
             this.Category = Category;
             this.Units = Units;
             this.Background = Background;
@@ -26,6 +27,7 @@ namespace Create_Custom_Math_Expression_Node
 
         public string Expression_Name { get; set; }
         public string Expression { get; set; }
+        public bool Using_Fast_Expression_Parsing_Library { get; set; }
         public int Category { get; set; }
         public string Units { get; set; }
         public string Background { get; set; }

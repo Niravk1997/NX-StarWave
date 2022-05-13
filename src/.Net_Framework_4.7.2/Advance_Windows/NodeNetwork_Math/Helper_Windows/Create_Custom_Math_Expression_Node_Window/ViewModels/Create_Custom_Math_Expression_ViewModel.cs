@@ -9,6 +9,17 @@ namespace Create_Custom_Math_Expression_Node
 {
     public partial class Create_Custom_Math_Expression_Window : INotifyPropertyChanged
     {
+        private bool Fast_Expression_Parsing_Library_ = false;
+        public bool Fast_Expression_Parsing_Library
+        {
+            get { return Fast_Expression_Parsing_Library_; }
+            set
+            {
+                Fast_Expression_Parsing_Library_ = value;
+                NotifyPropertyChanged("Fast_Expression_Parsing_Library");
+            }
+        }
+
         private bool _Auto_Clear = false;
         public bool Auto_Clear
         {

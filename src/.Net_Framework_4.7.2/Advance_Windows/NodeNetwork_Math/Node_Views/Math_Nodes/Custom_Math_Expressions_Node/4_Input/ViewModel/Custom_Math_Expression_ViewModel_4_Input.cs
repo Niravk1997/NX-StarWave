@@ -1,9 +1,9 @@
-﻿using DynamicData;
+﻿using Custom_Math_Expression_Class;
+using DynamicData;
 using Node_Model_Classes;
 using NodeNetwork.Toolkit.ValueNode;
 using NodeNetwork_Math;
 using NX_StarWave.Waveform_Model_Classes;
-using org.mariuszgromada.math.mxparser;
 using ReactiveUI;
 using System;
 using System.Linq;
@@ -52,6 +52,13 @@ namespace Custom_Math_Expressions_Node
         {
             get => Units_;
             set => this.RaiseAndSetIfChanged(ref Units_, value);
+        }
+
+        private string Library_Speed_ = "Slow";
+        public string Library_Speed
+        {
+            get => Library_Speed_;
+            set => this.RaiseAndSetIfChanged(ref Library_Speed_, value);
         }
 
         private Brush Background_Color_;
@@ -152,12 +159,11 @@ namespace Custom_Math_Expressions_Node
             set => this.RaiseAndSetIfChanged(ref Node_Config_Options_Visibility_, value);
         }
 
-        private Argument[] Math_Argument = new Argument[4];
-        private Expression Math_Expression;
-
         private NodeNetwork_Window NodeNetwork_MainWindow { get; set; }
 
-        public Custom_Math_Expression_ViewModel_4_Input(object Parent_Window, string Name, bool IsCollapsed, NodeCategory Category, string Background_Color, string Foreground_Color, string Units, string Math_Expression, string Output_Name = "Output", string Input_1_Name = "x1", string Input_2_Name = "x2", string Input_3_Name = "x3", string Input_4_Name = "x4")
+        private Custom_Math_Expression_Parse Math_Expression_Parse { get; set; }
+
+        public Custom_Math_Expression_ViewModel_4_Input(object Parent_Window, string Name, bool IsCollapsed, NodeCategory Category, string Background_Color, string Foreground_Color, string Units, string Library_Type, string Math_Expression, string Output_Name = "Output", string Input_1_Name = "x1", string Input_2_Name = "x2", string Input_3_Name = "x3", string Input_4_Name = "x4")
         {
             NodeNetwork_MainWindow = Parent_Window as NodeNetwork_Window;
 
@@ -172,11 +178,15 @@ namespace Custom_Math_Expressions_Node
             this.Input_3_string = Input_3_Name;
             this.Input_4_string = Input_4_Name;
 
-            Math_Argument[0] = new Argument(Input_1_Name, 0);
-            Math_Argument[1] = new Argument(Input_2_Name, 0);
-            Math_Argument[2] = new Argument(Input_3_Name, 0);
-            Math_Argument[3] = new Argument(Input_4_Name, 0);
-            this.Math_Expression = new Expression(Math_Expression, Math_Argument);
+            if (Library_Type.Equals("Slow"))
+            {
+                Math_Expression_Parse = new mXparser_Expression_Parser(Math_Expression, Output_Name, Input_1_Name, Input_2_Name, Input_3_Name, Input_4_Name);
+            }
+            else
+            {
+                Math_Expression_Parse = new MathNET_Symbolics_Expression_Parser(Math_Expression, Output_Name, Input_1_Name, Input_2_Name, Input_3_Name, Input_4_Name);
+                Library_Speed = "Fast";
+            }
 
             Brush BG_Color = (SolidColorBrush)new BrushConverter().ConvertFromString(Background_Color);
             BG_Color.Freeze();
@@ -300,26 +310,20 @@ namespace Custom_Math_Expressions_Node
 
         private Node_Waveform_Model Perform_Math_Operation(Node_Waveform_Model Input_1, Node_Waveform_Model Input_2, Node_Waveform_Model Input_3, Node_Waveform_Model Input_4)
         {
-            Reset_Error_Counters();
-            double[] Results = new double[Input_1.Data_points];
-            try
+            (bool isValid, int Infinity_Count, int NAN_Count, int Min_Count, int Max_Count, string Message, double[] Results) = Math_Expression_Parse.Compute_Expression(Input_1, Input_2, Input_3, Input_4);
+
+            Error_Count_Infinity = Infinity_Count;
+            Error_Count_NAN = NAN_Count;
+            Error_Count_Max = Max_Count;
+            Error_Count_Min = Min_Count;
+
+            if (isValid)
             {
-                for (int i = 0; i < Input_1.Data_points; i++)
-                {
-                    Math_Argument[0].setArgumentValue(Input_1.Y_Values[i]);
-                    Math_Argument[1].setArgumentValue(Input_2.Y_Values[i]);
-                    Math_Argument[2].setArgumentValue(Input_3.Y_Values[i]);
-                    Math_Argument[3].setArgumentValue(Input_4.Y_Values[i]);
-                    Results[i] = Math_Expression.calculate();
-                    if (double.IsNaN(Results[i]) || double.IsInfinity(Results[i]) || Results[i] >= NodeEditor_Global_Config.Max_Value_Allowed || Results[i] <= NodeEditor_Global_Config.Min_Value_Allowed)
-                    {
-                        Results[i] = Set_Error_Results_Zero(Results[i]);
-                    }
-                }
                 return Final_Results(Input_1, Input_2, Input_3, Input_4, Results);
             }
-            catch (Exception)
+            else
             {
+                NodeNetwork_MainWindow.Insert_Log(Message, 1);
                 Set_Status_Color(Status_Colors.Math_Operation_Failed);
                 return null;
             }
@@ -389,42 +393,6 @@ namespace Custom_Math_Expressions_Node
             else
             {
                 return null;
-            }
-        }
-
-        private void Reset_Error_Counters()
-        {
-            Error_Count_NAN = 0;
-            Error_Count_Infinity = 0;
-            Error_Count_Min = 0;
-            Error_Count_Max = 0;
-        }
-
-        private double Set_Error_Results_Zero(double Value)
-        {
-            if (double.IsNaN(Value))
-            {
-                Error_Count_NAN++;
-                return 0;
-            }
-            else if (double.IsInfinity(Value))
-            {
-                Error_Count_Infinity++;
-                return 0;
-            }
-            else if (Value >= NodeEditor_Global_Config.Max_Value_Allowed)
-            {
-                Error_Count_Max++;
-                return 0;
-            }
-            else if (Value <= NodeEditor_Global_Config.Min_Value_Allowed)
-            {
-                Error_Count_Min++;
-                return 0;
-            }
-            else
-            {
-                return Value;
             }
         }
 

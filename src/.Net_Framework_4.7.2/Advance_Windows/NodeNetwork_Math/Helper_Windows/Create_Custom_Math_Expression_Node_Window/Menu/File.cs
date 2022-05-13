@@ -49,6 +49,7 @@ namespace Create_Custom_Math_Expression_Node
                             string Custom_MathExpression =
                                 Expression.Expression_Name + Text_Split
                               + Expression.Expression + Text_Split
+                              + Expression.Using_Fast_Expression_Parsing_Library + Text_Split
                               + Expression.Category + Text_Split
                               + Expression.Units + Text_Split
                               + Expression.Background + Text_Split
@@ -95,25 +96,26 @@ namespace Create_Custom_Math_Expression_Node
                     var Lines = File.ReadLines(File_Dialog.FileName);
                     foreach (var Line in Lines)
                     {
-                        string[] Custom_MathExpression = Line.Split(Text_Split);
+                        string[] Custom_MathExpression = Line.Split(Text_Split_Array, StringSplitOptions.None);
 
                         string Expression_Name = Custom_MathExpression[0];
                         string Expression = Custom_MathExpression[1];
-                        int Category = int.Parse(Custom_MathExpression[2]);
-                        string Units = Custom_MathExpression[3];
-                        string Background = Custom_MathExpression[4];
-                        string Foreground = Custom_MathExpression[5];
-                        int Total_Inputs = int.Parse(Custom_MathExpression[6]);
-                        string Output = Custom_MathExpression[7];
-                        string X1 = Custom_MathExpression[8];
-                        string X2 = Custom_MathExpression[9];
-                        string X3 = Custom_MathExpression[10];
-                        string X4 = Custom_MathExpression[11];
-                        string X5 = Custom_MathExpression[12];
-                        string X6 = Custom_MathExpression[13];
-                        string X7 = Custom_MathExpression[14];
+                        bool Using_Fast_Expression_Parsing_Library = Custom_MathExpression[2].Equals("True") ? true : false;
+                        int Category = int.Parse(Custom_MathExpression[3]);
+                        string Units = Custom_MathExpression[4];
+                        string Background = Custom_MathExpression[5];
+                        string Foreground = Custom_MathExpression[6];
+                        int Total_Inputs = int.Parse(Custom_MathExpression[7]);
+                        string Output = Custom_MathExpression[8];
+                        string X1 = Custom_MathExpression[9];
+                        string X2 = Custom_MathExpression[10];
+                        string X3 = Custom_MathExpression[11];
+                        string X4 = Custom_MathExpression[12];
+                        string X5 = Custom_MathExpression[13];
+                        string X6 = Custom_MathExpression[14];
+                        string X7 = Custom_MathExpression[15];
 
-                        Expression_Data.Add(new Custom_Math_Expression_Node_Data(Expression_Name, Expression, Category, Units, Background, Foreground, Total_Inputs, Output, X1, X2, X3, X4, X5, X6, X7));
+                        Expression_Data.Add(new Custom_Math_Expression_Node_Data(Expression_Name, Expression, Using_Fast_Expression_Parsing_Library, Category, Units, Background, Foreground, Total_Inputs, Output, X1, X2, X3, X4, X5, X6, X7));
                     }
                 }
             }

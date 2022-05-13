@@ -90,6 +90,15 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FParsec, Version=1.0.0.0, Culture=neutral, PublicKeyToken=40ccfc0a09edbb5d, processorArchitecture=MSIL">
+      <HintPath>packages\FParsec.1.1.1\lib\net45\FParsec.dll</HintPath>
+    </Reference>
+    <Reference Include="FParsecCS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=40ccfc0a09edbb5d, processorArchitecture=MSIL">
+      <HintPath>packages\FParsec.1.1.1\lib\net45\FParsecCS.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\FSharp.Core.6.0.4\lib\netstandard2.0\FSharp.Core.dll</HintPath>
+    </Reference>
     <Reference Include="IpMatcher, Version=1.0.4.4, Culture=neutral, PublicKeyToken=8637fc2bb9df2c67, processorArchitecture=MSIL">
       <HintPath>packages\IpMatcher.1.0.4.4\lib\net462\IpMatcher.dll</HintPath>
     </Reference>
@@ -102,6 +111,12 @@
     </Reference>
     <Reference Include="MathNet.Numerics, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MathNet.Numerics.5.0.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics.FSharp, Version=4.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MathNet.Numerics.FSharp.4.15.0\lib\net45\MathNet.Numerics.FSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Symbolics, Version=0.24.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MathNet.Symbolics.0.24.0\lib\net461\MathNet.Symbolics.dll</HintPath>
     </Reference>
     <Reference Include="MathParser.org-mXparser, Version=5.0.2.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
       <HintPath>packages\MathParser.org-mXparser.5.0.2\lib\net472\MathParser.org-mXparser.dll</HintPath>
@@ -264,6 +279,9 @@
       <DependentUpon>Remote_Channels_Setup_Window.xaml</DependentUpon>
     </Compile>
     <Compile Include="Advance_Windows\NodeNetwork_Math\NodeEditor_Layout_Save_Load\NodeEditor_Layout_Save.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_Classes\Custom_Math_Expression_Class\Custom_Math_Expression_Parse.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_Classes\Custom_Math_Expression_Class\MathNET_Symbolics_Expression_Parser.cs" />
+    <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_Classes\Custom_Math_Expression_Class\mXparser_Expression_Parser.cs" />
     <Compile Include="Advance_Windows\NodeNetwork_Math\NodeNetwork_MainWindow\Config_Menu\Load_Custom_Math_Expressions\Load_Custom_Math_Expression_Text_File.cs" />
     <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Add_to_NodeNetwork\Add_Node_to_NodeNetwork.cs" />
     <Compile Include="Advance_Windows\NodeNetwork_Math\Helper_Windows\Create_Custom_Math_Expression_Node_Window\Inputs_Configuration.cs" />

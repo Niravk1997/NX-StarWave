@@ -10,7 +10,7 @@
     mc:Ignorable="d"  
     Title="Create Custom Math Expression Window" 
     TitleCharacterCasing="Normal"
-    Height="550"
+    Height="600"
     Width="850">
     <Grid>
         <Grid.RowDefinitions>
@@ -69,6 +69,7 @@
         </Menu>
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="290"/>
@@ -112,15 +113,53 @@
                     <Setter Property="mah:TextBoxHelper.Watermark" Value="Node's Name (Optional, keep it short)..."/>
                 </Style>
             </Grid.Resources>
-            <Border Grid.Row="0" Style="{StaticResource Expression_Border_Style}">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="Padding" Value="0,0,0,0"/>
+                        <Setter Property="Margin" Value="5,0,0,0"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="mah:ToggleSwitch">
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="ContentPadding" Value="0"/>
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="MinWidth" Value="0"/>
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.KnobFillOff" Color="White"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.KnobFillOffPointerOver" Color="White"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.StrokeOff" Color="DodgerBlue"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.StrokeOffPointerOver" Color="DodgerBlue"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOff" Color="DodgerBlue"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOffPointerOver" Color="DodgerBlue"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOn" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOnPointerOver" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.StrokeOn" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.StrokeOnPointerOver" Color="#00CE30"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.KnobFillOn" Color="White"/>
+                            <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.KnobFillOnPointerOver" Color="White"/>
+                        </Style.Resources>
+                    </Style>
+                </Grid.Resources>
+                <Label Grid.Column="0" Content="Math Expression Parsing Library: "/>
+                <mah:ToggleSwitch Grid.Column="1" OnContent="MathNET Symbolics (Less Features, Fast)" OffContent="mXparser (More Features, Slow)" IsOn="{Binding Fast_Expression_Parsing_Library, FallbackValue=false}"/>
+            </Grid>
+            <Border Grid.Row="1" Style="{StaticResource Expression_Border_Style}">
                 <ScrollViewer Style="{StaticResource Expression_ScrollViewer_Style}">
                     <TextBox  Text="{Binding Expression}" Style="{StaticResource Expression_TextBox_Style}" IsEnabled="{Binding Enable_Write_to_Textfields, FallbackValue=true}"/>
                 </ScrollViewer>
             </Border>
-            <Border Grid.Row="1" Style="{StaticResource Expression_Border_Style}">
+            <Border Grid.Row="2" Style="{StaticResource Expression_Border_Style}">
                 <TextBox Text="{Binding Expression_Name}" Style="{StaticResource Expression_Name_TextBox_Style}"/>
             </Border>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="230"/>
                     <ColumnDefinition Width="*"/>
@@ -227,7 +266,7 @@
                     </ScrollViewer>
                 </GroupBox>
             </Grid>
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
                     <ColumnDefinition Width="140"/>
@@ -384,6 +423,14 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Total Inputs" Binding="{Binding Total_Inputs}" IsReadOnly="True">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Margin" Value="5,0,0,0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Fast" Binding="{Binding Using_Fast_Expression_Parsing_Library}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Left"/>

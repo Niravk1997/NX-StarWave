@@ -137,43 +137,43 @@ namespace NodeEditor_Layout_Save_Load
 
             foreach (Custom_Math_Expression_ViewModel_1_Input node in NodeNetwork_Editor.Nodes.Items.Where(Nodes => Nodes is Custom_Math_Expression_ViewModel_1_Input))
             {
-                string Node_Info = "Custom_Math_Expression_ViewModel_1_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name;
+                string Node_Info = "Custom_Math_Expression_ViewModel_1_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed +  split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name;
                 Nodes_List.Add(Node_Info);
             }
 
             foreach (Custom_Math_Expression_ViewModel_2_Input node in NodeNetwork_Editor.Nodes.Items.Where(Nodes => Nodes is Custom_Math_Expression_ViewModel_2_Input))
             {
-                string Node_Info = "Custom_Math_Expression_ViewModel_2_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name;
+                string Node_Info = "Custom_Math_Expression_ViewModel_2_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name;
                 Nodes_List.Add(Node_Info);
             }
 
             foreach (Custom_Math_Expression_ViewModel_3_Input node in NodeNetwork_Editor.Nodes.Items.Where(Nodes => Nodes is Custom_Math_Expression_ViewModel_3_Input))
             {
-                string Node_Info = "Custom_Math_Expression_ViewModel_3_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name;
+                string Node_Info = "Custom_Math_Expression_ViewModel_3_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name;
                 Nodes_List.Add(Node_Info);
             }
 
             foreach (Custom_Math_Expression_ViewModel_4_Input node in NodeNetwork_Editor.Nodes.Items.Where(Nodes => Nodes is Custom_Math_Expression_ViewModel_4_Input))
             {
-                string Node_Info = "Custom_Math_Expression_ViewModel_4_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name + split + node.Input_4.Name;
+                string Node_Info = "Custom_Math_Expression_ViewModel_4_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name + split + node.Input_4.Name;
                 Nodes_List.Add(Node_Info);
             }
 
             foreach (Custom_Math_Expression_ViewModel_5_Input node in NodeNetwork_Editor.Nodes.Items.Where(Nodes => Nodes is Custom_Math_Expression_ViewModel_5_Input))
             {
-                string Node_Info = "Custom_Math_Expression_ViewModel_5_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name + split + node.Input_4.Name + split + node.Input_5.Name;
+                string Node_Info = "Custom_Math_Expression_ViewModel_5_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name + split + node.Input_4.Name + split + node.Input_5.Name;
                 Nodes_List.Add(Node_Info);
             }
 
             foreach (Custom_Math_Expression_ViewModel_6_Input node in NodeNetwork_Editor.Nodes.Items.Where(Nodes => Nodes is Custom_Math_Expression_ViewModel_6_Input))
             {
-                string Node_Info = "Custom_Math_Expression_ViewModel_6_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name + split + node.Input_4.Name + split + node.Input_5.Name + split + node.Input_6.Name;
+                string Node_Info = "Custom_Math_Expression_ViewModel_6_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name + split + node.Input_4.Name + split + node.Input_5.Name + split + node.Input_6.Name;
                 Nodes_List.Add(Node_Info);
             }
 
             foreach (Custom_Math_Expression_ViewModel_7_Input node in NodeNetwork_Editor.Nodes.Items.Where(Nodes => Nodes is Custom_Math_Expression_ViewModel_7_Input))
             {
-                string Node_Info = "Custom_Math_Expression_ViewModel_7_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name + split + node.Input_4.Name + split + node.Input_5.Name + split + node.Input_6.Name + split + node.Input_7.Name;
+                string Node_Info = "Custom_Math_Expression_ViewModel_7_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name + split + node.Input_2.Name + split + node.Input_3.Name + split + node.Input_4.Name + split + node.Input_5.Name + split + node.Input_6.Name + split + node.Input_7.Name;
                 Nodes_List.Add(Node_Info);
             }
 
@@ -312,43 +312,43 @@ namespace NodeEditor_Layout_Save_Load
                         Math_Nodes_List.Add((Basic_Waveform_Shift_Node, isCollapsed));
                         break;
                     case "Custom_Math_Expression_ViewModel_1_Input":
-                        Custom_Math_Expression_ViewModel_1_Input Custom_Math_Expression_ViewModel_1_Input_Node = new Custom_Math_Expression_ViewModel_1_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11]);
+                        Custom_Math_Expression_ViewModel_1_Input Custom_Math_Expression_ViewModel_1_Input_Node = new Custom_Math_Expression_ViewModel_1_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12]);
                         Custom_Math_Expression_ViewModel_1_Input_Node.Position = new System.Windows.Point(double.Parse(Node_Info[2]), double.Parse(Node_Info[3]));
                         if (Node_Info[8] == "True") { isCollapsed = true; }
                         Math_Nodes_List.Add((Custom_Math_Expression_ViewModel_1_Input_Node, isCollapsed));
                         break;
                     case "Custom_Math_Expression_ViewModel_2_Input":
-                        Custom_Math_Expression_ViewModel_2_Input Custom_Math_Expression_ViewModel_2_Input_Node = new Custom_Math_Expression_ViewModel_2_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12]);
+                        Custom_Math_Expression_ViewModel_2_Input Custom_Math_Expression_ViewModel_2_Input_Node = new Custom_Math_Expression_ViewModel_2_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13]);
                         Custom_Math_Expression_ViewModel_2_Input_Node.Position = new System.Windows.Point(double.Parse(Node_Info[2]), double.Parse(Node_Info[3]));
                         if (Node_Info[8] == "True") { isCollapsed = true; }
                         Math_Nodes_List.Add((Custom_Math_Expression_ViewModel_2_Input_Node, isCollapsed));
                         break;
                     case "Custom_Math_Expression_ViewModel_3_Input":
-                        Custom_Math_Expression_ViewModel_3_Input Custom_Math_Expression_ViewModel_3_Input_Node = new Custom_Math_Expression_ViewModel_3_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13]);
+                        Custom_Math_Expression_ViewModel_3_Input Custom_Math_Expression_ViewModel_3_Input_Node = new Custom_Math_Expression_ViewModel_3_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14]);
                         Custom_Math_Expression_ViewModel_3_Input_Node.Position = new System.Windows.Point(double.Parse(Node_Info[2]), double.Parse(Node_Info[3]));
                         if (Node_Info[8] == "True") { isCollapsed = true; }
                         Math_Nodes_List.Add((Custom_Math_Expression_ViewModel_3_Input_Node, isCollapsed));
                         break;
                     case "Custom_Math_Expression_ViewModel_4_Input":
-                        Custom_Math_Expression_ViewModel_4_Input Custom_Math_Expression_ViewModel_4_Input_Node = new Custom_Math_Expression_ViewModel_4_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14]);
+                        Custom_Math_Expression_ViewModel_4_Input Custom_Math_Expression_ViewModel_4_Input_Node = new Custom_Math_Expression_ViewModel_4_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14], Node_Info[15]);
                         Custom_Math_Expression_ViewModel_4_Input_Node.Position = new System.Windows.Point(double.Parse(Node_Info[2]), double.Parse(Node_Info[3]));
                         if (Node_Info[8] == "True") { isCollapsed = true; }
                         Math_Nodes_List.Add((Custom_Math_Expression_ViewModel_4_Input_Node, isCollapsed));
                         break;
                     case "Custom_Math_Expression_ViewModel_5_Input":
-                        Custom_Math_Expression_ViewModel_5_Input Custom_Math_Expression_ViewModel_5_Input_Node = new Custom_Math_Expression_ViewModel_5_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14], Node_Info[15]);
+                        Custom_Math_Expression_ViewModel_5_Input Custom_Math_Expression_ViewModel_5_Input_Node = new Custom_Math_Expression_ViewModel_5_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14], Node_Info[15], Node_Info[16]);
                         Custom_Math_Expression_ViewModel_5_Input_Node.Position = new System.Windows.Point(double.Parse(Node_Info[2]), double.Parse(Node_Info[3]));
                         if (Node_Info[8] == "True") { isCollapsed = true; }
                         Math_Nodes_List.Add((Custom_Math_Expression_ViewModel_5_Input_Node, isCollapsed));
                         break;
                     case "Custom_Math_Expression_ViewModel_6_Input":
-                        Custom_Math_Expression_ViewModel_6_Input Custom_Math_Expression_ViewModel_6_Input_Node = new Custom_Math_Expression_ViewModel_6_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14], Node_Info[15], Node_Info[16]);
+                        Custom_Math_Expression_ViewModel_6_Input Custom_Math_Expression_ViewModel_6_Input_Node = new Custom_Math_Expression_ViewModel_6_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14], Node_Info[15], Node_Info[16], Node_Info[17]);
                         Custom_Math_Expression_ViewModel_6_Input_Node.Position = new System.Windows.Point(double.Parse(Node_Info[2]), double.Parse(Node_Info[3]));
                         if (Node_Info[8] == "True") { isCollapsed = true; }
                         Math_Nodes_List.Add((Custom_Math_Expression_ViewModel_6_Input_Node, isCollapsed));
                         break;
                     case "Custom_Math_Expression_ViewModel_7_Input":
-                        Custom_Math_Expression_ViewModel_7_Input Custom_Math_Expression_ViewModel_7_Input_Node = new Custom_Math_Expression_ViewModel_7_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14], Node_Info[15], Node_Info[16], Node_Info[17]);
+                        Custom_Math_Expression_ViewModel_7_Input Custom_Math_Expression_ViewModel_7_Input_Node = new Custom_Math_Expression_ViewModel_7_Input(NodeNetwork_MainWindow, Node_Info[1], false, (NodeCategory)int.Parse(Node_Info[4]), Node_Info[5], Node_Info[6], Node_Info[7], Node_Info[9], Node_Info[10], Node_Info[11], Node_Info[12], Node_Info[13], Node_Info[14], Node_Info[15], Node_Info[16], Node_Info[17], Node_Info[18]);
                         Custom_Math_Expression_ViewModel_7_Input_Node.Position = new System.Windows.Point(double.Parse(Node_Info[2]), double.Parse(Node_Info[3]));
                         if (Node_Info[8] == "True") { isCollapsed = true; }
                         Math_Nodes_List.Add((Custom_Math_Expression_ViewModel_7_Input_Node, isCollapsed));
