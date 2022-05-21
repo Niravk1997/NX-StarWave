@@ -45,7 +45,7 @@
             </Style>
             <Style TargetType="colorpicker:PortableColorPicker">
                 <Setter Property="Width" Value="50"/>
-                <Setter Property="Height" Value="20"/>
+                <Setter Property="Height" Value="15"/>
             </Style>
             <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Flat}">
                 <Setter Property="Padding" Value="0"/>

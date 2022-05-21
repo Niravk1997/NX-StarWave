@@ -118,8 +118,8 @@
     <Reference Include="MathNet.Symbolics, Version=0.24.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MathNet.Symbolics.0.24.0\lib\net461\MathNet.Symbolics.dll</HintPath>
     </Reference>
-    <Reference Include="MathParser.org-mXparser, Version=5.0.2.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
-      <HintPath>packages\MathParser.org-mXparser.5.0.2\lib\net472\MathParser.org-mXparser.dll</HintPath>
+    <Reference Include="MathParser.org-mXparser, Version=5.0.3.0, Culture=neutral, PublicKeyToken=0fbab7add73ed6e2, processorArchitecture=MSIL">
+      <HintPath>packages\MathParser.org-mXparser.5.0.3\lib\net472\MathParser.org-mXparser.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
