@@ -42,9 +42,7 @@ namespace NodeNetwork_Math
                             {
                                 Remote_CH_5_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_5_GetWaveform_URL);
-                                Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
-                                Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(5, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
-                                Remote_Channels_Data_Queue.Add(Waveform_Data);
+                                RChannels_Waveform_Data_Process(5, Data);
                             }
                         }
                         catch (Exception Ex) { Insert_Log("Remote_CH_5: " + Ex.Message, 1); }
@@ -63,9 +61,7 @@ namespace NodeNetwork_Math
                             {
                                 Remote_CH_6_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_6_GetWaveform_URL);
-                                Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
-                                Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(6, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
-                                Remote_Channels_Data_Queue.Add(Waveform_Data);
+                                RChannels_Waveform_Data_Process(6, Data);
                             }
                         }
                         catch (Exception Ex) { Insert_Log("Remote_CH_6: " + Ex.Message, 1); }
@@ -84,9 +80,7 @@ namespace NodeNetwork_Math
                             {
                                 Remote_CH_7_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_7_GetWaveform_URL);
-                                Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
-                                Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(7, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
-                                Remote_Channels_Data_Queue.Add(Waveform_Data);
+                                RChannels_Waveform_Data_Process(7, Data);
                             }
                         }
                         catch (Exception Ex) { Insert_Log("Remote_CH_7: " + Ex.Message, 1); }
@@ -105,9 +99,7 @@ namespace NodeNetwork_Math
                             {
                                 Remote_CH_8_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_8_GetWaveform_URL);
-                                Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
-                                Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(8, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
-                                Remote_Channels_Data_Queue.Add(Waveform_Data);
+                                RChannels_Waveform_Data_Process(8, Data);
                             }
                         }
                         catch (Exception Ex) { Insert_Log("Remote_CH_8: " + Ex.Message, 1); }
@@ -126,9 +118,7 @@ namespace NodeNetwork_Math
                             {
                                 Remote_CH_9_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_9_GetWaveform_URL);
-                                Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
-                                Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(9, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
-                                Remote_Channels_Data_Queue.Add(Waveform_Data);
+                                RChannels_Waveform_Data_Process(9, Data);
                             }
                         }
                         catch (Exception Ex) { Insert_Log("Remote_CH_9: " + Ex.Message, 1); }
@@ -147,9 +137,7 @@ namespace NodeNetwork_Math
                             {
                                 Remote_CH_10_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_10_GetWaveform_URL);
-                                Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
-                                Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(10, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
-                                Remote_Channels_Data_Queue.Add(Waveform_Data);
+                                RChannels_Waveform_Data_Process(10, Data);
                             }
                         }
                         catch (Exception Ex) { Insert_Log("Remote_CH_10: " + Ex.Message, 1); }
@@ -168,9 +156,7 @@ namespace NodeNetwork_Math
                             {
                                 Remote_CH_11_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_11_GetWaveform_URL);
-                                Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
-                                Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(11, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
-                                Remote_Channels_Data_Queue.Add(Waveform_Data);
+                                RChannels_Waveform_Data_Process(11, Data);
                             }
                         }
                         catch (Exception Ex) { Insert_Log("Remote_CH_11: " + Ex.Message, 1); }
@@ -189,9 +175,7 @@ namespace NodeNetwork_Math
                             {
                                 Remote_CH_12_Counter_String = Counter;
                                 string Data = await Remote_Channels_Client.GetStringAsync(Remote_CH_12_GetWaveform_URL);
-                                Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
-                                Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(12, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
-                                Remote_Channels_Data_Queue.Add(Waveform_Data);
+                                RChannels_Waveform_Data_Process(12, Data);
                             }
                         }
                         catch (Exception Ex) { Insert_Log("Remote_CH_12: " + Ex.Message, 1); }
@@ -202,6 +186,13 @@ namespace NodeNetwork_Math
                 Task.WaitAll(Remote_Channels_GetStringAsync_Task_List.ToArray());
             }
             Remote_Channels_Data_Process.Enabled = true;
+        }
+
+        private void RChannels_Waveform_Data_Process(int RChannel, string Data)
+        {
+            Wavefrom_Web_Server_Model_Class Web_Server_Data = JsonConvert.DeserializeObject<Wavefrom_Web_Server_Model_Class>(Data);
+            Remote_Channel_Waveform_Model_Class Waveform_Data = new Remote_Channel_Waveform_Model_Class(RChannel, Web_Server_Data.Total_Time, Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points, Web_Server_Data.Channel_Info, Functions.Linspace(Web_Server_Data.Start_Time, Web_Server_Data.Stop_Time, Web_Server_Data.Data_Points), Web_Server_Data.Waveform_Y_Data);
+            Remote_Channels_Data_Queue.Add(Waveform_Data);
         }
     }
 }

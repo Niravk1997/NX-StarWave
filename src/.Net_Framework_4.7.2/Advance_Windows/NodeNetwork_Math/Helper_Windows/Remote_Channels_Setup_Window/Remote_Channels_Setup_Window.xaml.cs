@@ -101,12 +101,13 @@ namespace Remote_Channels_Setup_Window_Config
                         writetext.WriteLine(NodeNetwork_MainWindow.Remote_CH_11_Name + Split + NodeNetwork_MainWindow.Remote_CH_11_Enable + Split + NodeNetwork_MainWindow.Remote_CH_11_Color + Split + NodeNetwork_MainWindow.Remote_CH_11_GetCounter_URL + Split + NodeNetwork_MainWindow.Remote_CH_11_GetWaveform_URL);
                         writetext.WriteLine(NodeNetwork_MainWindow.Remote_CH_12_Name + Split + NodeNetwork_MainWindow.Remote_CH_12_Enable + Split + NodeNetwork_MainWindow.Remote_CH_12_Color + Split + NodeNetwork_MainWindow.Remote_CH_12_GetCounter_URL + Split + NodeNetwork_MainWindow.Remote_CH_12_GetWaveform_URL);
                     }
-
+                    is_Remote_Channels_Config_Saving_in_Progress = false;
                     Insert_Log("Saved Remote Channels Config to a file.", 0);
                     Insert_Log("Saved to " + NX_StarWave.Communication_Selected.folder_Directory + NodeNetwork_MainWindow.Remote_Channels_FileName, 0);
                 }
                 catch (Exception Ex)
                 {
+                    is_Remote_Channels_Config_Saving_in_Progress = false;
                     Insert_Log(Ex.Message, 2);
                     Insert_Log("Could not save Remote Channels Config to a file. Try again.", 2);
                 }

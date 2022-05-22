@@ -173,7 +173,7 @@
                     <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_6_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_6_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
                     <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_6_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
-                    <Button x:Name="RC6_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <Button x:Name="RC6_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test" Click="Remote_Channel_Connection_Test_Button_Click"/>
                     <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_6_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
 
@@ -197,7 +197,7 @@
                     <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_7_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_7_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
                     <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_7_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
-                    <Button x:Name="RC7_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <Button x:Name="RC7_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test" Click="Remote_Channel_Connection_Test_Button_Click"/>
                     <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_7_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
 
@@ -221,7 +221,7 @@
                     <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_8_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_8_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
                     <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_8_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
-                    <Button x:Name="RC8_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <Button x:Name="RC8_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test" Click="Remote_Channel_Connection_Test_Button_Click"/>
                     <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_8_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
 
@@ -245,7 +245,7 @@
                     <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_9_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_9_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
                     <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_9_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
-                    <Button x:Name="RC9_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <Button x:Name="RC9_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test" Click="Remote_Channel_Connection_Test_Button_Click"/>
                     <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_9_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
 
@@ -269,7 +269,7 @@
                     <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_10_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_10_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
                     <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_10_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
-                    <Button x:Name="RC10_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <Button x:Name="RC10_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test" Click="Remote_Channel_Connection_Test_Button_Click"/>
                     <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_10_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
 
@@ -293,7 +293,7 @@
                     <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_11_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_11_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
                     <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_11_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
-                    <Button x:Name="RC11_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <Button x:Name="RC11_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test" Click="Remote_Channel_Connection_Test_Button_Click"/>
                     <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_11_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
 
@@ -317,7 +317,7 @@
                     <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Remote_CH_12_Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Channel_Name_Style}"/>
                     <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Remote_CH_12_GetCounter_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_Counter_Style}"/>
                     <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Remote_CH_12_GetWaveform_URL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource Waveform_URL_Style}"/>
-                    <Button x:Name="RC12_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test"/>
+                    <Button x:Name="RC12_Test_Button" Grid.Row="0" Grid.Column="3" Content="Test" Click="Remote_Channel_Connection_Test_Button_Click"/>
                     <mah:ToggleSwitch Grid.Row="1" Grid.Column="3" OnContent="On" OffContent="Off" IsOn="{Binding Remote_CH_12_Enable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
             </Grid>
