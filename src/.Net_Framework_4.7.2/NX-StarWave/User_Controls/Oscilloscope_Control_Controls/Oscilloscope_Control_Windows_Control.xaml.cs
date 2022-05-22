@@ -24,6 +24,8 @@ namespace Oscilloscope_Control_Controls
 
         public static readonly RoutedEvent Query_Measurement_Config_Window_Open_Event = EventManager.RegisterRoutedEvent("Query_Measurement_Config_Window_Open_Event", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(Oscilloscope_Control_Windows_Control));
 
+        public static readonly RoutedEvent Web_Server_Open_Event = EventManager.RegisterRoutedEvent("Web_Server_Open_Event", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(Oscilloscope_Control_Windows_Control));
+
         public Oscilloscope_Control_Windows_Control()
         {
             InitializeComponent();
@@ -38,6 +40,11 @@ namespace Oscilloscope_Control_Controls
         private void Home_Control_UserControl_Click(object sender, RoutedEventArgs e)
         {
             Load_Oscilloscope_UserControl.Content = Home_Control;
+        }
+
+        private void Web_Server_Open_Click(object sender, RoutedEventArgs e)
+        {
+            RaiseEvent(new RoutedEventArgs(Oscilloscope_Control_Windows_Control.Web_Server_Open_Event));
         }
 
         private void SCPI_Communication_Window_Open_Click(object sender, RoutedEventArgs e)

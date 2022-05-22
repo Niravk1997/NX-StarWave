@@ -1,6 +1,5 @@
 ﻿using Custom_Math_Expression_Class;
 using MahApps.Metro.Controls;
-using org.mariuszgromada.math.mxparser;
 using System;
 using System.Windows;
 

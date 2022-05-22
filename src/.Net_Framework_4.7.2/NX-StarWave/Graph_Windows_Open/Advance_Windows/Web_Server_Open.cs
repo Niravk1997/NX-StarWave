@@ -15,7 +15,7 @@ namespace NX_StarWave
 
         private void Initialize_Web_Server_EventHandler()
         {
-            AddHandler(Home_Control_Window.Home_Control.Web_Server_Open_Event, new RoutedEventHandler(Web_Server_Open_Click));
+            AddHandler(Oscilloscope_Control_Controls.Oscilloscope_Control_Windows_Control.Web_Server_Open_Event, new RoutedEventHandler(Web_Server_Open_Click));
         }
 
         private void Web_Server_Open_Click(object sender, RoutedEventArgs e)

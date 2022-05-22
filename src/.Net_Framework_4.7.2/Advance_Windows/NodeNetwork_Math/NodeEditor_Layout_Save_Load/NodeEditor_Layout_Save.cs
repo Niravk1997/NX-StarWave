@@ -137,7 +137,7 @@ namespace NodeEditor_Layout_Save_Load
 
             foreach (Custom_Math_Expression_ViewModel_1_Input node in NodeNetwork_Editor.Nodes.Items.Where(Nodes => Nodes is Custom_Math_Expression_ViewModel_1_Input))
             {
-                string Node_Info = "Custom_Math_Expression_ViewModel_1_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed +  split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name;
+                string Node_Info = "Custom_Math_Expression_ViewModel_1_Input" + split + node.Name + split + node.Position.X + split + node.Position.Y + split + (int)node.Category + split + node.Background_Color + split + node.Foreground_Color + split + node.Units + split + node.IsCollapsed + split + node.Library_Speed + split + node.Math_Expression_string + split + node.Output.Name + split + node.Input_1.Name;
                 Nodes_List.Add(Node_Info);
             }
 

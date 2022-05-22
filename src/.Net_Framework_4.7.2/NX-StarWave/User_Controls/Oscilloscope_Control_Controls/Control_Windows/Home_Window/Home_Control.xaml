@@ -33,7 +33,6 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.Resources>
-                    <Geometry x:Key="Web_Server_ICON">M 40,44L 39.9999,51L 44,51C 45.1046,51 46,51.8954 46,53L 46,57C 46,58.1046 45.1045,59 44,59L 32,59C 30.8954,59 30,58.1046 30,57L 30,53C 30,51.8954 30.8954,51 32,51L 36,51L 36,44L 40,44 Z M 47,53L 57,53L 57,57L 47,57L 47,53 Z M 29,53L 29,57L 19,57L 19,53L 29,53 Z M 19,22L 57,22L 57,31L 19,31L 19,22 Z M 55,24L 53,24L 53,29L 55,29L 55,24 Z M 51,24L 49,24L 49,29L 51,29L 51,24 Z M 47,24L 45,24L 45,29L 47,29L 47,24 Z M 21,27L 21,29L 23,29L 23,27L 21,27 Z M 19,33L 57,33L 57,42L 19,42L 19,33 Z M 55,35L 53,35L 53,40L 55,40L 55,35 Z M 51,35L 49,35L 49,40L 51,40L 51,35 Z M 47,35L 45,35L 45,40L 47,40L 47,35 Z M 21,38L 21,40L 23,40L 23,38L 21,38 Z</Geometry>
                     <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
                         <Setter Property="Padding" Value="0,0,0,0"/>
                         <Setter Property="Margin" Value="5,0,5,0"/>
@@ -142,17 +141,6 @@
                 <Label Grid.Column="1" Grid.Row="1" Content="{Binding Oscilloscope_Model}" Style="{StaticResource Oscilloscope_Info_Labels_Style}"/>
                 <Label Grid.Column="1" Grid.Row="2" Content="{Binding Oscilloscope_Firmware}" Style="{StaticResource Oscilloscope_Info_Labels_Style}"/>
                 <Label Grid.Column="1" Grid.Row="3" Content="{Binding Connection_Interface_Type}" Style="{StaticResource Oscilloscope_Info_Labels_Style}"/>
-
-                <StackPanel Grid.Column="0" Grid.Row="4" Orientation="Vertical">
-                    <Button x:Name="Waveform_Player_Open" Style="{StaticResource Graph_Select_Button}" BorderBrush="{Binding Web_Server_Selected}" Click="Web_Server_Open_Click">
-                        <Path Data="{StaticResource Web_Server_ICON}" Width="30" Height="30" Margin="0,0,0,0" Fill="White" Stretch="Fill">
-                            <Path.LayoutTransform>
-                                <RotateTransform Angle="180"/>
-                            </Path.LayoutTransform>
-                        </Path>
-                    </Button>
-                    <Label Content="Server" HorizontalAlignment="Center" Padding="0,0,0,0" Margin="-20,-5,0,0" FontSize="14"/>
-                </StackPanel>
             </Grid>
         </ScrollViewer>
     </Grid>
