@@ -116,7 +116,7 @@
                             </Path.LayoutTransform>
                         </Path>
                     </Button>
-                    <Label Content="Server" Style="{StaticResource Oscilloscope_Control_Select_Label_Style}"/>
+                    <Label Content="Server" Margin="0,-8,0,0" Style="{StaticResource Oscilloscope_Control_Select_Label_Style}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Button Style="{StaticResource Graph_Select_Button}" BorderBrush="{Binding SCPI_Communication_Window_Selected}" Click="SCPI_Communication_Window_Open_Click">
