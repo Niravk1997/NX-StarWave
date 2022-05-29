@@ -76,6 +76,14 @@ namespace Measurement_Plot
                 {
                     Measurement_Max_Local = Initial_Measurement_Data[i];
                 }
+                if (Initial_Measurement_Data[i] >= 0)
+                {
+                    Positive_Samples++;
+                }
+                else
+                {
+                    Negative_Samples++;
+                }
                 Measurement_Data_Count++;
             }
 
@@ -84,8 +92,8 @@ namespace Measurement_Plot
                 Date_Time[i] = Max_DateTime_Value;
             }
 
-            Measurement_Min = Measurement_Min_Local;
-            Measurement_Max = Measurement_Max_Local;
+            Min_Recorded_Sample = Measurement_Min_Local;
+            Max_Recorded_Sample = Measurement_Max_Local;
         }
 
         private void Initialize_Measurement_Plot()

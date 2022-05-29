@@ -24,7 +24,7 @@ namespace Measurement_Plot
 
         private void Add_Clear_Vertical_Markers()
         {
-            if (Vertical_Markers_MenuItem.IsChecked == true)
+            if (Vertical_Markers_Active == true)
             {
                 (double X_MouseCoordinate, double Y_MouseCoordinate) = Graph.GetMouseCoordinates();
                 Vertical_Start_Marker = Graph.Plot.AddVerticalLine(X_MouseCoordinate, color: System.Drawing.ColorTranslator.FromHtml("#FF00950E"), style: ScottPlot.LineStyle.DashDot, label: "V Marker");
@@ -76,7 +76,6 @@ namespace Measurement_Plot
             }
             else
             {
-                Vertical_Markers_MenuItem.IsChecked = false;
                 Graph.Plot.Remove(plottable: Vertical_Start_Marker);
                 Graph.Plot.Remove(plottable: Vertical_Stop_Marker);
                 Clear_Vertical_Annotations();
@@ -195,7 +194,7 @@ namespace Measurement_Plot
 
         private void Add_Clear_Horizontal_Markers()
         {
-            if (Horizontal_Markers_MenuItem.IsChecked == true)
+            if (Horizontal_Markers_Active == true)
             {
                 (double X_MouseCoordinate, double Y_MouseCoordinate) = Graph.GetMouseCoordinates();
                 Horizontal_Start_Marker = Graph.Plot.AddHorizontalLine(Y_MouseCoordinate, color: System.Drawing.ColorTranslator.FromHtml("#FF00950E"), style: ScottPlot.LineStyle.DashDot, label: "H Marker");
@@ -234,7 +233,6 @@ namespace Measurement_Plot
             }
             else
             {
-                Horizontal_Markers_MenuItem.IsChecked = false;
                 Graph.Plot.Remove(plottable: Horizontal_Start_Marker);
                 Graph.Plot.Remove(plottable: Horizontal_Stop_Marker);
                 Clear_Horizontal_Annotations();
@@ -284,7 +282,6 @@ namespace Measurement_Plot
         private void Clear_All_Horizontal_Markers()
         {
             Clear_Horizontal_Annotations();
-            Horizontal_Markers_MenuItem.IsChecked = false;
             Graph.Plot.Clear(typeof(ScottPlot.Plottable.HLine));
             Graph.Render();
         }
@@ -298,7 +295,6 @@ namespace Measurement_Plot
         private void Clear_All_Vertical_Markers()
         {
             Clear_Vertical_Annotations();
-            Vertical_Markers_MenuItem.IsChecked = false;
             Graph.Plot.Clear(typeof(ScottPlot.Plottable.VLine));
             Graph.Render();
         }

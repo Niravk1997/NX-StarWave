@@ -15,6 +15,9 @@ namespace Measurement_Plot
 
         public bool Measurement_Plot_Reset_Request = false;
 
+        // This graph will be updated when this counter does not match the Measurement_Data_Count
+        private int Graph_Update_Measurement_Data_Count = 0;
+
         private void Initialize_Timers()
         {
             Measurement_Data_Timer = new System.Timers.Timer();
@@ -47,8 +50,8 @@ namespace Measurement_Plot
                         }
                         Measurement_Plot.Xs = Date_Time;
                         Measurement_Plot.Ys = Measurement_Data;
-                        Measurement_Min = double.MaxValue;
-                        Measurement_Max = double.MinValue;
+                        Min_Recorded_Sample = double.MaxValue;
+                        Max_Recorded_Sample = double.MinValue;
                         Measurement_Plot_Reset_Request = false;
                         Insert_Log("Measurement Plot has been reset.", 0);
                     }
@@ -74,13 +77,21 @@ namespace Measurement_Plot
                     Measurement_Plot.MaxRenderIndex = Measurement_Data_Count;
                     Measurement_Data_Count += 1;
 
-                    if (Measurement < Measurement_Min)
+                    if (Measurement < Min_Recorded_Sample)
                     {
-                        Measurement_Min = Measurement;
+                        Min_Recorded_Sample = Measurement;
                     }
-                    if (Measurement > Measurement_Max)
+                    if (Measurement > Max_Recorded_Sample)
                     {
-                        Measurement_Max = Measurement;
+                        Max_Recorded_Sample = Measurement;
+                    }
+                    if (Measurement >= 0)
+                    {
+                        Positive_Samples++;
+                    }
+                    else
+                    {
+                        Negative_Samples++;
                     }
                 }
                 catch (Exception Ex)
@@ -95,11 +106,15 @@ namespace Measurement_Plot
         {
             try
             {
-                if (AutoAxis_MenuItem.IsChecked)
+                if (Graph_Update_Measurement_Data_Count != Measurement_Data_Count)
                 {
-                    Graph.Plot.AxisAuto();
+                    Graph_Update_Measurement_Data_Count = Measurement_Data_Count;
+                    if (Axis_Auto)
+                    {
+                        Graph.Plot.AxisAuto();
+                    }
+                    Graph.Refresh();
                 }
-                Graph.Refresh();
             }
             catch (Exception Ex)
             {

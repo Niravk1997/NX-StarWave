@@ -17,6 +17,39 @@ namespace Measurement_Plot
             }
         }
 
+        private bool Axis_Auto_ = true;
+        public bool Axis_Auto
+        {
+            get { return Axis_Auto_; }
+            set
+            {
+                Axis_Auto_ = value;
+                NotifyPropertyChanged("Axis_Auto");
+            }
+        }
+
+        private bool Vertical_Markers_Active_ = false;
+        public bool Vertical_Markers_Active
+        {
+            get { return Vertical_Markers_Active_; }
+            set
+            {
+                Vertical_Markers_Active_ = value;
+                NotifyPropertyChanged("Vertical_Markers_Active");
+            }
+        }
+
+        private bool Horizontal_Markers_Active_ = false;
+        public bool Horizontal_Markers_Active
+        {
+            get { return Horizontal_Markers_Active_; }
+            set
+            {
+                Horizontal_Markers_Active_ = value;
+                NotifyPropertyChanged("Horizontal_Markers_Active");
+            }
+        }
+
         private int Measurement_Data_Count_ = 0;
         public int Measurement_Data_Count
         {
@@ -28,49 +61,94 @@ namespace Measurement_Plot
             }
         }
 
-        private string Measurement_Min_String_ = "null";
-        public string Measurement_Min_String
+        private int Positive_Samples_ = 0;
+        public int Positive_Samples
         {
-            get { return Measurement_Min_String_; }
+            get { return Positive_Samples_; }
             set
             {
-                Measurement_Min_String_ = value;
-                NotifyPropertyChanged("Measurement_Min_String");
+                Positive_Samples_ = value;
+                NotifyPropertyChanged("Positive_Samples");
             }
         }
 
-        private double Measurement_Min_ = double.MaxValue;
-        public double Measurement_Min
+        private int Negative_Samples_ = 0;
+        public int Negative_Samples
         {
-            get { return Measurement_Min_; }
+            get { return Negative_Samples_; }
             set
             {
-                Measurement_Min_ = value;
-                Measurement_Min_String = Axis_Scale_Config.Value_SI_Prefix(value, Measurement_Round_Value) + Measurement_Unit;
-                NotifyPropertyChanged("Measurement_Min");
+                Negative_Samples_ = value;
+                NotifyPropertyChanged("Negative_Samples");
             }
         }
 
-        private string Measurement_Max_String_ = "null";
-        public string Measurement_Max_String
+        private string Moving_Average_String_ = "null";
+        public string Moving_Average_String
         {
-            get { return Measurement_Max_String_; }
+            get { return Moving_Average_String_; }
             set
             {
-                Measurement_Max_String_ = value;
-                NotifyPropertyChanged("Measurement_Max_String");
+                Moving_Average_String_ = value;
+                NotifyPropertyChanged("Moving_Average_String");
             }
         }
 
-        private double Measurement_Max_ = double.MinValue;
-        public double Measurement_Max
+        private double Moving_Average_ = 0;
+        public double Moving_Average
         {
-            get { return Measurement_Max_; }
+            get { return Moving_Average_; }
             set
             {
-                Measurement_Max_ = value;
-                Measurement_Max_String = Axis_Scale_Config.Value_SI_Prefix(value, Measurement_Round_Value) + Measurement_Unit;
-                NotifyPropertyChanged("Measurement_Max");
+                Moving_Average_ = value;
+                Moving_Average_String = Axis_Scale_Config.Value_SI_Prefix(value, Measurement_Round_Value) + Measurement_Unit;
+                NotifyPropertyChanged("Moving_Average");
+            }
+        }
+
+        private string Max_Recorded_Sample_String_ = "null";
+        public string Max_Recorded_Sample_String
+        {
+            get { return Max_Recorded_Sample_String_; }
+            set
+            {
+                Max_Recorded_Sample_String_ = value;
+                NotifyPropertyChanged("Max_Recorded_Sample_String");
+            }
+        }
+
+        private double Max_Recorded_Sample_ = 0;
+        public double Max_Recorded_Sample
+        {
+            get { return Max_Recorded_Sample_; }
+            set
+            {
+                Max_Recorded_Sample_ = value;
+                Max_Recorded_Sample_String = Axis_Scale_Config.Value_SI_Prefix(value, Measurement_Round_Value) + Measurement_Unit;
+                NotifyPropertyChanged("Max_Recorded_Sample");
+            }
+        }
+
+        private string Min_Recorded_Sample_String_ = "null";
+        public string Min_Recorded_Sample_String
+        {
+            get { return Min_Recorded_Sample_String_; }
+            set
+            {
+                Min_Recorded_Sample_String_ = value;
+                NotifyPropertyChanged("Min_Recorded_Sample_String");
+            }
+        }
+
+        private double Min_Recorded_Sample_ = 0;
+        public double Min_Recorded_Sample
+        {
+            get { return Min_Recorded_Sample_; }
+            set
+            {
+                Min_Recorded_Sample_ = value;
+                Min_Recorded_Sample_String = Axis_Scale_Config.Value_SI_Prefix(value, Measurement_Round_Value) + Measurement_Unit;
+                NotifyPropertyChanged("Min_Recorded_Sample");
             }
         }
 

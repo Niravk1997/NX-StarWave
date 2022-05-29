@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media.Imaging;
 
 namespace Measurement_Plot
@@ -49,18 +50,37 @@ namespace Measurement_Plot
 
         private void Initialize_Right_Click_Menu()
         {
+            Binding Auto_Axis_Binding = new Binding();
+            Auto_Axis_Binding.Source = this;
+            Auto_Axis_Binding.Path = new PropertyPath("Axis_Auto");
+            Auto_Axis_Binding.Mode = BindingMode.TwoWay;
+            Auto_Axis_Binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+
             AutoAxis_MenuItem = new MenuItem() { Header = "Auto Axis" };
-            AutoAxis_MenuItem.Click += Right_Click_AutoAxis;
             AutoAxis_MenuItem.IsCheckable = true;
-            AutoAxis_MenuItem.IsChecked = true;
+            AutoAxis_MenuItem.SetBinding(MenuItem.IsCheckedProperty, Auto_Axis_Binding);
+
+            Binding Vertical_Markers_Active_Binding = new Binding();
+            Vertical_Markers_Active_Binding.Source = this;
+            Vertical_Markers_Active_Binding.Path = new PropertyPath("Vertical_Markers_Active");
+            Vertical_Markers_Active_Binding.Mode = BindingMode.TwoWay;
+            Vertical_Markers_Active_Binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 
             Vertical_Markers_MenuItem = new MenuItem() { Header = "Vertical Markers" };
             Vertical_Markers_MenuItem.Click += Right_Click_Enable_Vertical_Markers;
             Vertical_Markers_MenuItem.IsCheckable = true;
+            Vertical_Markers_MenuItem.SetBinding(MenuItem.IsCheckedProperty, Vertical_Markers_Active_Binding);
+
+            Binding Horizontal_Markers_Active_Binding = new Binding();
+            Horizontal_Markers_Active_Binding.Source = this;
+            Horizontal_Markers_Active_Binding.Path = new PropertyPath("Horizontal_Markers_Active");
+            Horizontal_Markers_Active_Binding.Mode = BindingMode.TwoWay;
+            Horizontal_Markers_Active_Binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
 
             Horizontal_Markers_MenuItem = new MenuItem() { Header = "Horizontal Markers" };
             Horizontal_Markers_MenuItem.Click += Right_Click_Enable_Horizontal_Markers;
             Horizontal_Markers_MenuItem.IsCheckable = true;
+            Horizontal_Markers_MenuItem.SetBinding(MenuItem.IsCheckedProperty, Horizontal_Markers_Active_Binding);
 
             addCopyImageMenuItem = new MenuItem() { Header = "Copy Image" };
             addCopyImageMenuItem.Click += RightClick_Copy_Graph_Image;
@@ -158,26 +178,12 @@ namespace Measurement_Plot
 
         private void Right_Click_Enable_Vertical_Markers(object sender, EventArgs e)
         {
-            if (Vertical_Markers_MenuItem.IsChecked == true)
-            {
-                Add_Clear_Vertical_Markers();
-            }
-            else
-            {
-                Add_Clear_Vertical_Markers();
-            }
+            Add_Clear_Vertical_Markers();
         }
 
         private void Right_Click_Enable_Horizontal_Markers(object sender, EventArgs e)
         {
-            if (Horizontal_Markers_MenuItem.IsChecked == true)
-            {
-                Add_Clear_Horizontal_Markers();
-            }
-            else
-            {
-                Add_Clear_Horizontal_Markers();
-            }
+            Add_Clear_Horizontal_Markers();
         }
 
         private void Right_ClickSave_Graph_Image(object sender, EventArgs e)

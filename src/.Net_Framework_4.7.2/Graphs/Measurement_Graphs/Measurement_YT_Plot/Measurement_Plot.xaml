@@ -9,14 +9,15 @@
                  mc:Ignorable="d"
                  Title="{Binding Window_Title}" 
                  TitleCharacterCasing="Normal"
-                 Height="300" 
-                 Width="600"
+                 Height="400" 
+                 Width="700"
                  Closed="Window_Closed">
     <Grid x:Name="Measurement_Plot_Grid">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" x:Name="Graph_Panel"/>
             <RowDefinition Height="2" x:Name="GridSplitter_Panel"/>
-            <RowDefinition Height="70" MinHeight="10"/>
+            <RowDefinition Height="85" MinHeight="10"/>
         </Grid.RowDefinitions>
         <Grid.Resources>
             <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Flat}">
@@ -35,20 +36,49 @@
                 <Setter Property="Height" Value="20"/>
             </Style>
         </Grid.Resources>
-        <ScottPlot:WpfPlot Name="Graph" Grid.Row="0"/>
-        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <TabControl Grid.Row="2" Margin="2,2,2,2">
+        <Menu Grid.Row="0" IsMainMenu="True">
+            <MenuItem Header="File">
+                
+            </MenuItem>
+            <MenuItem Header="Graph Settings">
+                
+            </MenuItem>
+            <MenuItem Header="Graph Colors">
+                
+            </MenuItem>
+            <MenuItem Header="Plot Settings">
+                
+            </MenuItem>
+            <MenuItem Header="Zoom">
+                
+            </MenuItem>
+            <MenuItem Header="Markers">
+                
+            </MenuItem>
+            <MenuItem Header="Mouse Tracker">
+                
+            </MenuItem>
+            <MenuItem Header="Output Log">
+                
+            </MenuItem>
+        </Menu>
+        <ScottPlot:WpfPlot Name="Graph" Grid.Row="1"/>
+        <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TabControl Grid.Row="3" Margin="2,2,2,2">
             <TabItem x:Name="Information_Tab" Header="Information">
                 <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="85"/>
+                            <ColumnDefinition Width="110"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="130"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="55"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="65"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Grid.Resources>
@@ -64,15 +94,25 @@
                         </Grid.Resources>
                         <StackPanel Grid.Column="0">
                             <Label Content="Total Samples: "/>
-                            <Label Content="Max Sample: "/>
-                            <Label Content="Min Sample: "/>
+                            <Label Content="Positive Samples: "/>
+                            <Label Content="Negative Samples: "/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" HorizontalAlignment="Left">
                             <Label Content="{Binding Measurement_Data_Count, FallbackValue=null}" HorizontalAlignment="Left"/>
-                            <Label Content="{Binding Measurement_Max_String, FallbackValue=null}" HorizontalAlignment="Left"/>
-                            <Label Content="{Binding Measurement_Min_String, FallbackValue=null}" HorizontalAlignment="Left"/>
+                            <Label Content="{Binding Positive_Samples, FallbackValue=null}" HorizontalAlignment="Left"/>
+                            <Label Content="{Binding Negative_Samples, FallbackValue=null}" HorizontalAlignment="Left"/>
                         </StackPanel>
                         <StackPanel Grid.Column="3">
+                            <Label Content="Moving Average: "/>
+                            <Label Content="Max Recorded Sample: "/>
+                            <Label Content="Min Recorded Sample: "/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="4" HorizontalAlignment="Left">
+                            <Label Content="{Binding Moving_Average_String, FallbackValue=null}" HorizontalAlignment="Left"/>
+                            <Label Content="{Binding Max_Recorded_Sample_String, FallbackValue=null}" HorizontalAlignment="Left"/>
+                            <Label Content="{Binding Min_Recorded_Sample_String, FallbackValue=null}" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="6">
                             <Label Content="∆ Time: "/>
                             <Label>
                                 <Label.Content>
@@ -91,12 +131,12 @@
                                 </Label.Content>
                             </Label>
                         </StackPanel>
-                        <StackPanel Grid.Column="4" HorizontalAlignment="Left">
+                        <StackPanel Grid.Column="7" HorizontalAlignment="Left">
                             <Label x:Name="TimeDifference_Label" Content="null" HorizontalAlignment="Left"/>
                             <Label x:Name="Vertical_StartTime_Label" Content="null" HorizontalAlignment="Left"/>
                             <Label x:Name="Vertical_StopTime_Label" Content="null" HorizontalAlignment="Left"/>
                         </StackPanel>
-                        <StackPanel Grid.Column="6">
+                        <StackPanel Grid.Column="9">
                             <Label Content="∆ Y-Axis: "/>
                             <Label>
                                 <Label.Content>
@@ -115,13 +155,22 @@
                                 </Label.Content>
                             </Label>
                         </StackPanel>
-                        <StackPanel Grid.Column="7" HorizontalAlignment="Left">
+                        <StackPanel Grid.Column="10" HorizontalAlignment="Left">
                             <Label x:Name="Horizontal_VoltageDifference_Label" Content="null" HorizontalAlignment="Left"/>
                             <Label x:Name="Horizontal_Green_Label" Content="null" HorizontalAlignment="Left"/>
                             <Label x:Name="Horizontal_Red_Label" Content="null" HorizontalAlignment="Left"/>
                         </StackPanel>
                     </Grid>
                 </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Statistics">
+                
+            </TabItem>
+            <TabItem Header="Math">
+                
+            </TabItem>
+            <TabItem Header="Histogram">
+                
             </TabItem>
             <TabItem x:Name="Output_Log_Tab" Header="Output Log">
                 <ScrollViewer x:Name="Output_Log_Scroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
