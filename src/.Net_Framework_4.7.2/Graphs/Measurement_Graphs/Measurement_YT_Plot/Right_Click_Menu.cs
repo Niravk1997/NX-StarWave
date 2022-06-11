@@ -197,7 +197,7 @@ namespace Measurement_Plot
             {
                 var Save_Image_Window = new SaveFileDialog
                 {
-                    FileName = "Waveform" + "_" + DateTime.Now.ToString("yyyy-MM-dd h-mm-ss tt") + ".png",
+                    FileName = "Measurement_Plot" + "_" + DateTime.Now.ToString("yyyy-MM-dd h-mm-ss tt") + ".png",
                     Filter = "PNG Files (*.png)|*.png;*.png" +
                       "|JPG Files (*.jpg, *.jpeg)|*.jpg;*.jpeg" +
                       "|BMP Files (*.bmp)|*.bmp;*.bmp" +

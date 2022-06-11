@@ -38,28 +38,107 @@
         </Grid.Resources>
         <Menu Grid.Row="0" IsMainMenu="True">
             <MenuItem Header="File">
-                
+                <MenuItem.ToolTip>
+                    <ToolTip>Save Graph Data, and Save Graph as an Image</ToolTip>
+                </MenuItem.ToolTip>
+                <MenuItem Header="Save Data" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Save_Data_Text_File" Header="To Text File" IsCheckable="False" IsChecked="False" Click="Save_Data_to_Text_File_Click"/>
+                    <MenuItem x:Name="Save_Data_CSV_File" Header="To CSV File" IsCheckable="False" IsChecked="False" Click="Save_Data_to_CSV_File_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="Save_Graph_Image" Header="Save Graph Image" IsCheckable="False" IsChecked="False" Click="Save_Graph_Image_Click"/>
+                <MenuItem x:Name="Exit_Graph_Window" Header="Exit" IsCheckable="False" IsChecked="False" Click="Exit_Graph_Window_Click"/>
             </MenuItem>
             <MenuItem Header="Graph Settings">
-                
+                <MenuItem.ToolTip>
+                    <ToolTip>Enable/Disable Auto Axis, Set Axis Labels and more</ToolTip>
+                </MenuItem.ToolTip>
+                <MenuItem Header="Auto Axis" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Force_Auto_Axis" Header="Force Auto Axis" IsCheckable="False" IsChecked="False" Click="Force_Auto_Axis_Click"/>
+                    <MenuItem x:Name="Auto_Axis_Enable" Header="Enable" IsCheckable="True" IsChecked="{Binding Axis_Auto, Mode=TwoWay}"/>
+                </MenuItem>
+                <MenuItem Header="Axis Labels" IsCheckable="False" IsChecked="False">
+                    <MenuItem Header="Title Label" IsCheckable="False" IsChecked="False">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="Title_Set_Text" Text="" Width="100" Margin="0,0,5,0"/>
+                            <Button x:Name="Title_Text_Button" Content="Set" Width="35" Click="Title_Text_Button_Click"/>
+                        </StackPanel>
+                    </MenuItem>
+                    <MenuItem Header="X-Axis Label" IsCheckable="False" IsChecked="False">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="X_Axis_Set_Text" Text="" Width="100" Margin="0,0,5,0"/>
+                            <Button x:Name="X_Axis_Text_Button" Content="Set" Width="35" Click="X_Axis_Text_Button_Click"/>
+                        </StackPanel>
+                    </MenuItem>
+                    <MenuItem Header="Y-Axis Label" IsCheckable="False" IsChecked="False">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="Y_Axis_Set_Text" Text="" Width="100" Margin="0,0,5,0"/>
+                            <Button x:Name="Y_Axis_Text_Button" Content="Set" Width="35" Click="Y_Axis_Text_Button_Click"/>
+                        </StackPanel>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Axis Ticks" IsCheckable="False" IsChecked="False">
+                    <MenuItem Header="X-Axis" IsCheckable="False" IsChecked="False">
+                        <MenuItem x:Name="X_Axis_Show" Header="Show" IsCheckable="True" IsChecked="True" Click="X_Axis_Show_Click"/>
+                        <MenuItem Header="X-Tick Rotation" IsCheckable="False" IsChecked="False">
+                            <MenuItem x:Name="X_Axis_Tick_Rotation_0" Header="0°" IsCheckable="True" IsChecked="False" Click="X_Axis_Tick_Rotation_0_Click"/>
+                            <MenuItem x:Name="X_Axis_Tick_Rotation_45" Header="45°" IsCheckable="True" IsChecked="False" Click="X_Axis_Tick_Rotation_45_Click"/>
+                        </MenuItem>
+                        <MenuItem x:Name="X_Axis_Minor_Grid" Header="Minor Grid" IsCheckable="True" IsChecked="False" Click="X_Axis_Minor_Grid_Click"/>
+                        <MenuItem x:Name="X_Axis_Tick_Ruler_Mode" Header="Tick Ruler Mode" IsCheckable="True" IsChecked="False" Click="X_Axis_Tick_Ruler_Mode_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Y-Axis" IsCheckable="False" IsChecked="False">
+                        <MenuItem x:Name="Y_Axis_Show" Header="Show" IsCheckable="True" IsChecked="True" Click="Y_Axis_Show_Click"/>
+                        <MenuItem Header="Y-Tick Rotation" IsCheckable="False" IsChecked="False">
+                            <MenuItem x:Name="Y_Axis_Tick_Rotation_0" Header="0°" IsCheckable="True" IsChecked="False" Click="Y_Axis_Tick_Rotation_0_Click"/>
+                            <MenuItem x:Name="Y_Axis_Tick_Rotation_45" Header="45°" IsCheckable="True" IsChecked="False" Click="Y_Axis_Tick_Rotation_45_Click"/>
+                        </MenuItem>
+                        <MenuItem x:Name="Y_Axis_Minor_Grid" Header="Minor Grid" IsCheckable="True" IsChecked="False" Click="Y_Axis_Minor_Grid_Click"/>
+                        <MenuItem x:Name="Y_Axis_Tick_Ruler_Mode" Header="Tick Ruler Mode" IsCheckable="True" IsChecked="False" Click="Y_Axis_Tick_Ruler_Mode_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Font Size" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Font_12" Header="12" IsCheckable="True" IsChecked="False" Click="Font_Size_12_Click"/>
+                    <MenuItem x:Name="Font_14" Header="14" IsCheckable="True" IsChecked="False" Click="Font_Size_14_Click"/>
+                    <MenuItem x:Name="Font_16" Header="16" IsCheckable="True" IsChecked="False" Click="Font_Size_16_Click"/>
+                    <MenuItem x:Name="Font_18" Header="18" IsCheckable="True" IsChecked="False" Click="Font_Size_18_Click"/>
+                </MenuItem>
+                <MenuItem Header="Graph Grid" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Graph_Vertical_Grid" Header="Vertical Grid" IsCheckable="True" IsChecked="True" Click="Graph_Vertical_Grid_Click"/>
+                    <MenuItem x:Name="Graph_Horizontal_Grid" Header="Horizontal Grid" IsCheckable="True" IsChecked="True" Click="Graph_Horizontal_Grid_Click"/>
+                    <MenuItem Header="Grid Style" IsCheckable="False" IsChecked="False">
+                        <MenuItem x:Name="Grid_Style_Default" Header="Default" IsCheckable="True" IsChecked="True" Click="Grid_Style_Default_Click"/>
+                        <MenuItem x:Name="Grid_Style_Dotted" Header="Dotted Lines" IsCheckable="True" IsChecked="False" Click="Grid_Style_Dotted_Click"/>
+                        <MenuItem x:Name="Grid_Style_Dashed" Header="Dashed Lines" IsCheckable="True" IsChecked="False" Click="Grid_Style_Dashed_Click"/>
+                        <MenuItem x:Name="Grid_Style_Dot_Dash" Header="Dot-Dash Lines" IsCheckable="True" IsChecked="False" Click="Grid_Style_Dot_Dash_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Graph Legend" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Show_legend" Header="Show Legend" IsCheckable="True" IsChecked="False" Click="Show_legend_Click"/>
+                    <MenuItem x:Name="Position_legend" Header="Legend Position" IsCheckable="False" IsChecked="False">
+                        <MenuItem x:Name="Legend_TopLeft" Header="Top Left" IsCheckable="True" IsChecked="False" Click="Legend_TopLeft_Click"/>
+                        <MenuItem x:Name="Legend_TopRight" Header="Top Right" IsCheckable="True" IsChecked="False" Click="Legend_TopRight_Click"/>
+                        <MenuItem x:Name="Legend_BottomLeft" Header="Bottom Left" IsCheckable="True" IsChecked="False" Click="Legend_BottomLeft_Click"/>
+                        <MenuItem x:Name="Legend_BottomRight" Header="Bottom Right" IsCheckable="True" IsChecked="True" Click="Legend_BottomRight_Click"/>
+                    </MenuItem>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Graph Colors">
-                
+
             </MenuItem>
             <MenuItem Header="Plot Settings">
-                
+
             </MenuItem>
             <MenuItem Header="Zoom">
-                
+
             </MenuItem>
             <MenuItem Header="Markers">
-                
+
             </MenuItem>
             <MenuItem Header="Mouse Tracker">
-                
+
             </MenuItem>
             <MenuItem Header="Output Log">
-                
+
             </MenuItem>
         </Menu>
         <ScottPlot:WpfPlot Name="Graph" Grid.Row="1"/>
@@ -164,13 +243,13 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Statistics">
-                
+
             </TabItem>
             <TabItem Header="Math">
-                
+
             </TabItem>
             <TabItem Header="Histogram">
-                
+
             </TabItem>
             <TabItem x:Name="Output_Log_Tab" Header="Output Log">
                 <ScrollViewer x:Name="Output_Log_Scroll" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
