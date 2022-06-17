@@ -81,8 +81,8 @@
     <Reference Include="ControlzEx, Version=5.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>packages\ControlzEx.5.0.1\lib\net462\ControlzEx.dll</HintPath>
     </Reference>
-    <Reference Include="DynamicData, Version=7.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\DynamicData.7.8.6\lib\net462\DynamicData.dll</HintPath>
+    <Reference Include="DynamicData, Version=7.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DynamicData.7.9.1\lib\net462\DynamicData.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -140,23 +140,23 @@
       <HintPath>packages\Pharmacist.Common.2.0.8\lib\net472\Pharmacist.Common.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework.Aero" />
-    <Reference Include="ReactiveUI, Version=18.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ReactiveUI.18.0.10\lib\net472\ReactiveUI.dll</HintPath>
+    <Reference Include="ReactiveUI, Version=18.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReactiveUI.18.1.8\lib\net472\ReactiveUI.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI.Events.WPF, Version=15.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ReactiveUI.Events.WPF.15.1.1\lib\net472\ReactiveUI.Events.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="ReactiveUI.Wpf, Version=18.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ReactiveUI.WPF.18.0.10\lib\net472\ReactiveUI.Wpf.dll</HintPath>
+    <Reference Include="ReactiveUI.Wpf, Version=18.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ReactiveUI.WPF.18.1.8\lib\net472\ReactiveUI.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="RegexMatcher, Version=1.0.7.2, Culture=neutral, PublicKeyToken=68d7f6ae806af85a, processorArchitecture=MSIL">
       <HintPath>packages\RegexMatcher.1.0.7.2\lib\net462\RegexMatcher.dll</HintPath>
     </Reference>
-    <Reference Include="ScottPlot, Version=4.1.45.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
-      <HintPath>packages\ScottPlot.4.1.45\lib\net461\ScottPlot.dll</HintPath>
+    <Reference Include="ScottPlot, Version=4.1.48.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.4.1.48\lib\net461\ScottPlot.dll</HintPath>
     </Reference>
-    <Reference Include="ScottPlot.WPF, Version=4.1.45.0, Culture=neutral, PublicKeyToken=e53b06131e34a3aa, processorArchitecture=MSIL">
-      <HintPath>packages\ScottPlot.WPF.4.1.45\lib\net472\ScottPlot.WPF.dll</HintPath>
+    <Reference Include="ScottPlot.WPF, Version=4.1.48.0, Culture=neutral, PublicKeyToken=e53b06131e34a3aa, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.WPF.4.1.48\lib\net472\ScottPlot.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Splat, Version=14.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Splat.14.2.8\lib\netstandard2.0\Splat.dll</HintPath>
@@ -602,9 +602,11 @@
     </Compile>
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Measurement_Plot_Config.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Measurement_Plot_ViewModel.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Mouse_Tracker_Menu.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Output_Log_Menu.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Reference_Waveforms.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Zoom_Window_Control.cs" />
     <Compile Include="Graphs\YT_Graphs\YT\Gated_Highest_points.cs" />
     <Compile Include="Graphs\YT_Graphs\YT\Gated_Measurements.cs" />
     <Compile Include="Graphs\YT_Graphs\YT\Gated_Peaks.cs" />

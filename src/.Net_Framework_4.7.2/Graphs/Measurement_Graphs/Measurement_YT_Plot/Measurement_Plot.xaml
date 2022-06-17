@@ -15,6 +15,7 @@
     <Grid x:Name="Measurement_Plot_Grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0" x:Name="Zoom_Control_Window"/>
             <RowDefinition Height="*" x:Name="Graph_Panel"/>
             <RowDefinition Height="2" x:Name="GridSplitter_Panel"/>
             <RowDefinition Height="85" MinHeight="10"/>
@@ -129,21 +130,85 @@
 
             </MenuItem>
             <MenuItem Header="Zoom">
-
-            </MenuItem>
-            <MenuItem Header="Markers">
-
+                <MenuItem Header="Enable" IsCheckable="True" IsChecked="{Binding Zoom_Control_Window_MenuItem_IsEnabled, Mode=TwoWay}" Click="Enable_Zoom_Window_Control_Click"/>
             </MenuItem>
             <MenuItem Header="Mouse Tracker">
-
+                <MenuItem.ToolTip>
+                    <ToolTip>Activate/Deactivate Mouse Tracker</ToolTip>
+                </MenuItem.ToolTip>
+                <MenuItem x:Name="Show_Tracker" Header="Show Tracker" IsCheckable="True" IsChecked="False" Click="Show_Tracker_Click"/>
+                <MenuItem x:Name="Show_XY_Coordinates_Tracker" Header="Show X,Y Coordinates" IsCheckable="True" IsChecked="False" Click="Show_XY_Coordinates_Tracker_Click"/>
+                <MenuItem Header="Tracker Color" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Green_Tracker" Header="Green" IsCheckable="True" IsChecked="False" Click="Green_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="#FF00FF17" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Blue_Tracker" Header="Blue" IsCheckable="True" IsChecked="False" Click="Blue_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="#FF00C0FF" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Red_Tracker" Header="Red" IsCheckable="True" IsChecked="True" Click="Red_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="Red" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Yellow_Tracker" Header="Yellow" IsCheckable="True" IsChecked="False" Click="Yellow_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="#FFFFFF00" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Orange_Tracker" Header="Orange" IsCheckable="True" IsChecked="False" Click="Orange_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="DarkOrange" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Black_Tracker" Header="Black" IsCheckable="True" IsChecked="False" Click="Black_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="Black" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Pink_Tracker" Header="Pink" IsCheckable="True" IsChecked="False" Click="Pink_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="DeepPink" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Violet_Tracker" Header="Violet" IsCheckable="True" IsChecked="False" Click="Violet_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="DarkViolet" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="White_Tracker" Header="White" IsCheckable="True" IsChecked="False" Click="White_Tracker_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="White" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Tracker Style" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Tracker_Style_Dotted" Header="Dotted Lines" IsCheckable="True" IsChecked="False" Click="Tracker_Style_Dotted_Click"/>
+                    <MenuItem x:Name="Tracker_Style_Dot_Dash" Header="Dot-Dash Lines" IsCheckable="True" IsChecked="True" Click="Tracker_Style_Dot_Dash_Click"/>
+                    <MenuItem x:Name="Tracker_Style_Solid" Header="Solid Lines" IsCheckable="True" IsChecked="False" Click="Tracker_Style_Solid_Click"/>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Output Log">
-
+                <MenuItem.ToolTip>
+                    <ToolTip>Clear and/or Save Output Log</ToolTip>
+                </MenuItem.ToolTip>
+                <MenuItem x:Name="Auto_Scroll" Header="Auto Scroll" IsCheckable="True" IsChecked="True" Click="Auto_Scroll_Click"/>
+                <MenuItem Header="Auto Clear" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Auto_Clear_20" Header="20 Logs" IsCheckable="True" IsChecked="False" Click="Auto_Clear_20_Click"/>
+                    <MenuItem x:Name="Auto_Clear_40" Header="40 Logs" IsCheckable="True" IsChecked="True" Click="Auto_Clear_40_Click"/>
+                    <MenuItem x:Name="Auto_Clear_80" Header="80 Logs" IsCheckable="True" IsChecked="False" Click="Auto_Clear_80_Click"/>
+                    <MenuItem x:Name="Auto_Clear_100" Header="100 Logs" IsCheckable="True" IsChecked="False" Click="Auto_Clear_100_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="Save_Log" Header="Save Output Log" IsCheckable="False" IsChecked="False" Click="Save_Log_Click"/>
+                <MenuItem x:Name="Clear_Log" Header="Clear Output Log" IsCheckable="False" IsChecked="False" Click="Clear_Log_Click"/>
             </MenuItem>
         </Menu>
-        <ScottPlot:WpfPlot Name="Graph" Grid.Row="1"/>
-        <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <TabControl Grid.Row="3" Margin="2,2,2,2">
+        <ScottPlot:WpfPlot Name="Graph" Grid.Row="2" MouseMove="Graph_MouseMove" AxesChanged="Graph_AxesChanged_Event"/>
+        <GridSplitter Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TabControl Grid.Row="4" Margin="2,2,2,2">
             <TabItem x:Name="Information_Tab" Header="Information">
                 <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
                     <Grid>
@@ -242,7 +307,7 @@
                     </Grid>
                 </ScrollViewer>
             </TabItem>
-            <TabItem Header="Statistics">
+            <TabItem Header="Measurements">
 
             </TabItem>
             <TabItem Header="Math">

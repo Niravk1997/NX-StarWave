@@ -152,6 +152,17 @@ namespace Measurement_Plot
             }
         }
 
+        private bool _Zoom_Control_Window_MenuItem_IsEnabled = false;
+        public bool Zoom_Control_Window_MenuItem_IsEnabled
+        {
+            get { return _Zoom_Control_Window_MenuItem_IsEnabled; }
+            set
+            {
+                _Zoom_Control_Window_MenuItem_IsEnabled = value;
+                NotifyPropertyChanged("Zoom_Control_Window_MenuItem_IsEnabled");
+            }
+        }
+
         private string Draw_Mode_Custom_Selected_Color_ = "#ff8c00";
         public string Draw_Mode_Custom_Selected_Color
         {

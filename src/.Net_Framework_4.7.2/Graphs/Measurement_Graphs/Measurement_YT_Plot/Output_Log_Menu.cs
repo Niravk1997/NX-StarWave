@@ -69,6 +69,58 @@ namespace Measurement_Plot
             }));
         }
 
+        private void Auto_Scroll_Click(object sender, RoutedEventArgs e)
+        {
+            if (Auto_Scroll.IsChecked == true)
+            {
+                Insert_Log("Output Log Auto Scroll Enabled.", 0);
+            }
+            else
+            {
+                Insert_Log("Output Log Auto Scroll Disabled.", 0);
+            }
+        }
+
+        private void Auto_Clear_20_Click(object sender, RoutedEventArgs e)
+        {
+            Interlocked.Exchange(ref Auto_Clear_Output_Log_Count, 20);
+            Insert_Log("Output Log will be cleared after " + Auto_Clear_Output_Log_Count + " logs are inserted into it.", 0);
+            Auto_Clear_20.IsChecked = true;
+            Auto_Clear_40.IsChecked = false;
+            Auto_Clear_80.IsChecked = false;
+            Auto_Clear_100.IsChecked = false;
+        }
+
+        private void Auto_Clear_40_Click(object sender, RoutedEventArgs e)
+        {
+            Interlocked.Exchange(ref Auto_Clear_Output_Log_Count, 40);
+            Insert_Log("Output Log will be cleared after " + Auto_Clear_Output_Log_Count + " logs are inserted into it.", 0);
+            Auto_Clear_20.IsChecked = false;
+            Auto_Clear_40.IsChecked = true;
+            Auto_Clear_80.IsChecked = false;
+            Auto_Clear_100.IsChecked = false;
+        }
+
+        private void Auto_Clear_80_Click(object sender, RoutedEventArgs e)
+        {
+            Interlocked.Exchange(ref Auto_Clear_Output_Log_Count, 80);
+            Insert_Log("Output Log will be cleared after " + Auto_Clear_Output_Log_Count + " logs are inserted into it.", 0);
+            Auto_Clear_20.IsChecked = false;
+            Auto_Clear_40.IsChecked = false;
+            Auto_Clear_80.IsChecked = true;
+            Auto_Clear_100.IsChecked = false;
+        }
+
+        private void Auto_Clear_100_Click(object sender, RoutedEventArgs e)
+        {
+            Interlocked.Exchange(ref Auto_Clear_Output_Log_Count, 100);
+            Insert_Log("Output Log will be cleared after " + Auto_Clear_Output_Log_Count + " logs are inserted into it.", 0);
+            Auto_Clear_20.IsChecked = false;
+            Auto_Clear_40.IsChecked = false;
+            Auto_Clear_80.IsChecked = false;
+            Auto_Clear_100.IsChecked = true;
+        }
+
         private void Save_Log_Click(object sender, RoutedEventArgs e)
         {
             try

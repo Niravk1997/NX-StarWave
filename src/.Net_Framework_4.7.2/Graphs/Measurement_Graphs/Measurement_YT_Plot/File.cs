@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
 using Microsoft.Win32;
+using System;
+using System.IO;
+using System.Windows;
 
 namespace Measurement_Plot
 {
@@ -58,7 +54,7 @@ namespace Measurement_Plot
             }
         }
 
-        private void Save_Data_to_File(string FileName) 
+        private void Save_Data_to_File(string FileName)
         {
             using (TextWriter datatotxt = new StreamWriter(FileName, false))
             {

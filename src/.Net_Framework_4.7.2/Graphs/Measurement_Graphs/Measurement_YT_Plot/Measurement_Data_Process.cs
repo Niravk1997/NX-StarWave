@@ -50,6 +50,18 @@ namespace Measurement_Plot
                         }
                         Measurement_Plot.Xs = Date_Time;
                         Measurement_Plot.Ys = Measurement_Data;
+                        if (Zoom_Control_Window_IsEnabled)
+                        {
+                            try
+                            {
+                                Zoom_Waveform_Curve.Xs = Date_Time;
+                                Zoom_Waveform_Curve.Ys = Measurement_Data;
+                            }
+                            catch (Exception Ex)
+                            {
+                                Insert_Log(Ex.Message, 1);
+                            }
+                        }
                         Min_Recorded_Sample = double.MaxValue;
                         Max_Recorded_Sample = double.MinValue;
                         Measurement_Plot_Reset_Request = false;
@@ -75,6 +87,19 @@ namespace Measurement_Plot
                     Measurement_Data[Measurement_Data_Count] = Measurement;
                     Date_Time[Measurement_Data_Count] = Measurement_Date_Time;
                     Measurement_Plot.MaxRenderIndex = Measurement_Data_Count;
+
+                    if (Zoom_Control_Window_IsEnabled)
+                    {
+                        try
+                        {
+                            Zoom_Waveform_Curve.MaxRenderIndex = Measurement_Data_Count;
+                        }
+                        catch (Exception Ex)
+                        {
+                            Insert_Log(Ex.Message, 1);
+                        }
+                    }
+
                     Measurement_Data_Count += 1;
 
                     if (Measurement < Min_Recorded_Sample)
@@ -113,7 +138,14 @@ namespace Measurement_Plot
                     {
                         Graph.Plot.AxisAuto();
                     }
+
                     Graph.Refresh();
+
+                    if (Zoom_Control_Window_IsEnabled)
+                    {
+                        Zoom_Control_Plot.Plot.AxisAuto();
+                        Zoom_Control_Plot.Refresh();
+                    }
                 }
             }
             catch (Exception Ex)
