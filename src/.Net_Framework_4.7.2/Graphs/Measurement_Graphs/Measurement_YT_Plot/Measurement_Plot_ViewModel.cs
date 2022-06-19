@@ -152,6 +152,50 @@ namespace Measurement_Plot
             }
         }
 
+        private string Vertical_Marker_Start_String_ = "null";
+        public string Vertical_Marker_Start_String
+        {
+            get { return Vertical_Marker_Start_String_; }
+            set
+            {
+                Vertical_Marker_Start_String_ = value;
+                NotifyPropertyChanged("Vertical_Marker_Start_String");
+            }
+        }
+
+        private double Vertical_Marker_Start_Value_;
+        public double Vertical_Marker_Start_Value
+        {
+            get { return Vertical_Marker_Start_Value_; }
+            set
+            {
+                Vertical_Marker_Start_Value_ = value;
+                NotifyPropertyChanged("Vertical_Marker_Start_Value_");
+            }
+        }
+
+        private string Vertical_Marker_Stop_String_ = "null";
+        public string Vertical_Marker_Stop_String
+        {
+            get { return Vertical_Marker_Stop_String_; }
+            set
+            {
+                Vertical_Marker_Stop_String_ = value;
+                NotifyPropertyChanged("Vertical_Marker_Stop_String");
+            }
+        }
+
+        private double Vertical_Marker_Stop_Value_;
+        public double Vertical_Marker_Stop_Value
+        {
+            get { return Vertical_Marker_Stop_Value_; }
+            set
+            {
+                Vertical_Marker_Stop_Value_ = value;
+                NotifyPropertyChanged("Vertical_Marker_Stop_Value");
+            }
+        }
+
         private bool _Zoom_Control_Window_MenuItem_IsEnabled = false;
         public bool Zoom_Control_Window_MenuItem_IsEnabled
         {

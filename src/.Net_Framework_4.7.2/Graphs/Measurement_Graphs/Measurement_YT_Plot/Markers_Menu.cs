@@ -1,5 +1,7 @@
 ﻿using MahApps.Metro.Controls;
+using ScottPlot;
 using System;
+using System.Drawing;
 using System.Windows;
 
 namespace Measurement_Plot
@@ -27,11 +29,16 @@ namespace Measurement_Plot
             if (Vertical_Markers_Active == true)
             {
                 (double X_MouseCoordinate, double Y_MouseCoordinate) = Graph.GetMouseCoordinates();
-                Vertical_Start_Marker = Graph.Plot.AddVerticalLine(X_MouseCoordinate, color: System.Drawing.ColorTranslator.FromHtml("#FF00950E"), style: ScottPlot.LineStyle.DashDot, label: "V Marker");
+
+                AxisLimits Graph_Axis_Limits = Graph.Plot.GetAxisLimits(0, 0);
+
+                double Vertical_Start_Marker_Value = (Graph_Axis_Limits.XMin + Graph_Axis_Limits.XCenter) / 2.0;
+                double Vertical_Stop_Marker_Value = (Graph_Axis_Limits.XMax + Graph_Axis_Limits.XCenter) / 2.0;
+
+                Vertical_Start_Marker = Graph.Plot.AddVerticalLine(Vertical_Start_Marker_Value, color: System.Drawing.ColorTranslator.FromHtml("#FF00950E"), style: ScottPlot.LineStyle.DashDot, label: "V Marker Start");
                 Vertical_Start_Marker.DragEnabled = true;
                 Vertical_Start_Marker.Dragged += Vertical_Marker_Start_Dragged_Event;
 
-                double Vertical_Start_Marker_Value = Vertical_Start_Marker.X;
                 string DateTime_Vertical_Start_Marker_Value = "Limit Reached";
                 if (Vertical_Start_Marker_Value > Min_DateTime_Value & Vertical_Start_Marker_Value < Max_DateTime_Value)
                 {
@@ -45,10 +52,10 @@ namespace Measurement_Plot
                 Vertical_Start_Marker_Annotation.Font.Color = System.Drawing.ColorTranslator.FromHtml("#FF00950E");
 
 
-                Vertical_Stop_Marker = Graph.Plot.AddVerticalLine(X_MouseCoordinate, color: System.Drawing.ColorTranslator.FromHtml("#FFFF0000"), style: ScottPlot.LineStyle.DashDot, label: "V Marker");
+                Vertical_Stop_Marker = Graph.Plot.AddVerticalLine(Vertical_Stop_Marker_Value, color: System.Drawing.ColorTranslator.FromHtml("#FFFF0000"), style: ScottPlot.LineStyle.DashDot, label: "V Marker Stop");
                 Vertical_Stop_Marker.DragEnabled = true;
                 Vertical_Stop_Marker.Dragged += Vertical_Marker_Stop_Dragged_Event;
-                double Vertical_Stop_Marker_Value = Vertical_Stop_Marker.X;
+
                 string DateTime_Vertical_Stop_Marker_Value = "Limit Reached";
                 if (Vertical_Stop_Marker_Value > Min_DateTime_Value & Vertical_Stop_Marker_Value < Max_DateTime_Value)
                 {
@@ -61,21 +68,24 @@ namespace Measurement_Plot
                 Vertical_Stop_Marker_Annotation.BorderColor = System.Drawing.ColorTranslator.FromHtml("#00FFFFFF");
                 Vertical_Stop_Marker_Annotation.Font.Color = System.Drawing.ColorTranslator.FromHtml("#FFFF0000");
 
-                Vertical_Marker_TimeDifference_Annotation = Graph.Plot.AddAnnotation("∆ Time: " + Axis_Scale_Config.Value_SI_Prefix((Vertical_Stop_Marker_Value - Vertical_Start_Marker_Value), 4) + "seconds", 5, 35);
+                Vertical_Marker_TimeDifference_Annotation = Graph.Plot.AddAnnotation("∆ Time: Not Calculated", 5, 35);
                 Vertical_Marker_TimeDifference_Annotation.Font.Size = 14;
                 Vertical_Marker_TimeDifference_Annotation.Shadow = false;
                 Vertical_Marker_TimeDifference_Annotation.BackgroundColor = System.Drawing.ColorTranslator.FromHtml("#00FFFFFF");
                 Vertical_Marker_TimeDifference_Annotation.BorderColor = System.Drawing.ColorTranslator.FromHtml("#00FFFFFF");
                 Vertical_Marker_TimeDifference_Annotation.Font.Color = System.Drawing.ColorTranslator.FromHtml("#FF1E90FF");
-                TimeDifference_Label.Content = Axis_Scale_Config.Value_SI_Prefix(Math.Abs(Vertical_Stop_Marker_Value - Vertical_Start_Marker_Value), 4) + "seconds";
+                TimeDifference_Label.Content = "Not Calculated";
 
                 Vertical_StartTime_Label.Content = DateTime_Vertical_Start_Marker_Value;
                 Vertical_StopTime_Label.Content = DateTime_Vertical_Stop_Marker_Value;
 
                 Graph.Render();
+
+                Set_Vertical_Marker_Values(Vertical_Start_Marker_Value, DateTime_Vertical_Start_Marker_Value, Vertical_Stop_Marker_Value, DateTime_Vertical_Stop_Marker_Value);
             }
             else
             {
+                Clear_Vertical_Marker_Values();
                 Graph.Plot.Remove(plottable: Vertical_Start_Marker);
                 Graph.Plot.Remove(plottable: Vertical_Stop_Marker);
                 Clear_Vertical_Annotations();
@@ -107,6 +117,8 @@ namespace Measurement_Plot
                 string Vertical_Start_DateTime_string = Vertical_Start_DateTime.ToString("yyyy-MM-dd h:mm:ss.fff tt");
                 Vertical_Start_Marker_Annotation.Label = "V Marker: " + Vertical_Start_DateTime_string;
                 Vertical_StartTime_Label.Content = Vertical_Start_DateTime_string;
+
+                Set_Vertical_Marker_Values(Vertical_Start_Marker_Value, Vertical_Start_DateTime_string, Vertical_Stop_Marker_Value, Vertical_Stop_DateTime.ToString("yyyy-MM-dd h:mm:ss.fff tt"));
 
                 if (Duration.TotalSeconds >= -60 & Duration.TotalSeconds <= 60)
                 {
@@ -157,6 +169,8 @@ namespace Measurement_Plot
                 Vertical_Stop_Marker_Annotation.Label = "V Marker: " + Vertical_Stop_DateTime_string;
                 Vertical_StopTime_Label.Content = Vertical_Stop_DateTime_string;
 
+                Set_Vertical_Marker_Values(Vertical_Start_Marker_Value, Vertical_Start_DateTime.ToString("yyyy-MM-dd h:mm:ss.fff tt"), Vertical_Stop_Marker_Value, Vertical_Stop_DateTime_string);
+
                 if (Duration.TotalSeconds >= -60 & Duration.TotalSeconds <= 60)
                 {
                     string Value = Math.Round(Math.Abs(Duration.TotalSeconds), DateTime_Round_Value).ToString();
@@ -190,6 +204,24 @@ namespace Measurement_Plot
                 Vertical_Marker_TimeDifference_Annotation.Label = "∆ Time: " + "Limit Reached";
                 TimeDifference_Label.Content = "Limit Reached";
             }
+        }
+
+        private void Set_Vertical_Marker_Values(double Vertical_Start_Value, string Vertical_Start_String, double Vertical_Stop_Value, string Vertical_Stop_String) 
+        {
+            Vertical_Marker_Start_Value = Vertical_Start_Value;
+            Vertical_Marker_Stop_Value = Vertical_Stop_Value;
+
+            Vertical_Marker_Start_String = Vertical_Start_String;
+            Vertical_Marker_Stop_String = Vertical_Stop_String;
+        }
+
+        private void Clear_Vertical_Marker_Values()
+        {
+            Vertical_Marker_Start_Value = 0;
+            Vertical_Marker_Stop_Value = 0;
+
+            Vertical_Marker_Start_String = "null";
+            Vertical_Marker_Stop_String = "null";
         }
 
         private void Add_Clear_Horizontal_Markers()
