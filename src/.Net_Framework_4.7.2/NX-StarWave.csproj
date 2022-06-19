@@ -97,7 +97,7 @@
       <HintPath>packages\FParsec.1.1.1\lib\net45\FParsecCS.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\FSharp.Core.6.0.4\lib\netstandard2.0\FSharp.Core.dll</HintPath>
+      <HintPath>packages\FSharp.Core.6.0.5\lib\netstandard2.0\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="IpMatcher, Version=1.0.4.4, Culture=neutral, PublicKeyToken=8637fc2bb9df2c67, processorArchitecture=MSIL">
       <HintPath>packages\IpMatcher.1.0.4.4\lib\net462\IpMatcher.dll</HintPath>
@@ -590,6 +590,7 @@
     <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Mouse_Tracker_Menu.cs" />
     <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Output_Log_Menu.cs" />
     <Compile Include="Graphs\Histogram_Graphs\Histogram_2_Inputs\Right_Click_Menu.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Calculate_Measurements.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Dispose.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Draw_Mode.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\File.cs" />

@@ -99,6 +99,7 @@ namespace Measurement_Plot
         private void Initialize_Measurement_Plot()
         {
             Measurement_Plot = Graph.Plot.AddSignalXY(Date_Time, Measurement_Data, color: System.Drawing.ColorTranslator.FromHtml(Measurement_Color), Measurement_Label);
+            Measurement_Plot.MarkerSize = 0;
             Measurement_Plot.MaxRenderIndex = Measurement_Data_Count - 1;
             Graph.Plot.AxisAuto();
             Graph.Render();

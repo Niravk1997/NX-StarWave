@@ -101,7 +101,7 @@ namespace YT
         private void Initialize_Zoom_Waveform_Curve()
         {
             Zoom_Waveform_Curve = Zoom_Control_Plot.Plot.AddSignalXY(X_Waveform_Values, Y_Waveform_Values, color: Waveform_Curve.Color, label: null);
-            Zoom_Waveform_Curve.MarkerSize = 1;
+            Zoom_Waveform_Curve.MarkerSize = 0;
         }
 
         private void Enable_Zoom_Window_Control_Click(object sender, RoutedEventArgs e)

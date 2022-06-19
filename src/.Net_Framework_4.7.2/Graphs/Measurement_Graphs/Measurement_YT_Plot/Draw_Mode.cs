@@ -48,7 +48,7 @@ namespace Measurement_Plot
                 Draw_Canvas.ContextMenu = Draw_Mode_rightClickMenu;
 
                 Measurement_Plot_Grid.Children.Add(Draw_Canvas);
-                Draw_Canvas.SetValue(Grid.RowProperty, 0);
+                Draw_Canvas.SetValue(Grid.RowProperty, 2);
                 Panel.SetZIndex(Draw_Canvas, 1);
                 Draw_Mode_Enabled = true;
                 Insert_Log("Draw Mode has been enabled.", 2);

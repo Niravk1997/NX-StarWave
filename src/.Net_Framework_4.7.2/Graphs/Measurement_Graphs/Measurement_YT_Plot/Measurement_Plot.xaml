@@ -308,7 +308,115 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Measurements">
-
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="115"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="Label" BasedOn="{StaticResource MahApps.Styles.Label}">
+                                <Setter Property="Padding" Value="0,0,0,0"/>
+                                <Setter Property="Margin" Value="0,0,0,0"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Label Grid.Column="0" Content="Gated Measurement:"/>
+                        <Label Grid.Column="1" Content="null"/>
+                        <Label Grid.Column="2" Content="," Margin="0,0,5,0"/>
+                        <Label Grid.Column="3" Content="null"/>
+                    </Grid>
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Margin" Value="5,2,0,0"/>
+                                </Style>
+                                <Style TargetType="Label" BasedOn="{StaticResource MahApps.Styles.Label}">
+                                    <Setter Property="Padding" Value="0,0,0,0"/>
+                                    <Setter Property="Margin" Value="0,0,0,0"/>
+                                </Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Flat}">
+                                    <Setter Property="Padding" Value="0,0,0,0"/>
+                                    <Setter Property="Margin" Value="5,0,0,0"/>
+                                    <Setter Property="Width" Value="70"/>
+                                </Style>
+                            </Grid.Resources>
+                            <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Mean (Average):"/>
+                                    <Button x:Name="Mean_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Std Deviation:"/>
+                                    <Button x:Name="StdDeviation_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Max Sample:"/>
+                                    <Button x:Name="Max_Button" Content="Find"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Min Sample:"/>
+                                    <Button x:Name="Min_Button" Content="Find"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="|Max| Sample:"/>
+                                    <Button x:Name="AbsMax_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="|Min| Sample:"/>
+                                    <Button x:Name="AbsMin_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Root Mean Square:"/>
+                                    <Button x:Name="RMS_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Variance:"/>
+                                    <Button x:Name="Variance_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Mean Variance:"/>
+                                    <Button x:Name="MeanVariance_Button" Content="Calculate"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Top">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Geometric Mean:"/>
+                                    <Button x:Name="GeometricMean_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Harmonic Mean:"/>
+                                    <Button x:Name="HarmonicMean_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Pop Variance:"/>
+                                    <Button x:Name="PopulationVariance_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Pop Std Deviation:"/>
+                                    <Button x:Name="PopulationStdDeviation_Button" Content="Calculate"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Label Content="Mean Std Deviation:"/>
+                                    <Button x:Name="MeanStdDeviation_Button" Content="Calculate"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
             </TabItem>
             <TabItem Header="Math">
 

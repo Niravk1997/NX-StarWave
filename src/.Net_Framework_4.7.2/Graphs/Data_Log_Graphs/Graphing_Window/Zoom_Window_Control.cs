@@ -101,7 +101,7 @@ namespace Channel_DataLogger
         private void Initialize_Zoom_Waveform_Curve()
         {
             Zoom_Waveform_Curve = Zoom_Control_Plot.Plot.AddSignal(Measurement_Data, color: Measurement_Plot.Color, label: null);
-            Zoom_Waveform_Curve.MarkerSize = 1;
+            Zoom_Waveform_Curve.MarkerSize = 0;
             Zoom_Waveform_Curve.MaxRenderIndex = Measurement_Count;
         }
 

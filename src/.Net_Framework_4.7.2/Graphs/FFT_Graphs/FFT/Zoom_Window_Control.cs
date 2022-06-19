@@ -101,7 +101,7 @@ namespace FFT
         private void Initialize_Zoom_Waveform_Curve()
         {
             Zoom_Waveform_Curve = Zoom_Control_Plot.Plot.AddSignalXY(Frequency, Magnitude, color: FFT_Waveform.Color, label: null);
-            Zoom_Waveform_Curve.MarkerSize = 1;
+            Zoom_Waveform_Curve.MarkerSize = 0;
         }
 
         private void Enable_Zoom_Window_Control_Click(object sender, RoutedEventArgs e)
