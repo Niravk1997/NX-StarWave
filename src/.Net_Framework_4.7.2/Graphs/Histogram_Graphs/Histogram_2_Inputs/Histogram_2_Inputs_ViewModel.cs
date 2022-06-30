@@ -47,6 +47,17 @@ namespace Histogram_2_Input
                         Histogram_Input_2.ShowValuesAboveBars = value;
                     }
 
+                    if (ControlzEx.Theming.ThemeManager.Current.DetectTheme().BaseColorScheme.Equals("Dark"))
+                    {
+                        Histogram_Input_1.Font.Color = System.Drawing.Color.White;
+                        Histogram_Input_2.Font.Color = System.Drawing.Color.White;
+                    }
+                    else
+                    {
+                        Histogram_Input_1.Font.Color = System.Drawing.Color.Black;
+                        Histogram_Input_2.Font.Color = System.Drawing.Color.Black;
+                    }
+
                     Graph.Refresh();
                 }
                 catch (Exception Ex)

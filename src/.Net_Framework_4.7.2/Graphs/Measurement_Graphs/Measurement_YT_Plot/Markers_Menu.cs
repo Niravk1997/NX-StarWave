@@ -1,7 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using ScottPlot;
 using System;
-using System.Drawing;
 using System.Windows;
 
 namespace Measurement_Plot
@@ -206,7 +205,7 @@ namespace Measurement_Plot
             }
         }
 
-        private void Set_Vertical_Marker_Values(double Vertical_Start_Value, string Vertical_Start_String, double Vertical_Stop_Value, string Vertical_Stop_String) 
+        private void Set_Vertical_Marker_Values(double Vertical_Start_Value, string Vertical_Start_String, double Vertical_Stop_Value, string Vertical_Stop_String)
         {
             Vertical_Marker_Start_Value = Vertical_Start_Value;
             Vertical_Marker_Stop_Value = Vertical_Stop_Value;

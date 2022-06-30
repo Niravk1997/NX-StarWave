@@ -40,6 +40,14 @@ namespace Histogram
                     if (Histogram != null)
                     {
                         Histogram.ShowValuesAboveBars = value;
+                        if (ControlzEx.Theming.ThemeManager.Current.DetectTheme().BaseColorScheme.Equals("Dark"))
+                        {
+                            Histogram.Font.Color = System.Drawing.Color.White;
+                        }
+                        else
+                        {
+                            Histogram.Font.Color = System.Drawing.Color.Black;
+                        }
                     }
 
                     Graph.Refresh();
