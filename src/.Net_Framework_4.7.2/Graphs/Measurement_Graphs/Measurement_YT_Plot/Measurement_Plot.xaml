@@ -124,7 +124,51 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Graph Colors">
-
+                <MenuItem.ToolTip>
+                    <ToolTip>Customize Graph's Colors</ToolTip>
+                </MenuItem.ToolTip>
+                <MenuItem Header="Plot Data Background" IsCheckable="False" IsChecked="False">
+                    <colorpicker:PortableColorPicker SelectedColor="{Binding Plot_Data_Background_Color, Mode=TwoWay}"/>
+                </MenuItem>
+                <MenuItem Header="Plot Background" IsCheckable="False" IsChecked="False">
+                    <colorpicker:PortableColorPicker SelectedColor="{Binding Plot_Background_Color, Mode=TwoWay}"/>
+                </MenuItem>
+                <MenuItem Header="Plot X-Axis" IsCheckable="False" IsChecked="False">
+                    <colorpicker:PortableColorPicker SelectedColor="{Binding Plot_XAxis_Color, Mode=TwoWay}"/>
+                </MenuItem>
+                <MenuItem Header="Plot Y-Axis" IsCheckable="False" IsChecked="False">
+                    <colorpicker:PortableColorPicker SelectedColor="{Binding Plot_YAxis_Color, Mode=TwoWay}"/>
+                </MenuItem>
+                <MenuItem Header="Plot Grid" IsCheckable="False" IsChecked="False">
+                    <colorpicker:PortableColorPicker SelectedColor="{Binding Plot_Grid_Color, Mode=TwoWay}"/>
+                </MenuItem>
+                <MenuItem Header="Graph Theme" IsCheckable="False" IsChecked="False">
+                    <MenuItem x:Name="Default_Theme" Header="Default Theme" IsCheckable="True" IsChecked="False" Click="Default_Theme_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="White" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Black_Theme" Header="Black Theme" IsCheckable="True" IsChecked="False" Click="Black_Theme_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="Black" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Blue_Theme" Header="Blue Theme" IsCheckable="True" IsChecked="False" Click="Blue_Theme_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="#0b3049" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="Gray_Theme" Header="Gray Theme" IsCheckable="True" IsChecked="False" Click="Gray_Theme_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="#3a4149" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="GrayBlack_Theme" Header="Gray Black Theme" IsCheckable="True" IsChecked="False" Click="GrayBlack_Theme_Click">
+                        <MenuItem.Icon>
+                            <Rectangle Fill="#262626" Width="16" Height="16"></Rectangle>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Plot Settings">
 

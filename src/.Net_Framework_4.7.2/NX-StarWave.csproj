@@ -594,6 +594,7 @@
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Dispose.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Draw_Mode.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\File.cs" />
+    <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Graph_Colors_Menu.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Graph_Colors_ViewModel.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Graph_Settings_Menu.cs" />
     <Compile Include="Graphs\Measurement_Graphs\Measurement_YT_Plot\Markers_Menu.cs" />

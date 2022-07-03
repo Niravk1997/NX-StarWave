@@ -207,6 +207,91 @@ namespace Measurement_Plot
             }
         }
 
+        private string Plot_Data_Background_Color_ = "#FFFFFF";
+        public string Plot_Data_Background_Color
+        {
+            get { return Plot_Data_Background_Color_; }
+            set
+            {
+                Plot_Data_Background_Color_ = value;
+                try
+                {
+                    Graph.Plot.Style(dataBackground: System.Drawing.ColorTranslator.FromHtml(value));
+                    Graph.Refresh();
+                }
+                catch (Exception Ex) { Insert_Log(Ex.Message, 1); };
+                NotifyPropertyChanged("Plot_Data_Background_Color");
+            }
+        }
+
+        private string Plot_Background_Color_ = "#FFFFFF";
+        public string Plot_Background_Color
+        {
+            get { return Plot_Background_Color_; }
+            set
+            {
+                Plot_Background_Color_ = value;
+                try
+                {
+                    Graph.Plot.Style(figureBackground: System.Drawing.ColorTranslator.FromHtml(value));
+                    Graph.Refresh();
+                }
+                catch (Exception Ex) { Insert_Log(Ex.Message, 1); };
+                NotifyPropertyChanged("Plot_Background_Color");
+            }
+        }
+
+        private string Plot_XAxis_Color_ = "#000000";
+        public string Plot_XAxis_Color
+        {
+            get { return Plot_XAxis_Color_; }
+            set
+            {
+                Plot_XAxis_Color_ = value;
+                try
+                {
+                    Graph.Plot.XAxis.Color(color: System.Drawing.ColorTranslator.FromHtml(value));
+                    Graph.Refresh();
+                }
+                catch (Exception Ex) { Insert_Log(Ex.Message, 1); };
+                NotifyPropertyChanged("Plot_XAxis_Color");
+            }
+        }
+
+        private string Plot_YAxis_Color_ = "#000000";
+        public string Plot_YAxis_Color
+        {
+            get { return Plot_YAxis_Color_; }
+            set
+            {
+                Plot_YAxis_Color_ = value;
+                try
+                {
+                    Graph.Plot.YAxis.Color(color: System.Drawing.ColorTranslator.FromHtml(value));
+                    Graph.Refresh();
+                }
+                catch (Exception Ex) { Insert_Log(Ex.Message, 1); };
+                NotifyPropertyChanged("Plot_YAxis_Color");
+            }
+        }
+
+        private string Plot_Grid_Color_ = "#E9E9E9";
+        public string Plot_Grid_Color
+        {
+            get { return Plot_Grid_Color_; }
+            set
+            {
+                Plot_Grid_Color_ = value;
+                try
+                {
+                    Graph.Plot.Grid(color: System.Drawing.ColorTranslator.FromHtml(value));
+                    Graph.Refresh();
+                }
+                catch (Exception Ex) { Insert_Log(Ex.Message, 1); };
+                NotifyPropertyChanged("Plot_Grid_Color");
+            }
+        }
+
         private string Draw_Mode_Custom_Selected_Color_ = "#ff8c00";
         public string Draw_Mode_Custom_Selected_Color
         {
