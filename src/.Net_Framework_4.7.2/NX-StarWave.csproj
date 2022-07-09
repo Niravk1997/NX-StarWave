@@ -141,13 +141,13 @@
     </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="ReactiveUI, Version=18.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ReactiveUI.18.2.5\lib\net472\ReactiveUI.dll</HintPath>
+      <HintPath>packages\ReactiveUI.18.2.9\lib\net472\ReactiveUI.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI.Events.WPF, Version=15.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ReactiveUI.Events.WPF.15.1.1\lib\net472\ReactiveUI.Events.WPF.dll</HintPath>
     </Reference>
     <Reference Include="ReactiveUI.Wpf, Version=18.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\ReactiveUI.WPF.18.2.5\lib\net472\ReactiveUI.Wpf.dll</HintPath>
+      <HintPath>packages\ReactiveUI.WPF.18.2.9\lib\net472\ReactiveUI.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="RegexMatcher, Version=1.0.7.2, Culture=neutral, PublicKeyToken=68d7f6ae806af85a, processorArchitecture=MSIL">
       <HintPath>packages\RegexMatcher.1.0.7.2\lib\net462\RegexMatcher.dll</HintPath>
