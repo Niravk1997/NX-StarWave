@@ -34,16 +34,15 @@ namespace NodeNetwork_Math
                         SaveFileDialog Save_Data_Text_Window = new SaveFileDialog
                         {
                             InitialDirectory = NX_StarWave.Communication_Selected.folder_Directory,
-                            FileName = "NodeEditor_Layout_" + DateTime.Now.ToString("yyyy-MM-dd h-mm-ss tt") + ".txt",
-                            Filter = "Normal text Files (*.txt)|*.txt;*.txt" +
-                          "|All files (*.*)|*.*"
+                            FileName = "NodeEditor_Layout_" + DateTime.Now.ToString("yyyy-MM-dd h-mm-ss tt") + ".node",
+                            Filter = "Node Layout Files (*.node)|*.node;*.node"
                         };
 
                         if (Save_Data_Text_Window.ShowDialog() is true)
                         {
                             Save_NodeEditor_Layout_Text_File(Save_Data_Text_Window.FileName);
                             is_NodeEditor_Save_Load_in_Progress = false;
-                            Insert_Log("NodeEditor Layout saved to text file.", 0);
+                            Insert_Log("NodeEditor Layout saved to node file.", 0);
                             Insert_Log($"Saved to {Save_Data_Text_Window.FileName}.", 0);
                         }
                         else
@@ -116,14 +115,14 @@ namespace NodeNetwork_Math
                     OpenFileDialog File_Dialog = new OpenFileDialog
                     {
                         InitialDirectory = NX_StarWave.Communication_Selected.folder_Directory,
-                        Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*",
+                        Filter = "Node Layout Files (*.node)|*.node;*.node"
                     };
 
                     if (File_Dialog.ShowDialog() is true)
                     {
                         Load_NodeEditor_Layout_Text_File(File_Dialog.FileName);
                         is_NodeEditor_Save_Load_in_Progress = false;
-                        Insert_Log("NodeEditor Layout loaded from text file.", 0);
+                        Insert_Log("NodeEditor Layout loaded from node file.", 0);
                         Insert_Log($"Loaded from {File_Dialog.FileName}.", 0);
                     }
                     else
@@ -135,7 +134,7 @@ namespace NodeNetwork_Math
                 {
                     NodeEditor_Enable = true;
                     is_NodeEditor_Save_Load_in_Progress = false;
-                    Insert_Log("Could not load NodeEditor Layout from the text file.", 1);
+                    Insert_Log("Could not load NodeEditor Layout from the node file.", 1);
                     Insert_Log(Ex.Message, 1);
                 }
             }
