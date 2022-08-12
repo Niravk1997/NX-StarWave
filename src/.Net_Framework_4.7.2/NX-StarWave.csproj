@@ -152,11 +152,11 @@
     <Reference Include="RegexMatcher, Version=1.0.7.2, Culture=neutral, PublicKeyToken=68d7f6ae806af85a, processorArchitecture=MSIL">
       <HintPath>packages\RegexMatcher.1.0.7.2\lib\net462\RegexMatcher.dll</HintPath>
     </Reference>
-    <Reference Include="ScottPlot, Version=4.1.52.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
-      <HintPath>packages\ScottPlot.4.1.52\lib\net461\ScottPlot.dll</HintPath>
+    <Reference Include="ScottPlot, Version=4.1.53.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.4.1.53\lib\net462\ScottPlot.dll</HintPath>
     </Reference>
-    <Reference Include="ScottPlot.WPF, Version=4.1.52.0, Culture=neutral, PublicKeyToken=e53b06131e34a3aa, processorArchitecture=MSIL">
-      <HintPath>packages\ScottPlot.WPF.4.1.52\lib\net472\ScottPlot.WPF.dll</HintPath>
+    <Reference Include="ScottPlot.WPF, Version=4.1.54.0, Culture=neutral, PublicKeyToken=e53b06131e34a3aa, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.WPF.4.1.54\lib\net472\ScottPlot.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Splat, Version=14.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Splat.14.4.1\lib\netstandard2.0\Splat.dll</HintPath>
@@ -239,8 +239,8 @@
     <Reference Include="UrlMatcher, Version=1.0.0.3, Culture=neutral, PublicKeyToken=c10f96d28031ea47, processorArchitecture=MSIL">
       <HintPath>packages\UrlMatcher.1.0.0.3\lib\net462\UrlMatcher.dll</HintPath>
     </Reference>
-    <Reference Include="WatsonWebserver, Version=4.2.2.13, Culture=neutral, PublicKeyToken=5bbf1ea6092fbbce, processorArchitecture=MSIL">
-      <HintPath>packages\Watson.4.2.2.13\lib\net462\WatsonWebserver.dll</HintPath>
+    <Reference Include="WatsonWebserver, Version=4.3.0.0, Culture=neutral, PublicKeyToken=5bbf1ea6092fbbce, processorArchitecture=MSIL">
+      <HintPath>packages\Watson.4.3.0\lib\net462\WatsonWebserver.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />

@@ -33,7 +33,10 @@ namespace FFT_Waterfall
                     double Waterfall_Graph_Max_X_Axis_Limit = Normalize_Value(FFT_Graph_Limits.XMax, Frequency[0], Frequency[FFT_Size - 1], 0, FFT_Size);
                     double Waterfall_Graph_Min_X_Axis_Limit = Normalize_Value(FFT_Graph_Limits.XMin, Frequency[0], Frequency[FFT_Size - 1], 0, FFT_Size);
 
-                    Waterfall.Plot.SetAxisLimitsX(Waterfall_Graph_Min_X_Axis_Limit, Waterfall_Graph_Max_X_Axis_Limit);
+                    if (!double.IsInfinity(Waterfall_Graph_Max_X_Axis_Limit) && !double.IsInfinity(Waterfall_Graph_Min_X_Axis_Limit))
+                    {
+                        Waterfall.Plot.SetAxisLimitsX(Waterfall_Graph_Min_X_Axis_Limit, Waterfall_Graph_Max_X_Axis_Limit);
+                    }
                     Waterfall.Refresh();
 
                     Waterfall.Configuration.AxesChangedEventEnabled = true;
@@ -57,7 +60,10 @@ namespace FFT_Waterfall
                     double FFT_Graph_Max_X_Axis_Limit = Normalize_Value(Waterfall_Graph_Limits.XMax, 0, FFT_Size, Frequency[0], Frequency[FFT_Size - 1]);
                     double FFT_Graph_Min_X_Axis_Limit = Normalize_Value(Waterfall_Graph_Limits.XMin, 0, FFT_Size, Frequency[0], Frequency[FFT_Size - 1]);
 
-                    Graph.Plot.SetAxisLimitsX(FFT_Graph_Min_X_Axis_Limit, FFT_Graph_Max_X_Axis_Limit);
+                    if (!double.IsInfinity(FFT_Graph_Max_X_Axis_Limit) && !double.IsInfinity(FFT_Graph_Max_X_Axis_Limit))
+                    {
+                        Graph.Plot.SetAxisLimitsX(FFT_Graph_Min_X_Axis_Limit, FFT_Graph_Max_X_Axis_Limit);
+                    }
                     Graph.Refresh();
 
                     Waterfall.Configuration.AxesChangedEventEnabled = true;
