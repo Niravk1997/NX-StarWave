@@ -68,10 +68,10 @@ namespace NX_StarWave
 
                 if (!(Data_Points_Match.Any(o => o != Data_Points_Match[0])))
                 {
-                    Channel_Dummy_Data_1 = new Channel_Waveform_Data(true, Fuctions.Linspace(Dummy_Data_1.Start_Time, Dummy_Data_1.Stop_Time, Dummy_Data_1.Data_Points), Dummy_Data_1.Waveform_Y_Data.ToArray(), Dummy_Data_1.Total_Time, Dummy_Data_1.Start_Time, Dummy_Data_1.Stop_Time, Dummy_Data_1.Data_Points, Dummy_Data_1.Channel_Info);
-                    Channel_Dummy_Data_2 = new Channel_Waveform_Data(true, Fuctions.Linspace(Dummy_Data_2.Start_Time, Dummy_Data_2.Stop_Time, Dummy_Data_2.Data_Points), Dummy_Data_2.Waveform_Y_Data.ToArray(), Dummy_Data_2.Total_Time, Dummy_Data_2.Start_Time, Dummy_Data_2.Stop_Time, Dummy_Data_2.Data_Points, Dummy_Data_2.Channel_Info);
-                    Channel_Dummy_Data_3 = new Channel_Waveform_Data(true, Fuctions.Linspace(Dummy_Data_3.Start_Time, Dummy_Data_3.Stop_Time, Dummy_Data_3.Data_Points), Dummy_Data_3.Waveform_Y_Data.ToArray(), Dummy_Data_3.Total_Time, Dummy_Data_3.Start_Time, Dummy_Data_3.Stop_Time, Dummy_Data_3.Data_Points, Dummy_Data_3.Channel_Info);
-                    Channel_Dummy_Data_4 = new Channel_Waveform_Data(true, Fuctions.Linspace(Dummy_Data_4.Start_Time, Dummy_Data_4.Stop_Time, Dummy_Data_4.Data_Points), Dummy_Data_4.Waveform_Y_Data.ToArray(), Dummy_Data_4.Total_Time, Dummy_Data_4.Start_Time, Dummy_Data_4.Stop_Time, Dummy_Data_4.Data_Points, Dummy_Data_4.Channel_Info);
+                    Channel_Dummy_Data_1 = new Channel_Waveform_Data(true, Functions.Linspace(Dummy_Data_1.Start_Time, Dummy_Data_1.Stop_Time, Dummy_Data_1.Data_Points), Dummy_Data_1.Waveform_Y_Data.ToArray(), Dummy_Data_1.Total_Time, Dummy_Data_1.Start_Time, Dummy_Data_1.Stop_Time, Dummy_Data_1.Data_Points, Dummy_Data_1.Channel_Info);
+                    Channel_Dummy_Data_2 = new Channel_Waveform_Data(true, Functions.Linspace(Dummy_Data_2.Start_Time, Dummy_Data_2.Stop_Time, Dummy_Data_2.Data_Points), Dummy_Data_2.Waveform_Y_Data.ToArray(), Dummy_Data_2.Total_Time, Dummy_Data_2.Start_Time, Dummy_Data_2.Stop_Time, Dummy_Data_2.Data_Points, Dummy_Data_2.Channel_Info);
+                    Channel_Dummy_Data_3 = new Channel_Waveform_Data(true, Functions.Linspace(Dummy_Data_3.Start_Time, Dummy_Data_3.Stop_Time, Dummy_Data_3.Data_Points), Dummy_Data_3.Waveform_Y_Data.ToArray(), Dummy_Data_3.Total_Time, Dummy_Data_3.Start_Time, Dummy_Data_3.Stop_Time, Dummy_Data_3.Data_Points, Dummy_Data_3.Channel_Info);
+                    Channel_Dummy_Data_4 = new Channel_Waveform_Data(true, Functions.Linspace(Dummy_Data_4.Start_Time, Dummy_Data_4.Stop_Time, Dummy_Data_4.Data_Points), Dummy_Data_4.Waveform_Y_Data.ToArray(), Dummy_Data_4.Total_Time, Dummy_Data_4.Start_Time, Dummy_Data_4.Stop_Time, Dummy_Data_4.Data_Points, Dummy_Data_4.Channel_Info);
                     Initialize_Demo_Mode_DataProcess_Timer();
                     insert_Log("Demo Mode Initialized.", 0);
                 }

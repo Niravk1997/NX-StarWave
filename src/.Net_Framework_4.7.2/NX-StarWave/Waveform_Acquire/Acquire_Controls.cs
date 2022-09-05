@@ -176,8 +176,8 @@ namespace NX_StarWave
 
         private void Set_Data_Start_Stop_Values()
         {
-            (bool isValid_Start, double Start_Value) = Fuctions.Text_Num(DataStart_string, false, true);
-            (bool isValid_Stop, double Stop_Value) = Fuctions.Text_Num(DataStop_string, false, true);
+            (bool isValid_Start, double Start_Value) = Functions.Text_Num(DataStart_string, false, true);
+            (bool isValid_Stop, double Stop_Value) = Functions.Text_Num(DataStop_string, false, true);
             if (isValid_Start & isValid_Stop)
             {
                 if ((Start_Value < Stop_Value) & Start_Value > 0)

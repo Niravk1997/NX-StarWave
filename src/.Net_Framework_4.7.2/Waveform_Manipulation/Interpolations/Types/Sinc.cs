@@ -23,15 +23,15 @@ namespace Interpolations
         }
 
         /* interpolate a function made of in samples at point x */
-        private double Sinc_Approx(double[] input, int in_sz, double x)
-        {
-            double res = 0.0;
-            for (int i = 0; i < in_sz; i++)
-            {
-                res += input[i] * Sinc(x - i);
-            }
-            return res;
-        }
+        //private double Sinc_Approx(double[] input, int in_sz, double x)
+        //{
+        //    double res = 0.0;
+        //    for (int i = 0; i < in_sz; i++)
+        //    {
+        //        res += input[i] * Sinc(x - i);
+        //    }
+        //    return res;
+        //}
 
         // do the actual resampling
         //private (double[], double[]) Sinc_Interpolation(double[] X, double[] Y, int Resampling_Factor, double Start_Time, double Stop_Time, int Original_Data_Points)
