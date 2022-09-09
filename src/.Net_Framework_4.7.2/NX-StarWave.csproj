@@ -155,11 +155,11 @@
     <Reference Include="RegexMatcher, Version=1.0.7.2, Culture=neutral, PublicKeyToken=68d7f6ae806af85a, processorArchitecture=MSIL">
       <HintPath>packages\RegexMatcher.1.0.7.2\lib\net462\RegexMatcher.dll</HintPath>
     </Reference>
-    <Reference Include="ScottPlot, Version=4.1.57.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
-      <HintPath>packages\ScottPlot.4.1.57\lib\net462\ScottPlot.dll</HintPath>
+    <Reference Include="ScottPlot, Version=4.1.58.0, Culture=neutral, PublicKeyToken=86698dc10387c39e, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.4.1.58\lib\net462\ScottPlot.dll</HintPath>
     </Reference>
-    <Reference Include="ScottPlot.WPF, Version=4.1.57.0, Culture=neutral, PublicKeyToken=e53b06131e34a3aa, processorArchitecture=MSIL">
-      <HintPath>packages\ScottPlot.WPF.4.1.57\lib\net472\ScottPlot.WPF.dll</HintPath>
+    <Reference Include="ScottPlot.WPF, Version=4.1.58.0, Culture=neutral, PublicKeyToken=e53b06131e34a3aa, processorArchitecture=MSIL">
+      <HintPath>packages\ScottPlot.WPF.4.1.58\lib\net472\ScottPlot.WPF.dll</HintPath>
     </Reference>
     <Reference Include="Splat, Version=14.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Splat.14.4.1\lib\netstandard2.0\Splat.dll</HintPath>
