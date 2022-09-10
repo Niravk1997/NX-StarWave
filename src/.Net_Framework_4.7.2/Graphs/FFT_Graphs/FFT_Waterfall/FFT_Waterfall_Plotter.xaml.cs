@@ -39,8 +39,8 @@ namespace FFT_Waterfall
 
         //Spectrogram Data Array
         private readonly int Waterfall_History = 99;
-        private double[,] Waterfall_Buffer;
-        private double[,] Waterfall_PastFrame;
+        private double?[,] Waterfall_Buffer;
+        private double?[,] Waterfall_PastFrame;
 
         //These timers periodically check for any data inserted into Data_Queue, and processs it and insert it into the graph
         private System.Timers.Timer Waveform_Data_Process;
@@ -133,9 +133,9 @@ namespace FFT_Waterfall
 
         private void Initialize_Arrays(int Length)
         {
-            Waterfall_Buffer = new double[(Waterfall_History + 1), Length];
-            Waterfall_PastFrame = new double[(Waterfall_History + 1), Length];
-            Fill_Arrays_DummyData();
+            Waterfall_Buffer = new double?[(Waterfall_History + 1), Length];
+            Waterfall_PastFrame = new double?[(Waterfall_History + 1), Length];
+            //Fill_Arrays_DummyData();
         }
 
         private void Fill_Arrays_DummyData()
