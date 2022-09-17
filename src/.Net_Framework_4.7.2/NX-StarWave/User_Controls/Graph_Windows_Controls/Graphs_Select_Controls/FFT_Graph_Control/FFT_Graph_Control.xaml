@@ -112,7 +112,11 @@
                         <RowDefinition Height="2"/>
                         <RowDefinition Height="16"/>
                         <RowDefinition Height="2"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="16"/>
+                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="0.15*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="1" Content="FFT Window" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="12" VerticalAlignment="Center"/>
                     <Rectangle Grid.Row="2" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
@@ -137,6 +141,14 @@
                         <Button x:Name="CH2_FFTWaterfall_Open" Style="{StaticResource Graph_Select_Button}" Content="CH2" Background="{Binding Channel_2_Color}" BorderBrush="{Binding FFTWaterfall_CH2_Graph_Selected}" Click="CH2_FFTWaterfall_Open_Click"/>
                         <Button x:Name="CH3_FFTWaterfall_Open" Style="{StaticResource Graph_Select_Button}" Content="CH3" Background="{Binding Channel_3_Color}" BorderBrush="{Binding FFTWaterfall_CH3_Graph_Selected}" Click="CH3_FFTWaterfall_Open_Click"/>
                         <Button x:Name="CH4_FFTWaterfall_Open" Style="{StaticResource Graph_Select_Button}" Content="CH4" Background="{Binding Channel_4_Color}" BorderBrush="{Binding FFTWaterfall_CH4_Graph_Selected}" Click="CH4_FFTWaterfall_Open_Click"/>
+                    </WrapPanel>
+                    <Label Grid.Row="13" Content="Color Graded FFT Window" Padding="0,0,0,0" Margin="5,0,0,0" FontSize="12" VerticalAlignment="Center"/>
+                    <Rectangle Grid.Row="14" Fill="Gray" Stroke="Gray" Margin="5,0,5,0"/>
+                    <WrapPanel Grid.Row="15" Orientation="Horizontal">
+                        <Button x:Name="CH1_ColorGradedFFT_Open" Style="{StaticResource Graph_Select_Button}" Content="CH1" Background="{Binding Channel_1_Color}" BorderBrush="{Binding ColorGradedFFT_CH1_Graph_Selected}" Click="CH1_ColorGradedFFT_Open_Click"/>
+                        <Button x:Name="CH2_ColorGradedFFT_Open" Style="{StaticResource Graph_Select_Button}" Content="CH2" Background="{Binding Channel_2_Color}" BorderBrush="{Binding ColorGradedFFT_CH2_Graph_Selected}" Click="CH2_ColorGradedFFT_Open_Click"/>
+                        <Button x:Name="CH3_ColorGradedFFT_Open" Style="{StaticResource Graph_Select_Button}" Content="CH3" Background="{Binding Channel_3_Color}" BorderBrush="{Binding ColorGradedFFT_CH3_Graph_Selected}" Click="CH3_ColorGradedFFT_Open_Click"/>
+                        <Button x:Name="CH4_ColorGradedFFT_Open" Style="{StaticResource Graph_Select_Button}" Content="CH4" Background="{Binding Channel_4_Color}" BorderBrush="{Binding ColorGradedFFT_CH4_Graph_Selected}" Click="CH4_ColorGradedFFT_Open_Click"/>
                     </WrapPanel>
                 </Grid>
             </ScrollViewer>

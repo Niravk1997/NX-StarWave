@@ -573,7 +573,25 @@
     <Compile Include="Auto_Measurements\RMS.cs" />
     <Compile Include="Auto_Measurements\StandardDeviation.cs" />
     <Compile Include="Axis_Scale_Config\Axis_Config.cs" />
+    <Compile Include="Axis_Scale_Config\Normalized_Axis_Config.cs" />
     <Compile Include="Graphs\Anytime_Graphs\Anytime_Waveform\Keyboard_Key_Down_Events.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Apply_Interpolation.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Color_Graded_FFT_Plotter.xaml.cs">
+      <DependentUpon>Color_Graded_FFT_Plotter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Color_Graded_Theme_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Decay_Interval_Config.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Dispose.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Draw_Mode.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\FFT_Averaging.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Color_Graded_FFT_Plotter_ViewModel.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\FFT_Settings.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\File_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Graph_Colors_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Graph_Settings_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Information_Tab.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Output_Log_Menu.cs" />
+    <Compile Include="Graphs\FFT_Graphs\Color_Graded_FFT\Right_Click_Menu.cs" />
     <Compile Include="Graphs\FFT_Graphs\FFT\FFT_Averaging.cs" />
     <Compile Include="Graphs\FFT_Graphs\FFT\Gated_Highest_points.cs" />
     <Compile Include="Graphs\FFT_Graphs\FFT\Gated_Peaks.cs" />
@@ -643,6 +661,7 @@
     <Compile Include="Graphs\YT_Graphs\YT_All_Seperate_Axis\Waveform_Settings.cs" />
     <Compile Include="Misc\String_Compression.cs" />
     <Compile Include="NX-StarWave\Graph_Windows_Open\Advance_Windows\Web_Server_Open.cs" />
+    <Compile Include="NX-StarWave\Graph_Windows_Open\FFT_Windows\Color_Graded_FFT_Open.cs" />
     <Compile Include="Reusable_Controls\Gated_Peaks_Table_Window\Dispose.cs" />
     <Compile Include="Reusable_Controls\Gated_Peaks_Table_Window\Gated_Peaks_Table.xaml.cs">
       <DependentUpon>Gated_Peaks_Table.xaml</DependentUpon>
@@ -1289,6 +1308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Advance_Windows\Web_Server\Web_Server_MainWindow\Web_Server_MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Graphs\FFT_Graphs\Color_Graded_FFT\Color_Graded_FFT_Plotter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -11,6 +11,7 @@ namespace NX_StarWave
             Initialize_XY_EventHandler();
             Initialize_Math_YT_EventHandler();
             Initialize_Histogram_EventHandler();
+            Initialize_Color_Graded_FFT_EventHandler();
             Initialize_FFT_Waterfall_EventHandler();
             Initialize_FFT_Waveform_EventHandler();
             Initialize_FFT_EventHandler();

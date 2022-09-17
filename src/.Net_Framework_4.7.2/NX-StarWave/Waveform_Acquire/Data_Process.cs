@@ -156,6 +156,7 @@ namespace NX_StarWave
             FFT_Graphs_Data_Passthrough(CH1_Data, CH2_Data, CH3_Data, CH4_Data);
             FFT_Waveform_Graphs_Data_Passthrough(CH1_Data, CH2_Data, CH3_Data, CH4_Data);
             FFT_Waterfall_Graphs_Data_Passthrough(CH1_Data, CH2_Data, CH3_Data, CH4_Data);
+            FFT_ColorGraded_Graphs_Data_Passthrough(CH1_Data, CH2_Data, CH3_Data, CH4_Data);
             Data_Log_Graphs_Data_Passthrough(CH1_Data, CH2_Data, CH3_Data, CH4_Data);
             Waveform_Calculator_Data_Passthrough(CH1_Data, CH2_Data, CH3_Data, CH4_Data);
             NodeNetwork_Calculator_Data_Passthrough(CH1_Data, CH2_Data, CH3_Data, CH4_Data);
@@ -234,6 +235,14 @@ namespace NX_StarWave
             try { if (FFT_Waterfall_Channel_2 != null) { FFT_Waterfall_Channel_2.Waveform_Data_Queue.Add(CH2_Data); } } catch (Exception) { } //Channel 2 Data Required
             try { if (FFT_Waterfall_Channel_3 != null) { FFT_Waterfall_Channel_3.Waveform_Data_Queue.Add(CH3_Data); } } catch (Exception) { } //Channel 3 Data Required
             try { if (FFT_Waterfall_Channel_4 != null) { FFT_Waterfall_Channel_4.Waveform_Data_Queue.Add(CH4_Data); } } catch (Exception) { } //Channel 4 Data Required
+        }
+
+        public void FFT_ColorGraded_Graphs_Data_Passthrough(Channel_Waveform_Data CH1_Data, Channel_Waveform_Data CH2_Data, Channel_Waveform_Data CH3_Data, Channel_Waveform_Data CH4_Data)
+        {
+            try { if (Color_Graded_FFT_Channel_1 != null) { Color_Graded_FFT_Channel_1.Waveform_Data_Queue.Add(CH1_Data); } } catch (Exception) { } //Channel 1 Data Required
+            try { if (Color_Graded_FFT_Channel_2 != null) { Color_Graded_FFT_Channel_2.Waveform_Data_Queue.Add(CH2_Data); } } catch (Exception) { } //Channel 2 Data Required
+            try { if (Color_Graded_FFT_Channel_3 != null) { Color_Graded_FFT_Channel_3.Waveform_Data_Queue.Add(CH3_Data); } } catch (Exception) { } //Channel 3 Data Required
+            try { if (Color_Graded_FFT_Channel_4 != null) { Color_Graded_FFT_Channel_4.Waveform_Data_Queue.Add(CH4_Data); } } catch (Exception) { } //Channel 4 Data Required
         }
 
         public void Data_Log_Graphs_Data_Passthrough(Channel_Waveform_Data CH1_Data, Channel_Waveform_Data CH2_Data, Channel_Waveform_Data CH3_Data, Channel_Waveform_Data CH4_Data)

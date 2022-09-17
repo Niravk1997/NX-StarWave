@@ -172,5 +172,61 @@ namespace NX_StarWave
                 NotifyPropertyChanged("FFTWaterfall_CH4_Graph_Selected");
             }
         }
+
+        private Brush ColorGradedFFT_CH1_Graph_Selected_ = Brushes.Transparent;
+        public Brush ColorGradedFFT_CH1_Graph_Selected
+        {
+            get
+            {
+                return ColorGradedFFT_CH1_Graph_Selected_;
+            }
+            set
+            {
+                ColorGradedFFT_CH1_Graph_Selected_ = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private Brush ColorGradedFFT_CH2_Graph_Selected_ = Brushes.Transparent;
+        public Brush ColorGradedFFT_CH2_Graph_Selected
+        {
+            get
+            {
+                return ColorGradedFFT_CH2_Graph_Selected_;
+            }
+            set
+            {
+                ColorGradedFFT_CH2_Graph_Selected_ = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private Brush ColorGradedFFT_CH3_Graph_Selected_ = Brushes.Transparent;
+        public Brush ColorGradedFFT_CH3_Graph_Selected
+        {
+            get
+            {
+                return ColorGradedFFT_CH3_Graph_Selected_;
+            }
+            set
+            {
+                ColorGradedFFT_CH3_Graph_Selected_ = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private Brush ColorGradedFFT_CH4_Graph_Selected_ = Brushes.Transparent;
+        public Brush ColorGradedFFT_CH4_Graph_Selected
+        {
+            get
+            {
+                return ColorGradedFFT_CH4_Graph_Selected_;
+            }
+            set
+            {
+                ColorGradedFFT_CH4_Graph_Selected_ = value;
+                NotifyPropertyChanged();
+            }
+        }
     }
 }

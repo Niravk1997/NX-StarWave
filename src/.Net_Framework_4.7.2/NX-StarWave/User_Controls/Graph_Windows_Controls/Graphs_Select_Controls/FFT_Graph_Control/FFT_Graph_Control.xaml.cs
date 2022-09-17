@@ -23,6 +23,11 @@ namespace FFT_Graph_Control
         public static readonly RoutedEvent CH3_FFTWaterfall_Open_Event = EventManager.RegisterRoutedEvent("CH3_FFTWaterfall_Open_Event", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(FFT_Graph_Control));
         public static readonly RoutedEvent CH4_FFTWaterfall_Open_Event = EventManager.RegisterRoutedEvent("CH4_FFTWaterfall_Open_Event", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(FFT_Graph_Control));
 
+        public static readonly RoutedEvent CH1_ColorGradedFFT_Open_Event = EventManager.RegisterRoutedEvent("CH1_ColorGradedFFT_Open_Event", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(FFT_Graph_Control));
+        public static readonly RoutedEvent CH2_ColorGradedFFT_Open_Event = EventManager.RegisterRoutedEvent("CH2_ColorGradedFFT_Open_Event", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(FFT_Graph_Control));
+        public static readonly RoutedEvent CH3_ColorGradedFFT_Open_Event = EventManager.RegisterRoutedEvent("CH3_ColorGradedFFT_Open_Event", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(FFT_Graph_Control));
+        public static readonly RoutedEvent CH4_ColorGradedFFT_Open_Event = EventManager.RegisterRoutedEvent("CH4_ColorGradedFFT_Open_Event", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(FFT_Graph_Control));
+
 
         public FFT_Graph_Control()
         {
@@ -87,6 +92,26 @@ namespace FFT_Graph_Control
         private void CH4_FFTWaterfall_Open_Click(object sender, RoutedEventArgs e)
         {
             RaiseEvent(new RoutedEventArgs(FFT_Graph_Control.CH4_FFTWaterfall_Open_Event));
+        }
+
+        private void CH1_ColorGradedFFT_Open_Click(object sender, RoutedEventArgs e)
+        {
+            RaiseEvent(new RoutedEventArgs(FFT_Graph_Control.CH1_ColorGradedFFT_Open_Event));
+        }
+
+        private void CH2_ColorGradedFFT_Open_Click(object sender, RoutedEventArgs e)
+        {
+            RaiseEvent(new RoutedEventArgs(FFT_Graph_Control.CH2_ColorGradedFFT_Open_Event));
+        }
+
+        private void CH3_ColorGradedFFT_Open_Click(object sender, RoutedEventArgs e)
+        {
+            RaiseEvent(new RoutedEventArgs(FFT_Graph_Control.CH3_ColorGradedFFT_Open_Event));
+        }
+
+        private void CH4_ColorGradedFFT_Open_Click(object sender, RoutedEventArgs e)
+        {
+            RaiseEvent(new RoutedEventArgs(FFT_Graph_Control.CH4_ColorGradedFFT_Open_Event));
         }
     }
 }
