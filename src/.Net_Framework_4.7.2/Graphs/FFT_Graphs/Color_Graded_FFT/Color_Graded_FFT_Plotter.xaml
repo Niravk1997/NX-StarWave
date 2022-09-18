@@ -334,8 +334,9 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
                         <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="230"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="210"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -421,6 +422,36 @@
                         <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="{Binding Allow_Null_FFT_HitMap_Value_below}"/>
                         <Label Grid.Row="4" Grid.Column="1" Content="Null Values below: "/>
                         <mah:NumericUpDown Grid.Row="4" Grid.Column="2" Value="{Binding Null_FFT_HitMap_Value_below}" Interval="0.01" IsEnabled="{Binding Allow_Null_FFT_HitMap_Value_below}" InterceptMouseWheel="True" Margin="5,0,0,0"/>
+                    </Grid>
+                    <Grid Grid.Column="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="2"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
+                                <Setter Property="Padding" Value="10,5,10,5"/>
+                                <Setter Property="MinHeight" Value="0"/>
+                                <Setter Property="MinWidth" Value="0"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Margin" Value="5,0,5,0"/>
+                            </Style>
+                        </Grid.Resources>
+
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <Label Content="FFT Hitmap Columns: "/>
+                            <mah:NumericUpDown Value="{Binding FFT_Maximum_Hitmap_Columns}" Interval="1" Minimum="10" Maximum="500" InterceptMouseWheel="True" Width="85" Margin="5,0,0,0"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Button Content="Set/Reset" Click="Reinitialize_FFT_Hitmap_Click"/>
+                            <Button Content="Save"/>
+                            <Button Content="Load"/>
+                        </StackPanel>
                     </Grid>
                 </Grid>
             </TabItem>

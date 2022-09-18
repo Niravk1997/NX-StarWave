@@ -24,7 +24,7 @@ namespace Color_Graded_FFT
         private double[] X_Waveform_Values = new double[500];
         private double[] Y_Waveform_Values = new double[500];
 
-        private bool Reinitialize_FFT_Heatmap = true;
+        private bool Reinitialize_FFT_Hitmap = true;
         private double[] Magnitude = new double[500]; //Magnitude
         private double[] Frequency = new double[500]; //Frequency
 
@@ -72,7 +72,7 @@ namespace Color_Graded_FFT
 
         private void Initialize_Arrays(int Length)
         {
-            FFT_Hitmap_Array = new double?[FFT_Maximum_Heatmap_Columns, Length];
+            FFT_Hitmap_Array = new double?[FFT_Maximum_Hitmap_Columns, Length];
         }
 
         public void Initialize_Waveform_Curve(string Y_AXIS_Units_Custom)
@@ -134,7 +134,7 @@ namespace Color_Graded_FFT
                             Y_Waveform_Values = new double[Data_Points];
                             System.Array.Copy(CH.X_Data, X_Waveform_Values, Data_Points);
                             System.Array.Copy(CH.Y_Data, Y_Waveform_Values, Data_Points);
-                            Reinitialize_FFT_Heatmap = true;
+                            Reinitialize_FFT_Hitmap = true;
                         }
 
                         FFT_Window_Apply();
@@ -157,12 +157,12 @@ namespace Color_Graded_FFT
 
                         if (Frequency[FFT_Size - 1] != FFT_Maximum_Frequency)
                         {
-                            Reinitialize_FFT_Heatmap = true;
+                            Reinitialize_FFT_Hitmap = true;
                             FFT_Maximum_Frequency = Frequency[FFT_Size - 1];
                             Insert_Log("Maximum Frequency Changed.", 2);
                         }
 
-                        if (Reinitialize_FFT_Heatmap)
+                        if (Reinitialize_FFT_Hitmap)
                         {
                             Initialize_Arrays(FFT_Size);
 
@@ -175,10 +175,11 @@ namespace Color_Graded_FFT
                             {
                                 Y_Axis_Normalized_Scale.Original_Data_Range_Maximum_Value = FFT_Maximum_Magnitude_Value;
                             }
-                            else 
+                            else
                             {
-                                Y_Axis_Normalized_Scale.Original_Data_Range_Maximum_Value = FFT_Max + 20;
-                                FFT_Maximum_Magnitude_Value = FFT_Max + 20;
+                                double Expected_FFT_Maximum_Magnitude = (Math.Abs(FFT_Max) * 0.3) + FFT_Max;
+                                Y_Axis_Normalized_Scale.Original_Data_Range_Maximum_Value = Expected_FFT_Maximum_Magnitude;
+                                FFT_Maximum_Magnitude_Value = Expected_FFT_Maximum_Magnitude;
                             }
 
                             if (Allow_Custom_FFT_Minimum_Magnitude_Value)
@@ -187,20 +188,21 @@ namespace Color_Graded_FFT
                             }
                             else
                             {
-                                Y_Axis_Normalized_Scale.Original_Data_Range_Minimum_Value = FFT_Min - 20;
-                                FFT_Minimum_Magnitude_Value = FFT_Min - 20;
+                                double Expected_FFT_Minimum_Magnitude = (-1 * Math.Abs(FFT_Min) * 0.3) + FFT_Min;
+                                Y_Axis_Normalized_Scale.Original_Data_Range_Minimum_Value = Expected_FFT_Minimum_Magnitude;
+                                FFT_Minimum_Magnitude_Value = Expected_FFT_Minimum_Magnitude;
                             }
 
                             Y_Axis_Normalized_Scale.Normalized_Data_Range_Minimum_Value = 0;
-                            Y_Axis_Normalized_Scale.Normalized_Data_Range_Maximum_Value = FFT_Maximum_Heatmap_Columns;
+                            Y_Axis_Normalized_Scale.Normalized_Data_Range_Maximum_Value = FFT_Maximum_Hitmap_Columns;
 
-                            Reinitialize_FFT_Heatmap = false;
+                            Reinitialize_FFT_Hitmap = false;
                         }
 
                         for (int i = 0; i < FFT_Size; i++)
                         {
                             int Value = (int)Y_Axis_Normalized_Scale.Original_Value_to_Normalize_Value(Magnitude[i]);
-                            if (Value >= 0 && Value < FFT_Maximum_Heatmap_Columns)
+                            if (Value >= 0 && Value < FFT_Maximum_Hitmap_Columns)
                             {
                                 if (FFT_Hitmap_Array[Value, i] != null)
                                 {
@@ -223,7 +225,7 @@ namespace Color_Graded_FFT
                             {
                                 for (int i = 0; i < FFT_Size; i++)
                                 {
-                                    for (int j = 0; j < FFT_Maximum_Heatmap_Columns; j++)
+                                    for (int j = 0; j < FFT_Maximum_Hitmap_Columns; j++)
                                     {
                                         FFT_Hitmap_Array[j, i] = FFT_Hitmap_Array[j, i] * Decay_Factor;
                                         if (Allow_Null_FFT_HitMap_Value_below && FFT_Hitmap_Array[j, i] < Null_FFT_HitMap_Value_below)
@@ -245,7 +247,7 @@ namespace Color_Graded_FFT
                 }
                 catch (Exception Ex)
                 {
-                    Reinitialize_FFT_Heatmap = true;
+                    Reinitialize_FFT_Hitmap = true;
                     Insert_Log(Ex.Message, 1);
                     Insert_Log("Waveform Data could not be processed.", 1);
                 }

@@ -22,7 +22,7 @@ namespace Color_Graded_FFT
             Y_AXIS_Units = "dB";
             Y_Axis_Normalized_Scale.Axis_Units = "dB";
             Graph.Plot.YAxis.Label("Magnitude (dB" + Y_AXIS_Units_Custom + "rms)");
-            Reinitialize_FFT_Heatmap = true;
+            Reinitialize_FFT_Hitmap = true;
         }
 
         private void Y_AXIS_V_Click(object sender, RoutedEventArgs e)
@@ -33,7 +33,7 @@ namespace Color_Graded_FFT
             Y_AXIS_Units = Y_AXIS_Units_Custom;
             Y_Axis_Normalized_Scale.Axis_Units = Y_AXIS_Units_Custom;
             Graph.Plot.YAxis.Label("Magnitude (Linear " + Y_AXIS_Units_Custom + "rms)");
-            Reinitialize_FFT_Heatmap = true;
+            Reinitialize_FFT_Hitmap = true;
         }
 
         private (bool, double[]) FFT_Window_Array_Generate()
@@ -251,7 +251,12 @@ namespace Color_Graded_FFT
             {
                 Triangular_FFT_Window_Type.IsChecked = false;
             }
-            Reinitialize_FFT_Heatmap = true;
+            Reinitialize_FFT_Hitmap = true;
+        }
+
+        private void Reinitialize_FFT_Hitmap_Click(object sender, RoutedEventArgs e)
+        {
+            Reinitialize_FFT_Hitmap = true;
         }
     }
 }

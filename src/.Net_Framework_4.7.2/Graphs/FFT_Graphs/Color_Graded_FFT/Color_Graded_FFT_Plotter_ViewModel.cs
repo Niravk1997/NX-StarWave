@@ -47,7 +47,7 @@ namespace Color_Graded_FFT
             {
                 if (value == true)
                 {
-                    Reinitialize_FFT_Heatmap = true;
+                    Reinitialize_FFT_Hitmap = true;
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace Color_Graded_FFT
             get { return _Interpolation_Resample_Factor; }
             set
             {
-                Reinitialize_FFT_Heatmap = true;
+                Reinitialize_FFT_Hitmap = true;
                 _Interpolation_Resample_Factor = value;
                 NotifyPropertyChanged();
             }
@@ -257,14 +257,14 @@ namespace Color_Graded_FFT
             }
         }
 
-        private int FFT_Maximum_Heatmap_Columns_ = 100;
-        public int FFT_Maximum_Heatmap_Columns
+        private int FFT_Maximum_Hitmap_Columns_ = 100;
+        public int FFT_Maximum_Hitmap_Columns
         {
-            get { return FFT_Maximum_Heatmap_Columns_; }
+            get { return FFT_Maximum_Hitmap_Columns_; }
             set
             {
-                FFT_Maximum_Heatmap_Columns_ = value;
-                NotifyPropertyChanged("FFT_Maximum_Heatmap_Columns");
+                FFT_Maximum_Hitmap_Columns_ = value;
+                NotifyPropertyChanged("FFT_Maximum_Hitmap_Columns");
             }
         }
 
