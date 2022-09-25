@@ -94,6 +94,10 @@ namespace FFT_Waveform
             get { return _Apply_Interpolation; }
             set
             {
+                if (value == false)
+                {
+                    Interpolation_isDisabled = true;
+                }
                 _Apply_Interpolation = value;
                 NotifyPropertyChanged();
             }
@@ -145,6 +149,32 @@ namespace FFT_Waveform
                     FFT_Average.Reset();
                 }
                 NotifyPropertyChanged("FFT_Average_IsEnabled");
+            }
+        }
+
+        private int FFT_Size_ = 250;
+        public int FFT_Size
+        {
+            get { return FFT_Size_; }
+            set
+            {
+                if (FFT_Size_ != value)
+                {
+                    FFT_Size_ = value;
+                    FFT_Size_String = Axis_Scale_Config.Value_SI_Prefix(value, 1) + "pts";
+                    NotifyPropertyChanged("FFT_Size");
+                }
+            }
+        }
+
+        private string FFT_Size_String_ = "null";
+        public string FFT_Size_String
+        {
+            get { return FFT_Size_String_; }
+            set
+            {
+                FFT_Size_String_ = value;
+                NotifyPropertyChanged("FFT_Size_String");
             }
         }
 

@@ -130,10 +130,17 @@ namespace FFT_Waveform
                         else
                         {
                             Data_Points = CH.Data_Points;
+                            FFT_Size = Data_Points / 2;
                             X_Waveform_Values = new double[Data_Points];
                             Y_Waveform_Values = new double[Data_Points];
                             System.Array.Copy(CH.X_Data, X_Waveform_Values, Data_Points);
                             System.Array.Copy(CH.Y_Data, Y_Waveform_Values, Data_Points);
+                        }
+
+                        if (Interpolation_isDisabled)
+                        {
+                            FFT_Size = Data_Points / 2;
+                            Interpolation_isDisabled = false;
                         }
 
                         True_Y_Waveform_Values = new double[Data_Points];
@@ -155,7 +162,9 @@ namespace FFT_Waveform
                         {
                             Apply_Selected_Interploation_Data();
                         }
+
                         FFT_Min_Max_Updater();
+
                         if (Show_Peak_Feature)
                         {
                             Peak_Finder();
@@ -163,12 +172,12 @@ namespace FFT_Waveform
 
                         if (Gated_HighestPoints_IsEnabled)
                         {
-                            Create_Gated_HighestPoints_Array(Frequency, Magnitude, Data_Points / 2);
+                            Create_Gated_HighestPoints_Array(Frequency, Magnitude, FFT_Size);
                         }
 
                         if (Gated_Peaks_IsEnabled)
                         {
-                            Create_Gated_Peaks_Array(Frequency, Magnitude, Data_Points / 2);
+                            Create_Gated_Peaks_Array(Frequency, Magnitude, FFT_Size);
                         }
 
                         this.Dispatcher.Invoke(() =>

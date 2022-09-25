@@ -859,7 +859,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="82"/>
                         <ColumnDefinition MinWidth="80" MaxWidth="130"/>
-                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="50"/>
                         <ColumnDefinition MinWidth="80" MaxWidth="130"/>
                         <ColumnDefinition Width="85"/>
                         <ColumnDefinition MinWidth="80" MaxWidth="130"/>
@@ -892,10 +892,12 @@
                     <StackPanel Grid.Column="2">
                         <Label Content="Max: "/>
                         <Label Content="Min: "/>
+                        <Label Content="FFT Size: "/>
                     </StackPanel>
                     <StackPanel Grid.Column="3" HorizontalAlignment="Left">
                         <Label x:Name="Magnitude_Max_Label" Content="null" HorizontalAlignment="Left"/>
                         <Label x:Name="Magnitude_Min_Label" Content="null" HorizontalAlignment="Left"/>
+                        <Label x:Name="FFT_Size_Label" Content="{Binding FFT_Size_String, FallbackValue=null}" HorizontalAlignment="Left"/>
                     </StackPanel>
                     <StackPanel Grid.Column="4">
                         <Label Content="∆ Frequency: "/>

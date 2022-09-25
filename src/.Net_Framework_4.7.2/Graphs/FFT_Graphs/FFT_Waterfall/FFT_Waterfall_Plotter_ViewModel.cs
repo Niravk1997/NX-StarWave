@@ -214,6 +214,32 @@ namespace FFT_Waterfall
             }
         }
 
+        private int FFT_Size_ = 250;
+        public int FFT_Size
+        {
+            get { return FFT_Size_; }
+            set
+            {
+                if (FFT_Size_ != value)
+                {
+                    FFT_Size_ = value;
+                    FFT_Size_String = Axis_Scale_Config.Value_SI_Prefix(value, 1) + "pts";
+                    NotifyPropertyChanged("FFT_Size");
+                }
+            }
+        }
+
+        private string FFT_Size_String_ = "null";
+        public string FFT_Size_String
+        {
+            get { return FFT_Size_String_; }
+            set
+            {
+                FFT_Size_String_ = value;
+                NotifyPropertyChanged("FFT_Size_String");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = null)
         {

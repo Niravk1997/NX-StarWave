@@ -124,10 +124,17 @@ namespace FFT
                         else
                         {
                             Data_Points = CH.Data_Points;
+                            FFT_Size = Data_Points / 2;
                             X_Waveform_Values = new double[Data_Points];
                             Y_Waveform_Values = new double[Data_Points];
                             System.Array.Copy(CH.X_Data, X_Waveform_Values, Data_Points);
                             System.Array.Copy(CH.Y_Data, Y_Waveform_Values, Data_Points);
+                        }
+
+                        if (Interpolation_isDisabled) 
+                        {
+                            FFT_Size = Data_Points / 2;
+                            Interpolation_isDisabled = false;
                         }
 
                         FFT_Window_Apply();
@@ -154,12 +161,12 @@ namespace FFT
 
                         if (Gated_HighestPoints_IsEnabled)
                         {
-                            Create_Gated_HighestPoints_Array(Frequency, Magnitude, Data_Points / 2);
+                            Create_Gated_HighestPoints_Array(Frequency, Magnitude, FFT_Size);
                         }
 
                         if (Gated_Peaks_IsEnabled)
                         {
-                            Create_Gated_Peaks_Array(Frequency, Magnitude, Data_Points / 2);
+                            Create_Gated_Peaks_Array(Frequency, Magnitude, FFT_Size);
                         }
 
                         this.Dispatcher.Invoke(() =>

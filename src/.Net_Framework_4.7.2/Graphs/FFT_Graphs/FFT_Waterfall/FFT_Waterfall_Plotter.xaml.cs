@@ -31,7 +31,6 @@ namespace FFT_Waterfall
         private double[] X_Waveform_Values = new double[500];
         private double[] Y_Waveform_Values = new double[500];
 
-        private int FFT_Size = 250;
         private bool FFT_Size_Changed = false;
         private double[] Magnitude = new double[500]; //Magnitude
         private double[] Frequency = new double[500]; //Frequency
@@ -135,20 +134,6 @@ namespace FFT_Waterfall
         {
             Waterfall_Buffer = new double?[(Waterfall_History + 1), Length];
             Waterfall_PastFrame = new double?[(Waterfall_History + 1), Length];
-            //Fill_Arrays_DummyData();
-        }
-
-        private void Fill_Arrays_DummyData()
-        {
-            int Lenght = Waterfall_Buffer.GetLength(1);
-            for (int x = 0; x < (Waterfall_History + 1); x++)
-            {
-                for (int y = 0; y < Lenght; y++)
-                {
-                    Waterfall_Buffer[x, y] = -300;
-                    Waterfall_PastFrame[x, y] = -300;
-                }
-            }
         }
 
         private void Waveform_Data_Process_Graph(object sender, EventArgs e)
@@ -174,14 +159,14 @@ namespace FFT_Waterfall
                             Y_Waveform_Values = new double[Data_Points];
                             System.Array.Copy(CH.X_Data, X_Waveform_Values, Data_Points);
                             System.Array.Copy(CH.Y_Data, Y_Waveform_Values, Data_Points);
+
+                            Reset_FFT_Waterfall_Array();
                         }
 
-                        if (FFT_Size != (int)(Data_Points / 2))
+                        if (Interpolation_isDisabled)
                         {
-                            FFT_Size = (int)(Data_Points / 2);
-                            Initialize_Arrays(FFT_Size);
-                            FFT_Size_Changed = true;
-                            Interpolation_Resample_Factor_PastValue = 0;
+                            Reset_FFT_Waterfall_Array();
+                            Interpolation_isDisabled = false;
                         }
 
                         FFT_Window_Apply();
@@ -203,6 +188,7 @@ namespace FFT_Waterfall
                         Update_Waterfall_Data(Magnitude);
 
                         FFT_Min_Max_Updater();
+
                         if (Show_Peak_Feature)
                         {
                             Peak_Finder();
@@ -210,12 +196,12 @@ namespace FFT_Waterfall
 
                         if (Gated_HighestPoints_IsEnabled)
                         {
-                            Create_Gated_HighestPoints_Array(Frequency, Magnitude, Data_Points / 2);
+                            Create_Gated_HighestPoints_Array(Frequency, Magnitude, FFT_Size);
                         }
 
                         if (Gated_Peaks_IsEnabled)
                         {
-                            Create_Gated_Peaks_Array(Frequency, Magnitude, Data_Points / 2);
+                            Create_Gated_Peaks_Array(Frequency, Magnitude, FFT_Size);
                         }
 
                         this.Dispatcher.Invoke(() =>
@@ -232,6 +218,15 @@ namespace FFT_Waterfall
                 }
             }
             Waveform_Data_Process.Enabled = true;
+        }
+
+        private void Reset_FFT_Waterfall_Array() 
+        {
+            // A reset is require when interpolation is disabled, as the fft size changes
+            FFT_Size = (int)(Data_Points / 2);
+            Initialize_Arrays(FFT_Size);
+            FFT_Size_Changed = true;
+            Interpolation_Resample_Factor_PastValue = 0;
         }
 
         private void FFT_Window_Apply()

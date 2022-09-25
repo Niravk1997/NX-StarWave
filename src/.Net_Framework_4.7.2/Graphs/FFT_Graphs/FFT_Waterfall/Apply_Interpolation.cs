@@ -10,6 +10,10 @@ namespace FFT_Waterfall
 
         private int Interpolation_Resample_Factor_PastValue = 0;
 
+        private bool Interpolation_isDisabled = false;
+
+        private bool Interpolation_isEnabled = false;
+
         private void Setup_Interpolation()
         {
             Interpolation = new Waveform_Interpolations(1);
@@ -30,7 +34,7 @@ namespace FFT_Waterfall
                 (X_Local, Phase) = Interpolation.Interpolation_Results(Frequency, Phase, Interpolation_Resample_Factor, Frequency[0], Frequency[((int)Data_Points / 2) - 1], (int)Data_Points / 2);
             }
             (Frequency, Magnitude) = Interpolation.Interpolation_Results(Frequency, Magnitude, Interpolation_Resample_Factor_Local, Frequency[0], Frequency[((int)Data_Points / 2) - 1], (int)Data_Points / 2);
-            Data_Points = Data_Points * Interpolation_Resample_Factor;
+            FFT_Size = (Data_Points / 2) * Interpolation_Resample_Factor;
         }
 
         private void Enable_Interpolation_Click(object sender, RoutedEventArgs e)
@@ -40,6 +44,7 @@ namespace FFT_Waterfall
                 //This will trigger the Waveform Data Process to ReInitialize the spectrogram.
                 FFT_Size = 0;
                 Interpolation_Resample_Factor_PastValue = 0;
+                Interpolation_isDisabled = true;
             }
         }
 
