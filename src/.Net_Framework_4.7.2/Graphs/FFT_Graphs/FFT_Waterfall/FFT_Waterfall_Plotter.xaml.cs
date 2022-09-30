@@ -220,7 +220,7 @@ namespace FFT_Waterfall
             Waveform_Data_Process.Enabled = true;
         }
 
-        private void Reset_FFT_Waterfall_Array() 
+        private void Reset_FFT_Waterfall_Array()
         {
             // A reset is require when interpolation is disabled, as the fft size changes
             FFT_Size = (int)(Data_Points / 2);

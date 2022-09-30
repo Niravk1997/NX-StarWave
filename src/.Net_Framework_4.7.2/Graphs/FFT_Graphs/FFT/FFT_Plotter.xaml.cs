@@ -131,7 +131,7 @@ namespace FFT
                             System.Array.Copy(CH.Y_Data, Y_Waveform_Values, Data_Points);
                         }
 
-                        if (Interpolation_isDisabled) 
+                        if (Interpolation_isDisabled)
                         {
                             FFT_Size = Data_Points / 2;
                             Interpolation_isDisabled = false;
@@ -154,6 +154,7 @@ namespace FFT
                         }
 
                         FFT_Min_Max_Updater();
+
                         if (Show_Peak_Feature)
                         {
                             Peak_Finder();

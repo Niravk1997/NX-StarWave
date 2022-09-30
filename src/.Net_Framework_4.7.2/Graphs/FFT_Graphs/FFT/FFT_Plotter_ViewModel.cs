@@ -116,7 +116,7 @@ namespace FFT
             get { return _Apply_Interpolation; }
             set
             {
-                if (value == false) 
+                if (value == false)
                 {
                     Interpolation_isDisabled = true;
                 }
