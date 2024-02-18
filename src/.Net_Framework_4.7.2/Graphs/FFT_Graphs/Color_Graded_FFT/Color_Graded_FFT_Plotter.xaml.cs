@@ -80,6 +80,7 @@ namespace Color_Graded_FFT
             FFT_Hitmap = Graph.Plot.AddHeatmap(FFT_Hitmap_Array, ScottPlot.Drawing.Colormap.Plasma, false);
             FFT_Hitmap.FlipVertically = true;
             FFT_Hitmap.Interpolation = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            //FFT_Hitmap.Smooth = true;
             FFT_Hitmap_Colorbar = Graph.Plot.AddColorbar(FFT_Hitmap);
 
             if (ControlzEx.Theming.ThemeManager.Current.DetectTheme().BaseColorScheme.Equals("Dark"))
@@ -310,7 +311,14 @@ namespace Color_Graded_FFT
 
         private void Update_Color_Graded_FFT_Plot()
         {
-            FFT_Hitmap.Update(FFT_Hitmap_Array, colormap: Spectrogram_Heatmap_Process_Config());
+            if (Enable_Color_Grade_Clipping)
+            {
+                FFT_Hitmap.Update(FFT_Hitmap_Array, colormap: Spectrogram_Heatmap_Process_Config(), Color_Grade_Clipping_Min_Value, Color_Grade_Clipping_Max_Value);
+            }
+            else
+            {
+                FFT_Hitmap.Update(FFT_Hitmap_Array, colormap: Spectrogram_Heatmap_Process_Config());
+            }
         }
 
         private void Graph_Render()

@@ -312,6 +312,45 @@ namespace Color_Graded_FFT
             }
         }
 
+        private bool Enable_Color_Grade_Clipping_ = false;
+        public bool Enable_Color_Grade_Clipping
+        {
+            get { return Enable_Color_Grade_Clipping_; }
+            set
+            {
+                Enable_Color_Grade_Clipping_ = value;
+                NotifyPropertyChanged("Enable_Color_Grade_Clipping");
+            }
+        }
+
+        private double Color_Grade_Clipping_Max_Value_ = 10;
+        public double Color_Grade_Clipping_Max_Value
+        {
+            get { return Color_Grade_Clipping_Max_Value_; }
+            set
+            {
+                if (value > Color_Grade_Clipping_Min_Value)
+                {
+                    Color_Grade_Clipping_Max_Value_ = value;
+                }
+                NotifyPropertyChanged("Color_Grade_Clipping_Max_Value");
+            }
+        }
+
+        private double Color_Grade_Clipping_Min_Value_ = 0;
+        public double Color_Grade_Clipping_Min_Value
+        {
+            get { return Color_Grade_Clipping_Min_Value_; }
+            set
+            {
+                if (value < Color_Grade_Clipping_Max_Value)
+                {
+                    Color_Grade_Clipping_Min_Value_ = value;
+                }
+                NotifyPropertyChanged("Color_Grade_Clipping_Min_Value");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = null)
         {

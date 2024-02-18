@@ -330,130 +330,157 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Config">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="220"/>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="210"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.Resources>
-                        <Style TargetType="Label">
-                            <Setter Property="Padding" Value="0,0,0,0"/>
-                            <Setter Property="Margin" Value="0,0,0,0"/>
-                            <Setter Property="VerticalAlignment" Value="Center"/>
-                        </Style>
-                        <Style TargetType="mah:ToggleSwitch">
-                            <Setter Property="Padding" Value="0"/>
-                            <Setter Property="ContentPadding" Value="-5"/>
-                            <Setter Property="Margin" Value="0,0,0,0"/>
-                            <Setter Property="FontSize" Value="12"/>
-                            <Setter Property="MinWidth" Value="70"/>
-                            <Style.Resources>
-                                <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOn" Color="#00CE30"/>
-                                <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOnPointerOver" Color="#00CE30"/>
-                            </Style.Resources>
-                        </Style>
-                        <Style TargetType="mah:NumericUpDown">
-                            <Setter Property="Padding" Value="0,0,0,0"/>
-                            <Setter Property="Margin" Value="0,0,0,0"/>
-                            <Setter Property="MinHeight" Value="0"/>
-                            <Setter Property="MinWidth" Value="0"/>
-                            <Setter Property="InterceptMouseWheel" Value="True"/>
-                            <Setter Property="TextAlignment" Value="Left"/>
-                        </Style>
-                        <Style TargetType="CheckBox">
-                            <Setter Property="Padding" Value="2,0,0,0"/>
-                            <Setter Property="VerticalAlignment" Value="Center"/>
-                        </Style>
-                    </Grid.Resources>
-                    <Grid Grid.Column="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="26"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="2"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="25,0,0,0">
-                            <Label Content="FFT Decay: "/>
-                            <mah:ToggleSwitch OnContent="On" OffContent="Off" IsOn="{Binding Decay_Interval_Enable}" Margin="5,-2,0,0"/>
-                        </StackPanel>
-                        <StackPanel Grid.Row="1" Orientation="Horizontal"  HorizontalAlignment="Right">
-                            <Label Content="Decay Interval (s): "/>
-                            <mah:NumericUpDown Value="{Binding Decay_Interval_Value_s}" Interval="0.05" InterceptMouseWheel="True" Width="100" Margin="5,0,0,0"/>
-                        </StackPanel>
-                        <StackPanel Grid.Row="3" Orientation="Horizontal"  HorizontalAlignment="Right">
-                            <Label Content="Decay Value: "/>
-                            <mah:NumericUpDown Value="{Binding Decay_Factor}" Interval="0.05" InterceptMouseWheel="True" Width="100" Margin="5,0,0,0"/>
-                        </StackPanel>
-                    </Grid>
-                    <Grid Grid.Column="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="2"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="2"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                    <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="220"/>
                             <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="210"/>
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
                         <Grid.Resources>
                             <Style TargetType="Label">
                                 <Setter Property="Padding" Value="0,0,0,0"/>
+                                <Setter Property="Margin" Value="0,0,0,0"/>
                                 <Setter Property="VerticalAlignment" Value="Center"/>
-                                <Setter Property="HorizontalAlignment" Value="Right"/>
                             </Style>
-                        </Grid.Resources>
-                        <CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding Allow_Custom_FFT_Maximum_Magnitude_Value}"/>
-                        <Label Grid.Row="0" Grid.Column="1" Content="Max Magnitude: "/>
-                        <mah:NumericUpDown Grid.Row="0" Grid.Column="2" Value="{Binding FFT_Maximum_Magnitude_Value}" Interval="0.1" IsEnabled="{Binding Allow_Custom_FFT_Maximum_Magnitude_Value}" InterceptMouseWheel="True" Margin="5,0,0,0"/>
-
-                        <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="{Binding Allow_Custom_FFT_Minimum_Magnitude_Value}"/>
-                        <Label Grid.Row="2" Grid.Column="1" Content="Min Magnitude: "/>
-                        <mah:NumericUpDown Grid.Row="2" Grid.Column="2" Value="{Binding FFT_Minimum_Magnitude_Value}" Interval="0.1" IsEnabled="{Binding Allow_Custom_FFT_Minimum_Magnitude_Value}" InterceptMouseWheel="True" Margin="5,0,0,0"/>
-
-                        <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="{Binding Allow_Null_FFT_HitMap_Value_below}"/>
-                        <Label Grid.Row="4" Grid.Column="1" Content="Null Values below: "/>
-                        <mah:NumericUpDown Grid.Row="4" Grid.Column="2" Value="{Binding Null_FFT_HitMap_Value_below}" Interval="0.01" IsEnabled="{Binding Allow_Null_FFT_HitMap_Value_below}" InterceptMouseWheel="True" Margin="5,0,0,0"/>
-                    </Grid>
-                    <Grid Grid.Column="4">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="22"/>
-                            <RowDefinition Height="2"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.Resources>
-                            <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
-                                <Setter Property="Padding" Value="10,5,10,5"/>
+                            <Style TargetType="mah:ToggleSwitch">
+                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="ContentPadding" Value="-5"/>
+                                <Setter Property="Margin" Value="0,0,0,0"/>
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="MinWidth" Value="70"/>
+                                <Style.Resources>
+                                    <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOn" Color="#00CE30"/>
+                                    <SolidColorBrush x:Key="MahApps.Brushes.ToggleSwitch.FillOnPointerOver" Color="#00CE30"/>
+                                </Style.Resources>
+                            </Style>
+                            <Style TargetType="mah:NumericUpDown">
+                                <Setter Property="Padding" Value="0,0,0,0"/>
+                                <Setter Property="Margin" Value="0,0,0,0"/>
                                 <Setter Property="MinHeight" Value="0"/>
                                 <Setter Property="MinWidth" Value="0"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                                <Setter Property="Margin" Value="5,0,5,0"/>
+                                <Setter Property="InterceptMouseWheel" Value="True"/>
+                                <Setter Property="TextAlignment" Value="Left"/>
+                            </Style>
+                            <Style TargetType="CheckBox">
+                                <Setter Property="Padding" Value="2,0,0,0"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
                             </Style>
                         </Grid.Resources>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="19"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="19"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="25,0,0,0">
+                                <Label Content="FFT Decay: "/>
+                                <mah:ToggleSwitch OnContent="On" OffContent="Off" IsOn="{Binding Decay_Interval_Enable}" Margin="5,-2,0,0"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Horizontal"  HorizontalAlignment="Right">
+                                <Label Content="Decay Interval (s): "/>
+                                <mah:NumericUpDown Value="{Binding Decay_Interval_Value_s}" Interval="0.05" InterceptMouseWheel="True" Width="100" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="3" Orientation="Horizontal"  HorizontalAlignment="Right">
+                                <Label Content="Decay Value: "/>
+                                <mah:NumericUpDown Value="{Binding Decay_Factor}" Interval="0.05" InterceptMouseWheel="True" Width="100" Margin="5,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="19"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="19"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="19"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="Label">
+                                    <Setter Property="Padding" Value="0,0,0,0"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                                </Style>
+                            </Grid.Resources>
+                            <CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding Allow_Custom_FFT_Maximum_Magnitude_Value}"/>
+                            <Label Grid.Row="0" Grid.Column="1" Content="Max Magnitude: "/>
+                            <mah:NumericUpDown Grid.Row="0" Grid.Column="2" Value="{Binding FFT_Maximum_Magnitude_Value}" Interval="0.1" IsEnabled="{Binding Allow_Custom_FFT_Maximum_Magnitude_Value}" InterceptMouseWheel="True" Margin="5,0,0,0"/>
 
-                        <StackPanel Grid.Row="0" Orientation="Horizontal">
-                            <Label Content="FFT Hitmap Columns: "/>
-                            <mah:NumericUpDown Value="{Binding FFT_Maximum_Hitmap_Columns}" Interval="1" Minimum="10" Maximum="500" InterceptMouseWheel="True" Width="85" Margin="5,0,0,0"/>
-                        </StackPanel>
+                            <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="{Binding Allow_Custom_FFT_Minimum_Magnitude_Value}"/>
+                            <Label Grid.Row="2" Grid.Column="1" Content="Min Magnitude: "/>
+                            <mah:NumericUpDown Grid.Row="2" Grid.Column="2" Value="{Binding FFT_Minimum_Magnitude_Value}" Interval="0.1" IsEnabled="{Binding Allow_Custom_FFT_Minimum_Magnitude_Value}" InterceptMouseWheel="True" Margin="5,0,0,0"/>
 
-                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Button Content="Set/Reset" Click="Reinitialize_FFT_Hitmap_Click"/>
-                            <Button Content="Save"/>
-                            <Button Content="Load"/>
-                        </StackPanel>
+                            <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="{Binding Allow_Null_FFT_HitMap_Value_below}"/>
+                            <Label Grid.Row="4" Grid.Column="1" Content="Null Values below: "/>
+                            <mah:NumericUpDown Grid.Row="4" Grid.Column="2" Value="{Binding Null_FFT_HitMap_Value_below}" Interval="0.01" IsEnabled="{Binding Allow_Null_FFT_HitMap_Value_below}" InterceptMouseWheel="True" Margin="5,0,0,0"/>
+                        </Grid>
+                        <Grid Grid.Column="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="26"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="22"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="22"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Dialogs.Accent}">
+                                    <Setter Property="Padding" Value="10,5,10,5"/>
+                                    <Setter Property="MinHeight" Value="0"/>
+                                    <Setter Property="MinWidth" Value="0"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="Margin" Value="5,0,5,0"/>
+                                </Style>
+                            </Grid.Resources>
+
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Label Content="FFT Hitmap Columns: "/>
+                                <mah:NumericUpDown Value="{Binding FFT_Maximum_Hitmap_Columns}" Interval="1" Minimum="10" Maximum="500" InterceptMouseWheel="True" Width="85" Margin="5,0,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                <Label Content="Color Grade Clipping: "/>
+                                <mah:ToggleSwitch OnContent="On" OffContent="Off" IsOn="{Binding Enable_Color_Grade_Clipping}" Margin="5,-2,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                                <Label Content="Max Clipping: "/>
+                                <mah:NumericUpDown Value="{Binding Color_Grade_Clipping_Max_Value}" IsEnabled="{Binding Enable_Color_Grade_Clipping, FallbackValue=False}" Interval="1" Minimum="1" InterceptMouseWheel="True" Width="120" Margin="5,0,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="6" Orientation="Horizontal">
+                                <Label Content="Min Clipping: "/>
+                                <mah:NumericUpDown Value="{Binding Color_Grade_Clipping_Min_Value}" IsEnabled="{Binding Enable_Color_Grade_Clipping, FallbackValue=False}" Interval="1" Minimum="0" InterceptMouseWheel="True" Width="120" Margin="6,0,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="4" Orientation="Horizontal"></StackPanel>
+
+                            <StackPanel Grid.Row="6" Orientation="Horizontal"></StackPanel>
+
+                            <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Button Content="Set/Reset" Click="Reinitialize_FFT_Hitmap_Click"/>
+                                <Button Content="Save"/>
+                                <Button Content="Load"/>
+                            </StackPanel>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </ScrollViewer>
             </TabItem>
             <TabItem x:Name="Output_Log_Tab" Header="Output Log">
                 <ScrollViewer x:Name="Output_Log_Scroll" HorizontalScrollBarVisibility="Auto">
