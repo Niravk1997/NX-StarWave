@@ -2,7 +2,7 @@
 NX-StarWave is an Oscilloscope software for Tektronix TDS 500 600 700 series.
 It supports both open source and commercial GPIB adapters.
 This software utilizes multithreading to download waveforms and render them as fast as possible.
-This software is only runs on Microsoft Windows (7, 8, 10 and onwards). Windows 7 users must ensure that .Net Framework 4.7.2 or higher is installed. A Visa software (NI Visa, Keysight IO Suite, R&S VISA) may also be required.
+This software only runs on Microsoft Windows (7, 8, 10 and onwards). Windows 7 users must ensure that .Net Framework 4.7.2 or higher is installed. A Visa software (NI Visa, Keysight IO Suite, R&S VISA) may also be required.
 
 ## Main NX-StarWave Window
 This is the main window where users can control how waveforms are captured, open various waveform display windows among other things.
